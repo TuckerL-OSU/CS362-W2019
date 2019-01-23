@@ -688,7 +688,7 @@ int effectSmithy(int currentPlayer, struct gameState *state, int handPos) {
 	return 0;
 }
 
-int effectFeast(int currentPlayer, struct gameState *state) {
+int effectFeast(int currentPlayer, struct gameState *state, int choice1) {
 	//gain card with cost up to 5
 	//Backup hand
 	int temphand[MAX_HAND];
@@ -868,7 +868,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
  //     			
  //     return 0;
 
-		return effectFeast(currentPlayer, state);
+		return effectFeast(currentPlayer, state, choice1);
 			
     case gardens:
       return -1;
