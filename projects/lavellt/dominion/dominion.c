@@ -702,7 +702,7 @@ int effectFeast(int currentPlayer, struct gameState *state) {
 
 	//Update Coins for Buy
 	updateCoins(currentPlayer, state, 5);
-	x = 1;//Condition to loop on
+	int x = 1;//Condition to loop on
 	while (x == 1) {//Buy one card
 		if (supplyCount(choice1, state) <= 0) {
 			if (DEBUG)
