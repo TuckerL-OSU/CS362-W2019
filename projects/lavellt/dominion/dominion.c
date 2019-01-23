@@ -643,8 +643,12 @@ int getCost(int cardNumber)
   return -1;
 }
 
-int effectAdventurer(int currentPlayer, struct gameState *state, int cardDrawn, int *temphand, int z) {
+int effectAdventurer(int currentPlayer, struct gameState *state) {
+	int temphand[MAX_HAND];
+	int z = 0; // temphand counter
+	int cardDrawn = -1; // originally uninit (could break in future)
 	int drawntreasure = 0;
+
 	while (drawntreasure<2) { // 2 is original. playdom 30 results in P0: 0, P1: 51
 		if (state->deckCount[currentPlayer] <1) {//if the deck is empty we need to shuffle discard and add to deck
 			shuffle(currentPlayer, state);
@@ -663,6 +667,10 @@ int effectAdventurer(int currentPlayer, struct gameState *state, int cardDrawn, 
 		state->discard[currentPlayer][state->discardCount[currentPlayer]++] = temphand[z - 1]; // discard all cards in play that have been drawn
 		z = z - 1;
 	}
+
+	// might break
+	//delete temphand;
+
 	return 0;
 }
 
@@ -679,7 +687,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   int tributeRevealedCards[2] = {-1, -1};
   int temphand[MAX_HAND];// moved above the if statement
   /*int drawntreasure=0;*/
-  int cardDrawn = -1; // originally uninit (could break in future)
+  //int cardDrawn = -1; // originally uninit (could break in future)
   int z = 0;// this is the counter for the temp hand
   if (nextPlayer > (state->numPlayers - 1)){
     nextPlayer = 0;
@@ -710,7 +718,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
  //     }
  //     return 0;
 
-	  return effectAdventurer(currentPlayer, state, cardDrawn, &temphand, z);
+	  return effectAdventurer(currentPlayer, state);
 			
     case council_room:
       //+4 Cards
