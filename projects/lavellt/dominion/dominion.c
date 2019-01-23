@@ -710,7 +710,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
  //     }
  //     return 0;
 
-	  return adventurer(currentPlayer, state, cardDrawn, temphand, z);
+	  return adventurer(currentPlayer, state, cardDrawn, &temphand, z);
 			
     case council_room:
       //+4 Cards
