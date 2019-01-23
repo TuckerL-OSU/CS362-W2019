@@ -814,13 +814,48 @@ int effectTribute(int currentPlayer, struct gameState *state) {
 	return 0;
 }
 
+int effectTreasure_Map(int currentPlayer, struct gameState *state, int handPos) {
+	//search hand for another treasure_map
+	int index = -1;
+	int i;
+
+	for (i = 0; i < state->handCount[currentPlayer]; i++)
+	{
+		if (state->hand[currentPlayer][i] == treasure_map && i != handPos)
+		{
+			index = i;
+			break;
+		}
+	}
+	if (index > -1)
+	{
+		//trash both treasure cards
+		discardCard(handPos, currentPlayer, state, 1);
+		discardCard(index, currentPlayer, state, 1);
+
+		//gain 4 Gold cards
+		for (i = 0; i < 4; i++)
+		{
+			gainCard(gold, state, 1, currentPlayer);
+		}
+
+		//return success
+		return 1;
+	}
+
+	//no second treasure_map found in hand
+	return -1;
+}
+
+}
+
 int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {
   int i;
   int j;
   int k;
   //int x;
-  int index;
+  //int index;
   int currentPlayer = whoseTurn(state);
   //int nextPlayer = currentPlayer + 1;
 
@@ -1370,35 +1405,37 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case treasure_map:
-      //search hand for another treasure_map
-      index = -1;
-      for (i = 0; i < state->handCount[currentPlayer]; i++)
-	{
-	  if (state->hand[currentPlayer][i] == treasure_map && i != handPos)
-	    {
-	      index = i;
-	      break;
-	    }
-	}
-      if (index > -1)
-	{
-	  //trash both treasure cards
-	  discardCard(handPos, currentPlayer, state, 1);
-	  discardCard(index, currentPlayer, state, 1);
+ //     //search hand for another treasure_map
+ //     index = -1;
+ //     for (i = 0; i < state->handCount[currentPlayer]; i++)
+	//{
+	//  if (state->hand[currentPlayer][i] == treasure_map && i != handPos)
+	//    {
+	//      index = i;
+	//      break;
+	//    }
+	//}
+ //     if (index > -1)
+	//{
+	//  //trash both treasure cards
+	//  discardCard(handPos, currentPlayer, state, 1);
+	//  discardCard(index, currentPlayer, state, 1);
 
-	  //gain 4 Gold cards
-	  for (i = 0; i < 4; i++)
-	    {
-	      gainCard(gold, state, 1, currentPlayer);
-	    }
-				
-	  //return success
-	  return 1;
-	}
-			
-      //no second treasure_map found in hand
-      return -1;
-    }
+	//  //gain 4 Gold cards
+	//  for (i = 0; i < 4; i++)
+	//    {
+	//      gainCard(gold, state, 1, currentPlayer);
+	//    }
+	//			
+	//  //return success
+	//  return 1;
+	//}
+	//		
+ //     //no second treasure_map found in hand
+ //     return -1;
+ //   }
+
+		return effectTreasure_Map(currentPlayer, state, handPos);
 	
   return -1;
 }
