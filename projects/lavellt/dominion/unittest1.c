@@ -5,8 +5,6 @@
 #include <math.h>
 #include <stdlib.h>
 
-using namespace std;
-
 int phaseTest();
 //#define SUCCESS "TEST  SUCCESSFULLY COMPLETED"
 //#define FAILURE "TEST FAILED"
