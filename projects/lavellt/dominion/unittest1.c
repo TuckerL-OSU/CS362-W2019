@@ -41,10 +41,10 @@ int phaseTest() {
 
 
 	if (actual == expected) {
-		std::cout << "TEST  SUCCESSFULLY COMPLETED" << std::endl;
+		printf("TEST  SUCCESSFULLY COMPLETED");
 	}
 	else {
-		std::cout << "TEST FAILED" << std::endl;
+		printf("TEST FAILED");
 	}
 
 	//delete gS;
