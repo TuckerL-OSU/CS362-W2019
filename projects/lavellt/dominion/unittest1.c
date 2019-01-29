@@ -6,23 +6,44 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define SUCCESS "TEST  SUCCESSFULLY COMPLETED"
-#define FAILURE "TEST FAILED"
+int phaseTest();
+//#define SUCCESS "TEST  SUCCESSFULLY COMPLETED"
+//#define FAILURE "TEST FAILED"
 
 
 int main() {
 
 	// play card
+	//struct gameState* gS = newGame();
+	//
+	//int expected = -1;
+	//int actual = playCard(0, 0, 0, 0, gS);
+
+	//if (actual == expected) {
+	//	std::cout << "TEST  SUCCESSFULLY COMPLETED" << endl;
+	//}
+	//else {
+	//	std::cout << "TEST FAILED" << endl;
+	//}
+	phaseTest();
+
+}
+
+int phaseTest() {
 	struct gameState* gS = newGame();
-	
+
+	gS->phase = 4;
+
 	int expected = -1;
 	int actual = playCard(0, 0, 0, 0, gS);
 
+
 	if (actual == expected) {
-		std::cout << SUCCESS << endl;
+		std::cout << "TEST  SUCCESSFULLY COMPLETED" << endl;
 	}
 	else {
-		std::cout << FAILURE << endl;
+		std::cout << "TEST FAILED" << endl;
 	}
 
+	//delete gS;
 }
