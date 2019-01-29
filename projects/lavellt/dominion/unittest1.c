@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+using namespace std;
+
 int phaseTest();
 //#define SUCCESS "TEST  SUCCESSFULLY COMPLETED"
 //#define FAILURE "TEST FAILED"
@@ -39,10 +41,10 @@ int phaseTest() {
 
 
 	if (actual == expected) {
-		std::cout << "TEST  SUCCESSFULLY COMPLETED" << endl;
+		std::cout << "TEST  SUCCESSFULLY COMPLETED" << std::endl;
 	}
 	else {
-		std::cout << "TEST FAILED" << endl;
+		std::cout << "TEST FAILED" << std::endl;
 	}
 
 	//delete gS;
