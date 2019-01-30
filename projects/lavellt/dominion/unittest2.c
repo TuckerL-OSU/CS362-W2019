@@ -1,5 +1,5 @@
 // Tucker Lavell
-// unit tests 2: isGameOver
+// unit test 2: isGameOver
 #include "unittests.h"
 
 int isGameOver_isProvinceEmpty();

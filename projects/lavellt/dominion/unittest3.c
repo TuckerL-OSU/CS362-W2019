@@ -1,8 +1,8 @@
 // Tucker Lavell
-// unit tests 3: updateCoins
+// unit test 3: updateCoins
 #include "unittests.h"
 
-int updateCoins_coinResetadd1Copper();
+int updateCoins_coinReset_add1Copper();
 int updateCoins_add10Gold();
 int updateCoins_add1ofEach();
 int updateCoins_addBonus();
@@ -11,7 +11,7 @@ int main() {
 	int passed = 0;
 	int numTests = 4;
 
-	passed += updateCoins_coinResetadd1Copper();
+	passed += updateCoins_coinReset_add1Copper();
 	passed += updateCoins_add10Gold();
 	passed += updateCoins_add1ofEach();
 	passed += updateCoins_addBonus();
@@ -19,14 +19,15 @@ int main() {
 	printf("%d/%d updateCoins Tests Passed.\n", passed, numTests);
 }
 
-int updateCoins_coinResetadd1Copper() {
+int updateCoins_coinReset_add1Copper() {
 	struct gameState* gS = newGame();
 
 	// with -1 we can get 0 if reset does not work but add does,
 	// or we can get 1 if reset works and add works,
 	// and -1 would prove that update doesn't work
+	gS->whoseTurn = 0;
 	gS->coins = -1;
-	
+
 	updateCoins(0, gS, 0);
 	
 	int expected = 1;

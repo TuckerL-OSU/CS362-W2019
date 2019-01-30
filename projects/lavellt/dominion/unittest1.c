@@ -1,5 +1,5 @@
 // Tucker Lavell
-// unit tests 1: playCard
+// unit test 1: playCard
 #include "unittests.h"
 
 int playCard_phaseTest();
@@ -89,20 +89,19 @@ int playCard_checkActionTest_treasure_map() {
 }
 
 // incompelete
-//int playCard_cardEffectTest() {
-//	struct gameState* gS = newGame();
-//
-//	gS->phase = 0;
-//	gS->numActions = 1;
-//	gS->whoseTurn = 0;
-//	// setting first card of P1s hand to any card higher in the enum than TM
-//	gS->hand[0][0] = 27; // beyond the current set of cards
-//
-//	int expected = -1;
-//	int actual = playCard(0, 0, 0, 0, gS);
-//
-//
-//	return assertTrue(actual, expected);
-//
-//	//free gS;
-//}
+int playCard_cardEffectTest() {
+	struct gameState* gS = newGame();
+
+	gS->phase = 0;
+	gS->numActions = 1;
+	gS->whoseTurn = 0;
+	// setting first card of P1s hand to any card higher in the enum than TM
+	gS->hand[0][0] = 27; // beyond the current set of cards
+
+	int expected = -1;
+	int actual = playCard(0, 0, 0, 0, gS);
+
+	return assertTrue(actual, expected);
+
+	//free gS;
+}

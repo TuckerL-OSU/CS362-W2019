@@ -1,5 +1,5 @@
 // Tucker Lavell
-// unit tests 4: whoseTurn
+// unit test 4: whoseTurn
 // sorry this one is kind of a cop out, I was just exhausted after the other 3
 #include "unittests.h"
 

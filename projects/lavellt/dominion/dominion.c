@@ -649,6 +649,7 @@ int effectAdventurer(int currentPlayer, struct gameState *state) {
 	int cardDrawn = -1; // originally uninit (could break in future)
 	int drawntreasure = 0;
 
+	//while (drawntreasure<2) {
 	while (drawntreasure<3) { // 2 is original. playdom 30 results in P0: 0, P1: 51
 		if (state->deckCount[currentPlayer] <1) {//if the deck is empty we need to shuffle discard and add to deck
 			shuffle(currentPlayer, state);
