@@ -15,7 +15,7 @@ int main() {
 	int passed = 0;
 	int numTests = 3;
 
-	passed = isGameOver_isProvinceEmpty();
+	passed += isGameOver_isProvinceEmpty();
 	passed += isGameOver_is3SupplyEmpty();
 	passed += isGameOver_isGameNOTOver();
 

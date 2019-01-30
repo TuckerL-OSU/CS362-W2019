@@ -20,7 +20,7 @@ int main() {
 	int passed = 0;
 	int numTests = 5;
 
-	passed = playCard_phaseTest();
+	passed += playCard_phaseTest();
 	passed += playCard_actionsTest();
 	passed += playCard_checkActionTest_adventurer();
 	passed += playCard_checkActionTest_treasure_map();
