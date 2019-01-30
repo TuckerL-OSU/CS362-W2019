@@ -42,7 +42,7 @@ ut3: unittests.o dominion.o unittest3.c
 	gcc -o ut3 unittest3.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
 
 ut4: unittests.o dominion.o unittest4.c
-	gcc -o ut1 unittest4.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
+	gcc -o ut4 unittest4.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
 
 
 player: player.c interface.o
