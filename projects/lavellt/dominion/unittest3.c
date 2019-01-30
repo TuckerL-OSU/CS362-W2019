@@ -2,6 +2,11 @@
 // unit tests 3: updateCoins
 #include "unittests.h"
 
+int updateCoins_coinResetadd1Copper();
+int updateCoins_add10Gold();
+int updateCoins_add1ofEach();
+int updateCoins_addBonus();
+
 int main() {
 	int passed = 0;
 	int numTests = 4;

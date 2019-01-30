@@ -33,9 +33,6 @@ int isGameOver_isProvinceEmpty() {
 
 int isGameOver_is3SupplyEmpty() {
 	struct gameState* gS = newGame();
-	//int k[10] = { adventurer, gardens, embargo, village, minion, mine, cutpurse,
-	//	sea_hag, tribute, smithy };
-	//initializeGame(2, k, 1, &gS);
 
 	gS->supplyCount[curse] = 0;
 	gS->supplyCount[silver] = 0;
