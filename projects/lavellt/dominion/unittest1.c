@@ -24,11 +24,13 @@ int main() {
 	//else {
 	//	std::cout << "TEST FAILED" << endl;
 	//}
-	phaseTest();
-
+	playCard_phaseTest();
+	playCard_actionsTest();
+	playCard_checkActionTest_adventurer();
+	playCard_checkActionTest_treasure_map();
 }
 
-int phaseTest() {
+int playCard_phaseTest() {
 	struct gameState* gS = newGame();
 
 	gS->phase = 4;
@@ -38,11 +40,64 @@ int phaseTest() {
 
 
 	if (actual == expected) {
-		printf("TEST  SUCCESSFULLY COMPLETED");
+		printf("TEST  SUCCESSFULLY COMPLETED\n");
+		return 1;
 	}
 	else {
-		printf("TEST FAILED");
+		printf("TEST FAILED\n");
+		return 0;
 	}
 
-	//delete gS;
+	delete gS;
 }
+
+int playCard_actionTest() {
+	struct gameState* gS = newGame();
+
+	gS->phase = 0;
+	gs->numActions = 0;
+
+	int expected = -1;
+	int actual = playCard(0, 0, 0, 0, gS);
+
+
+	if (actual == expected) {
+		printf("TEST  SUCCESSFULLY COMPLETED\n");
+		return 1;
+	}
+	else {
+		printf("TEST FAILED\n");
+		return 0;
+	}
+
+	delete gS;
+}
+
+int playCard_checkActionTest_adventurer() {
+	struct gameState* gS = newGame();
+
+	gS->phase = 0;
+	gS->numActions = 1;
+	gS->whoseTurn = 0;
+
+
+	int expected = -1;
+	int actual = playCard(0, 0, 0, 0, gS);
+
+
+	if (actual == expected) {
+		printf("TEST  SUCCESSFULLY COMPLETED\n");
+		return 1;
+	}
+	else {
+		printf("TEST FAILED\n");
+		return 0;
+	}
+
+	delete gS;
+
+}
+
+//int playCard_checkActionTest_treasure_map() {
+//
+//}
