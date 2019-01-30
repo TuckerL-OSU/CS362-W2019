@@ -4,13 +4,12 @@
 
 int main() {
 	int passed = 0;
-	int numTests = 5;
+	int numTests = 4;
 
-	passed += playCard_phaseTest();
-	passed += playCard_actionsTest();
-	passed += playCard_checkActionTest_adventurer();
-	passed += playCard_checkActionTest_treasure_map();
-	//passed += playCard_cardEffectTest();
+	passed += updateCoins_coinResetadd1Copper();
+	passed += updateCoins_add10Gold();
+	passed += updateCoins_add1ofEach();
+	passed += updateCoins_addBonus();
 
 	printf("%d/%d updateCoins Tests Passed.\n", passed, numTests);
 }
