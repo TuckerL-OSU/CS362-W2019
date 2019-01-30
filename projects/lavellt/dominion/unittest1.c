@@ -47,7 +47,7 @@ int playCard_phaseTest() {
 		return 0;
 	}
 
-	delete gS;
+	free gS;
 }
 
 int playCard_actionTest() {
@@ -69,7 +69,7 @@ int playCard_actionTest() {
 		return 0;
 	}
 
-	delete gS;
+	free gS;
 }
 
 int playCard_checkActionTest_adventurer() {
@@ -94,7 +94,7 @@ int playCard_checkActionTest_adventurer() {
 		return 0;
 	}
 
-	delete gS;
+	free gS;
 }
 
 int playCard_checkActionTest_treasure_map() {
@@ -119,7 +119,7 @@ int playCard_checkActionTest_treasure_map() {
 		return 0;
 	}
 
-	delete gS;
+	free gS;
 }
 
 // incompelete
@@ -145,5 +145,5 @@ int playCard_checkActionTest_treasure_map() {
 //		return 0;
 //	}
 //
-//	delete gS;
+//	free gS;
 //}
