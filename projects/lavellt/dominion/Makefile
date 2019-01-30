@@ -38,6 +38,13 @@ ut1: dominion.o unittest1.c
 ut2: dominion.o unittest2.c
 	gcc -o ut2 unittest2.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
 
+ut3: dominion.o unittest3.c
+	gcc -o ut3 unittest3.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
+
+ut4: dominion.o unittest4.c
+	gcc -o ut1 unittest4.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
+
+
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
