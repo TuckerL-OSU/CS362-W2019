@@ -9,3 +9,5 @@
 #include <stdlib.h>
 
 int assertTrue(int, int);
+
+#endif
