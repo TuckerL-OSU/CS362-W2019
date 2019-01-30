@@ -20,7 +20,7 @@ int main() {
 	int passed = 0;
 	int numTests = 5;
 
-	passed += playCard_phaseTest();
+	passed = playCard_phaseTest();
 	passed += playCard_actionsTest();
 	passed += playCard_checkActionTest_adventurer();
 	passed += playCard_checkActionTest_treasure_map();
@@ -54,7 +54,7 @@ int playCard_actionTest() {
 	struct gameState* gS = newGame();
 
 	gS->phase = 0;
-	gs->numActions = 0;
+	gS->numActions = 0;
 
 	int expected = -1;
 	int actual = playCard(0, 0, 0, 0, gS);
