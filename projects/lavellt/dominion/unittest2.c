@@ -19,7 +19,7 @@ int main() {
 	passed += isGameOver_is3SupplyEmpty();
 	passed += isGameOver_isGameNOTOver();
 
-	printf("%d/%d isGameOver Tests Passed.", passed, numTests);
+	printf("%d/%d isGameOver Tests Passed.\n", passed, numTests);
 }
 
 int isGameOver_isProvinceEmpty() {

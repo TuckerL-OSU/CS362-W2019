@@ -26,7 +26,7 @@ int main() {
 	passed += playCard_checkActionTest_treasure_map();
 	//passed += playCard_cardEffectTest();
 
-	printf("%d/%d playCard Tests Passed.", passed, numTests);
+	printf("%d/%d playCard Tests Passed.\n", passed, numTests);
 }
 
 int playCard_phaseTest() {
