@@ -10,3 +10,7 @@ int assertTrue(int expected, int actual) {
 		return 0;
 	}
 }
+
+//int discardHand(struct gameState *gS) {
+//
+//}
