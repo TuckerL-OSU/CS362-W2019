@@ -50,7 +50,7 @@ int playCard_phaseTest() {
 	//free gS;
 }
 
-int playCard_actionTest() {
+int playCard_actionsTest() {
 	struct gameState* gS = newGame();
 
 	gS->phase = 0;
