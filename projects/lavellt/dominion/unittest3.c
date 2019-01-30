@@ -28,19 +28,6 @@ int updateCoins_coinReset_add1Copper() {
 	gS->whoseTurn = 0;
 	gS->coins = -1;
 
-	int i;
-	for (i = 0; i < numPlayers; i++)
-	{
-		//initialize hand size to zero
-		gS->handCount[i] = 0;
-		gS->discardCount[i] = 0;
-		//draw 5 cards
-		// for (j = 0; j < 5; j++)
-		//	{
-		//	  drawCard(i, state);
-		//	}
-	}
-
 	drawCard(gS->whoseTurn, gS);
 	// overwrite the card to guarntee it is a copper
 	gS->hand[0][0] = copper;
