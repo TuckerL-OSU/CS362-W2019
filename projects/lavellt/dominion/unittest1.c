@@ -7,7 +7,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-int phaseTest();
+int playCard_phaseTest();
 int playCard_actionsTest();
 int playCard_checkActionTest_adventurer();
 int playCard_checkActionTest_treasure_map();
