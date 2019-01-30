@@ -40,7 +40,7 @@ int isGameOver_isProvinceEmpty() {
 		return 0;
 	}
 
-	free gS;
+	//free gS;
 }
 
 int isGameOver_is3SupplyEmpty() {
@@ -66,7 +66,7 @@ int isGameOver_is3SupplyEmpty() {
 		return 0;
 	}
 
-	free gS;
+	//free gS;
 }
 
 int isGameOver_isGameNOTOver() {
@@ -88,5 +88,5 @@ int isGameOver_isGameNOTOver() {
 		return 0;
 	}
 
-	free gS;
+	//free gS;
 }
