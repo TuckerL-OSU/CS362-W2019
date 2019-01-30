@@ -73,7 +73,7 @@ int isGameOver_isGameNOTOver() {
 	struct gameState* gS = newGame();
 	int k[10] = { adventurer, gardens, embargo, village, minion, mine, cutpurse,
 		sea_hag, tribute, smithy };
-	initializeGame(2, k, 1, &gS);
+	initializeGame(2, k, 1, gS);
 
 	int expected = 0;
 	int actual = isGameOver(gS);
