@@ -1,11 +1,6 @@
 // Tucker Lavell
 // unit tests 2: isGameOver
-#include "dominion.h"
-#include "dominion_helpers.h"
-#include "rngs.h"
-#include <stdio.h>
-#include <math.h>
-#include <stdlib.h>
+#include "unittests.h"
 
 int isGameOver_isProvinceEmpty();
 int isGameOver_is3SupplyEmpty();
@@ -31,14 +26,7 @@ int isGameOver_isProvinceEmpty() {
 	int actual = isGameOver(gS);
 
 
-	if (actual == expected) {
-		printf("TEST  SUCCESSFULLY COMPLETED\n");
-		return 1;
-	}
-	else {
-		printf("TEST FAILED\n");
-		return 0;
-	}
+	return assertTrue(actual, expected);
 
 	//free gS;
 }
@@ -57,14 +45,7 @@ int isGameOver_is3SupplyEmpty() {
 	int actual = isGameOver(gS);
 
 
-	if (actual == expected) {
-		printf("TEST  SUCCESSFULLY COMPLETED\n");
-		return 1;
-	}
-	else {
-		printf("TEST FAILED\n");
-		return 0;
-	}
+	return assertTrue(actual, expected);
 
 	//free gS;
 }
@@ -79,14 +60,7 @@ int isGameOver_isGameNOTOver() {
 	int actual = isGameOver(gS);
 
 	// a brand new game shouldn't be ready to end
-	if (actual == expected) {
-		printf("TEST  SUCCESSFULLY COMPLETED\n");
-		return 1;
-	}
-	else {
-		printf("TEST FAILED\n");
-		return 0;
-	}
+	return assertTrue(actual, expected);
 
 	//free gS;
 }

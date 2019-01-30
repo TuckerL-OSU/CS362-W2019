@@ -1,11 +1,6 @@
 // Tucker Lavell
 // unit tests 1: playCard
-#include "dominion.h"
-#include "dominion_helpers.h"
-#include "rngs.h"
-#include <stdio.h>
-#include <math.h>
-#include <stdlib.h>
+#include "unittests.h"
 
 int playCard_phaseTest();
 int playCard_actionsTest();
@@ -38,14 +33,7 @@ int playCard_phaseTest() {
 	int actual = playCard(0, 0, 0, 0, gS);
 
 
-	if (actual == expected) {
-		printf("TEST  SUCCESSFULLY COMPLETED\n");
-		return 1;
-	}
-	else {
-		printf("TEST FAILED\n");
-		return 0;
-	}
+	return assertTrue(actual, expected);
 
 	//free gS;
 }
@@ -60,14 +48,7 @@ int playCard_actionsTest() {
 	int actual = playCard(0, 0, 0, 0, gS);
 
 
-	if (actual == expected) {
-		printf("TEST  SUCCESSFULLY COMPLETED\n");
-		return 1;
-	}
-	else {
-		printf("TEST FAILED\n");
-		return 0;
-	}
+	return assertTrue(actual, expected);
 
 	//free gS;
 }
@@ -85,14 +66,7 @@ int playCard_checkActionTest_adventurer() {
 	int actual = playCard(0, 0, 0, 0, gS);
 
 
-	if (actual == expected) {
-		printf("TEST  SUCCESSFULLY COMPLETED\n");
-		return 1;
-	}
-	else {
-		printf("TEST FAILED\n");
-		return 0;
-	}
+	return assertTrue(actual, expected);
 
 	//free gS;
 }
@@ -109,15 +83,7 @@ int playCard_checkActionTest_treasure_map() {
 	int expected = -1;
 	int actual = playCard(0, 0, 0, 0, gS);
 
-
-	if (actual == expected) {
-		printf("TEST  SUCCESSFULLY COMPLETED\n");
-		return 1;
-	}
-	else {
-		printf("TEST FAILED\n");
-		return 0;
-	}
+	return assertTrue(actual, expected);
 
 	//free gS;
 }
@@ -136,14 +102,7 @@ int playCard_checkActionTest_treasure_map() {
 //	int actual = playCard(0, 0, 0, 0, gS);
 //
 //
-//	if (actual == expected) {
-//		printf("TEST  SUCCESSFULLY COMPLETED\n");
-//		return 1;
-//	}
-//	else {
-//		printf("TEST FAILED\n");
-//		return 0;
-//	}
+//	return assertTrue(actual, expected);
 //
 //	//free gS;
 //}
