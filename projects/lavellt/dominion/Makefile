@@ -32,16 +32,16 @@ runtests: testDrawCard
 unittests.o: unittests.h unittests.c dominion.o rngs.o
 	gcc -c unittests.c -g  $(CFLAGS)
 
-ut1: dominion.o unittest1.c
+ut1: unittests.o dominion.o unittest1.c
 	gcc -o ut1 unittest1.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
 
-ut2: dominion.o unittest2.c
+ut2: unittests.o dominion.o unittest2.c
 	gcc -o ut2 unittest2.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
 
-ut3: dominion.o unittest3.c
+ut3: unittests.o dominion.o unittest3.c
 	gcc -o ut3 unittest3.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
 
-ut4: dominion.o unittest4.c
+ut4: unittests.o dominion.o unittest4.c
 	gcc -o ut1 unittest4.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
 
 
