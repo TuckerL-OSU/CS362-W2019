@@ -33,6 +33,7 @@ int adventurer_treasuresDrawn() {
 	gS->hand[gS->whoseTurn][0] = feast;
 	gS->handCount[gS->whoseTurn] = 1;
 	// "load" deck
+	gS->deckCount[gS->whoseTurn] = 5;
 	gS->deck[gS->whoseTurn][0] = copper;
 	gS->deck[gS->whoseTurn][1] = baron;
 	gS->deck[gS->whoseTurn][2] = silver;
@@ -71,6 +72,8 @@ int adventurer_discardCards() {
 	gS->deck[gS->whoseTurn][4] = gold;
 
 	cardEffect(adventurer, 0, 0, 0, gS, 0, 0);
+	printf("back in adventurer_treasuresDrawn\n");
+
 	if (gS->discardCount[gS->whoseTurn] > 1) {
 		actual = gS->discardCount[gS->whoseTurn];
 	}
