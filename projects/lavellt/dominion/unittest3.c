@@ -25,8 +25,13 @@ int updateCoins_coinReset_add1Copper() {
 	// with -1 we can get 0 if reset does not work but add does,
 	// or we can get 1 if reset works and add works,
 	// and -1 would prove that update doesn't work
-	gS->whoseTurn = 0;
-	gS->coins = -1;
+	//gS->whoseTurn = 0;
+	//gS->coins = -1;
+	//gS->handCount[gS->whoseTurn] = 0;
+	//gS
+	//gS->discardCount[gS->whoseTurn] = 0;
+
+	gS->hand[0][0] = 0;
 
 	drawCard(gS->whoseTurn, gS);
 	// overwrite the card to guarntee it is a copper
