@@ -1539,24 +1539,19 @@ int updateCoins(int player, struct gameState *state, int bonus)
   //reset coin count
   state->coins = 0;
 
-  printf("handCount for player %d: %d\n", player, state->handCount[player]);
   //add coins for each Treasure card in player's hand
   for (i = 0; i < state->handCount[player]; i++)
-	  //printf("Hand %d: %d", i, state->hand[player][i]);
     {
       if (state->hand[player][i] == copper)
 	{
-		  printf("adding copper\n");
 	  state->coins += 1;
 	}
       else if (state->hand[player][i] == silver)
 	{
-		  printf("adding silver\n");
 	  state->coins += 2;
 	}
       else if (state->hand[player][i] == gold)
 	{
-		  printf("adding gold\n");
 	  state->coins += 3;
 	}	
     }	

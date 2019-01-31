@@ -61,7 +61,7 @@ int updateCoins_add10Gold() {
 
 	updateCoins(gS->whoseTurn, gS, 0);
 
-	int expected = 60;
+	int expected = 30;
 	int actual = gS->coins; // check coins after update
 
 	return assertTrue(actual, expected);
