@@ -121,7 +121,7 @@ int playCard_reduceActions() {
 
 	int expected = 0;
 
-	playCard(0, 0, 0, 0, gS);
+	playCard(0, 0, 0, 0, &gS);
 
 	int actual = gS->numActions;
 
