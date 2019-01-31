@@ -33,7 +33,7 @@ int updateCoins_coinReset_add1Copper() {
 
 	gS->hand[0][0] = 0;
 
-	drawCard(gS->whoseTurn, gS);
+	//drawCard(gS->whoseTurn, gS);
 	// overwrite the card to guarntee it is a copper
 	gS->hand[0][0] = copper;
 
