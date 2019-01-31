@@ -7,6 +7,8 @@ int playCard_actionsTest();
 int playCard_checkActionTest_adventurer();
 int playCard_checkActionTest_treasure_map();
 int playCard_cardEffectTest();
+int playCard_reduceActions();
+int playCard_successfulPlay();
 //#define SUCCESS "TEST  SUCCESSFULLY COMPLETED"
 //#define FAILURE "TEST FAILED"
 
