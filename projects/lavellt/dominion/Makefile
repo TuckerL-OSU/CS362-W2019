@@ -48,7 +48,7 @@ ct1: unittests.o dominion.o cardtest1.c
 	gcc -o ct1 cardtest1.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
 
 ct2: unittests.o dominion.o cardtest2.c
-	gcc - o ct2 cardtest2.c - g  unittests.o dominion.o rngs.o $(CFLAGS)
+	gcc -o ct2 cardtest2.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
