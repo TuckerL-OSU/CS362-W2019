@@ -22,17 +22,23 @@ int adventurer_isDeckEmpty() {
 	struct gameState* expectedGS = newGame();
 
 	actualGS->whoseTurn = 0;
+	printf("whoseTurn set\n");
 	actualGS->deckCount[actualGS->whoseTurn] = 0;
+	printf("deckCount set\n");
 	//actualGS->discardCount = 3;
 	int i;
 	for (i = 0; i < 3; i++) {
+		printf("adding copper to actual discard\n");
 		actualGS->discard[actualGS->whoseTurn][i] = copper;
 	}
 
 	expectedGS->whoseTurn = 0;
+	printf("whoseTurn set\n");
 	expectedGS->deckCount[expectedGS->whoseTurn] = 3;
+	printf("deckCount set\n");
 	//expectedGS->discardCount = 0;
 	for (i = 0; i < 3; i++) {
+		printf("adding copper to expected deck\n");
 		expectedGS->deck[expectedGS->whoseTurn][i] = copper;
 	}
 
