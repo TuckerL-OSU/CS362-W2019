@@ -50,7 +50,8 @@ int updateCoins_coinReset_add1Copper() {
 // multiple bronze and silver will work
 int updateCoins_add10Gold() {
 	struct gameState* gS = newGame();
-	
+	gS->whoseTurn = 0;
+
 	int i;
 	// set P1s hand to only 10 golds
 	for (i = 0; i < 10; i++) {
@@ -70,7 +71,8 @@ int updateCoins_add10Gold() {
 
 int updateCoins_add1ofEach() {
 	struct gameState* gS = newGame();
-	
+	gS->whoseTurn = 0;
+
 	gS->hand[0][0] == copper;
 	gS->hand[0][1] == silver;
 	gS->hand[0][2] == gold;

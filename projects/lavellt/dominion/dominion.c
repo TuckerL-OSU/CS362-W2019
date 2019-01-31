@@ -1544,14 +1544,17 @@ int updateCoins(int player, struct gameState *state, int bonus)
     {
       if (state->hand[player][i] == copper)
 	{
+		  printf("adding copper\n");
 	  state->coins += 1;
 	}
       else if (state->hand[player][i] == silver)
 	{
+		  printf("adding silver\n");
 	  state->coins += 2;
 	}
       else if (state->hand[player][i] == gold)
 	{
+		  printf("adding gold\n");
 	  state->coins += 3;
 	}	
     }	
