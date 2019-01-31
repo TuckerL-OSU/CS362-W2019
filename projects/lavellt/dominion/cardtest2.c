@@ -25,6 +25,7 @@ int smithy_drawCards() {
 
 	// set hand
 	gS->handCount[gS->whoseTurn] = 0;
+	gS->hand[gS->whoseTurn][0] = smithy;
 	// "load" deck
 	gS->deckCount[gS->whoseTurn] = 5;
 	gS->deck[gS->whoseTurn][0] = copper;
