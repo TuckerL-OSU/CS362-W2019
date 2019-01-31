@@ -24,7 +24,7 @@ int smithy_drawCards() {
 	gS->whoseTurn = 0;
 
 	// set hand
-	gS->handCount[gS->whoseTurn] = 0;
+	gS->handCount[gS->whoseTurn] = 1;
 	gS->hand[gS->whoseTurn][0] = smithy;
 	// "load" deck
 	gS->deckCount[gS->whoseTurn] = 5;
