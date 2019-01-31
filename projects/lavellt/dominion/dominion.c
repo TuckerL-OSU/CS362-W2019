@@ -233,7 +233,7 @@ int playCard(int handPos, int choice1, int choice2, int choice3, struct gameStat
   int card;
   int coin_bonus = 0; 		//tracks coins gain from actions
 
-  printf("Starting playCard with %d actions.\n", state->numActions);
+  //printf("Starting playCard with %d actions.\n", state->numActions);
 
   //check if it is the right phase
   if (state->phase != 0)
@@ -250,7 +250,7 @@ int playCard(int handPos, int choice1, int choice2, int choice3, struct gameStat
   //get card played
   card = handCard(handPos, state);
 
-  printf("card returned: %d\n", card);
+  //printf("card returned: %d\n", card);
 
   //check if selected card is an action
   if ( card < adventurer || card > treasure_map )
@@ -265,9 +265,9 @@ int playCard(int handPos, int choice1, int choice2, int choice3, struct gameStat
     }
 	
   //reduce number of actions
-  printf("After reducing: %d actions.\n", state->numActions);
+  //printf("After reducing: %d actions.\n", state->numActions);
   state->numActions--;
-  printf("After reducing: %d actions.\n", state->numActions);
+  //printf("After reducing: %d actions.\n", state->numActions);
 
 
   //update coins (Treasure cards may be added with card draws)

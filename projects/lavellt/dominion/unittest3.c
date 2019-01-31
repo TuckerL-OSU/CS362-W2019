@@ -27,16 +27,16 @@ int updateCoins_coinReset_add1Copper() {
 	// and -1 would prove that update doesn't work
 	gS->whoseTurn = 0;
 	gS->coins = -1;
-	gS->handCount[gS->whoseTurn] = 0;
-	gS
-	gS->discardCount[gS->whoseTurn] = 0;
+
+	// need to set proper number hanlers
 
 
 	//drawCard(gS->whoseTurn, gS);
 	// overwrite the card to guarntee it is a copper
-	gS->hand[0][0] = copper;
+	gS->hand[gS->whoseTurn][0] = copper;
+	gS->handCount[gS->whoseTurn] = 1;
 
-	updateCoins(0, gS, 0);
+	updateCoins(gS->whoseTurn, gS, 0);
 	
 	int expected = 1;
 	int actual = gS->coins; // check coins after update
