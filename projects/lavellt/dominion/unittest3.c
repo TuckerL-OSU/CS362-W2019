@@ -92,7 +92,7 @@ int updateCoins_add1ofEach() {
 int updateCoins_addBonus() {
 	struct gameState* gS = newGame();
 
-	gS->hand[0][0] == curse;
+	gS->hand[0][0] = curse;
 
 	// try 1 bonus coin
 	updateCoins(0, gS, 1);
