@@ -21,9 +21,15 @@ int main() {
 }
 
 int smithy_drawCards() {
+	struct gameState* gS = newGame();
 
+	gS->hand
 }
 
 int smithy_discardCard() {
+
+}
+
+int smithy_numCardsDrawn() {
 
 }

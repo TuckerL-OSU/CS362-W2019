@@ -1,5 +1,5 @@
 // Tucker Lavell
-// card test 4: tribute
+// card test 4: treasure_map
 #include "unittests.h"
 
 //ct4: unittests.o dominion.o cardtest4.c

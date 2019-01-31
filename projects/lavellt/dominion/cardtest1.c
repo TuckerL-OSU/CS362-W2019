@@ -22,6 +22,10 @@ int main() {
 }
 
 int adventurer_isDeckEmpty() {
+	struct gameState* gS = newGame();
+
+	cardEffect(adventurer, 0, 0, 0, gS, 0, 0);
+
 
 }
 
