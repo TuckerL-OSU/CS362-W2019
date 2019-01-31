@@ -2,7 +2,7 @@
 // card test 1: adventurer
 #include "unittests.h"
 
-int adventurer_isDeckEmpty();
+int adventurer_treasuresDrawn();
 int adventurer_discardCards();
 //int adventurer_isCopper();
 
