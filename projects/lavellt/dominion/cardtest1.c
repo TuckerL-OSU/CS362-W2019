@@ -24,6 +24,7 @@ int adventurer_isDeckEmpty() {
 	actualGS->whoseTurn = 0;
 	actualGS->deckCount[actualGS->whoseTurn] = 0;
 	//actualGS->discardCount = 3;
+	int i;
 	for (i = 0; i < 3; i++) {
 		actualGS->discard[actualGS->whoseTurn][i] = copper;
 	}
