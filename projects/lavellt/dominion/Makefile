@@ -44,6 +44,9 @@ ut3: unittests.o dominion.o unittest3.c
 ut4: unittests.o dominion.o unittest4.c
 	gcc -o ut4 unittest4.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
 
+ct1: unittests.o dominion.o cardtest1.c
+	gcc - o ct1 cardtest1.c - g  unittests.o dominion.o rngs.o $(CFLAGS)
+
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 

@@ -9,6 +9,6 @@
 #include <stdlib.h>
 
 int assertTrue(int, int);
-//int discardHand(int, struct gameState*);
+int assertObjectTrue(struct gameState*, struct gameState*);
 
 #endif
