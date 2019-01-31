@@ -19,6 +19,7 @@ int smithy_drawCards() {
 	struct gameState* gS = newGame();
 
 	int expected = 3;
+	int actual = 0;
 
 	gS->whoseTurn = 0;
 
@@ -35,7 +36,7 @@ int smithy_drawCards() {
 	cardEffect(smithy, 0, 0, 0, gS, 0, 0);
 
 	if (gS->handCount[gS->whoseTurn] != expected) {
-		int actual = gS->handCount[gS->whoseTurn];
+		actual = gS->handCount[gS->whoseTurn];
 	}
 
 	return assertTrue(actual, expected);
@@ -45,6 +46,7 @@ int smithy_discardCard() {
 	struct gameState* gS = newGame();
 
 	int expected = 3;
+	int actual = 0;
 
 	gS->whoseTurn = 0;
 
@@ -62,7 +64,7 @@ int smithy_discardCard() {
 	cardEffect(smithy, 0, 0, 0, gS, 0, 0);
 
 	if (gS->handCount[gS->whoseTurn] != expected) {
-		int actual = gS->handCount[gS->whoseTurn];
+		actual = gS->handCount[gS->whoseTurn];
 	}
 
 	return assertTrue(actual, expected);
