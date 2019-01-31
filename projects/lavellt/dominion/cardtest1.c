@@ -10,7 +10,7 @@ int main() {
 	int passed = 0;
 	int numTests = 1;
 
-	passed += adventurer_isDeckEmpty();
+	passed += adventurer_treasuresDrawn();
 	passed += adventurer_discardCards();
 	//passed += playCard_checkActionTest_adventurer();
 	//passed += playCard_checkActionTest_treasure_map();
