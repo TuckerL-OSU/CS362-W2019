@@ -6,7 +6,7 @@ int assertTrue(int actual, int expected) {
 		return 1;
 	}
 	else {
-		printf("TEST FAILED\n");
+		printf("TEST FAILED - Actual:%d, Expected:%d\n", actual, expected);
 		return 0;
 	}
 }
