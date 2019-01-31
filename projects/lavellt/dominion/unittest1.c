@@ -117,11 +117,11 @@ int playCard_reduceActions() {
 	gS->numActions = 1;
 	gS->whoseTurn = 0;
 	// setting first card of P1s hand to any card higher in the enum than TM
-	gS->hand[0][0] = (adventurer + treasure_map) / 2; // middle of the cards
+	gS->hand[0][0] = baron; // middle of the cards
 
 	int expected = 0;
 
-	playCard(0, 0, 0, 0, *gS);
+	playCard(0, 0, 0, 0, gS);
 
 	int actual = gS->numActions;
 
@@ -137,7 +137,7 @@ int playCard_successfulPlay() {
 	gS->numActions = 1;
 	gS->whoseTurn = 0;
 	// setting first card of P1s hand to any card higher in the enum than TM
-	gS->hand[0][0] = (adventurer + treasure_map) / 2; // beyond the current set of cards
+	gS->hand[0][0] = baron; // beyond the current set of cards
 
 	int expected = 0;
 	int actual = playCard(0, 0, 0, 0, gS);
