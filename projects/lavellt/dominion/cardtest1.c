@@ -42,8 +42,9 @@ int adventurer_isDeckEmpty() {
 		expectedGS->deck[expectedGS->whoseTurn][i] = copper;
 	}
 
+	printf("before cardEffect\n");
 	cardEffect(adventurer, 0, 0, 0, actualGS, 0, 0);
-
+	printf("after cardEffect\n");
 	return assertObjectTrue(actualGS, expectedGS);
 }
 
