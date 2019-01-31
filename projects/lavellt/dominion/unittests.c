@@ -1,6 +1,6 @@
 #include "unittests.h"
 
-int assertTrue(int expected, int actual) {
+int assertTrue(int actual, int expected) {
 	if (actual == expected) {
 		printf("TEST SUCCESSFULLY COMPLETED\n");
 		return 1;
