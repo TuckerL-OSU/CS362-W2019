@@ -22,14 +22,14 @@ int adventurer_isDeckEmpty() {
 	struct gameState* expectedGS = newGame();
 
 	actualGS->whoseTurn = 0;
-	actualGS->deckCount = 0;
+	actualGS->deckCount[actualGS->whoseTurn] = 0;
 	//actualGS->discardCount = 3;
 	for (i = 0; i < 3; i++) {
 		actualGS->discard[actualGS->whoseTurn][i] = copper;
 	}
 
 	expectedGS->whoseTurn = 0;
-	expectedGS->deckCount = 3;
+	expectedGS->deckCount[expectedGS->whoseTurn] = 3;
 	//expectedGS->discardCount = 0;
 	for (i = 0; i < 3; i++) {
 		expectedGS->deck[expectedGS->whoseTurn][i] = copper;

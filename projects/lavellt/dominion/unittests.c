@@ -13,7 +13,7 @@ int assertTrue(int actual, int expected) {
 
 int assertObjectTrue(struct gameState* actual, struct gameState* expected) {
 	if (actual->whoseTurn == expected->whoseTurn &&
-		actual->deckCount == expected->deckCount) {
+		actual->deckCount[actual->whoseTurn] == expected->deckCount[expected->whoseTurn]) {
 		int i;
 		for (i = 0; i < 3; i++) {
 			if (actual->hand[actual->whoseTurn][i] == expected->hand[expected->whoseTurn][i]) {
