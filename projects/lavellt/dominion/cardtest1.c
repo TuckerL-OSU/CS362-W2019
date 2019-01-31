@@ -8,13 +8,10 @@ int adventurer_discardCards();
 
 int main() {
 	int passed = 0;
-	int numTests = 1;
+	int numTests = 2;
 
 	passed += adventurer_treasuresDrawn();
 	passed += adventurer_discardCards();
-	//passed += playCard_checkActionTest_adventurer();
-	//passed += playCard_checkActionTest_treasure_map();
-	//passed += playCard_cardEffectTest();
 
 	printf("%d/%d Adventurer Card Tests Passed.\n", passed, numTests);
 }
@@ -75,7 +72,7 @@ int adventurer_discardCards() {
 	cardEffect(adventurer, 0, 0, 0, gS, 0, 0);
 	printf("back in adventurer_treasuresDrawn\n");
 
-	if (gS->discardCount[gS->whoseTurn] > 1) {
+	if (gS->discardCount[gS->whoseTurn] != expected) {
 		actual = gS->discardCount[gS->whoseTurn];
 	}
 
