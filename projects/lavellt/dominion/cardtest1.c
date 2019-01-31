@@ -40,6 +40,7 @@ int adventurer_treasuresDrawn() {
 	gS->deck[gS->whoseTurn][4] = gold;
 
 	cardEffect(adventurer, 0, 0, 0, gS, 0, 0);
+	printf("back in adventurer_treasuresDrawn\n");
 
 	int i;
 	for (i = 0; i < gS->handCount[gS->whoseTurn]; i++) {
