@@ -25,7 +25,6 @@ int isGameOver_isProvinceEmpty() {
 	int expected = 1;
 	int actual = isGameOver(gS);
 
-
 	return assertTrue(actual, expected);
 
 	//free gS;
@@ -40,7 +39,6 @@ int isGameOver_is3SupplyEmpty() {
 
 	int expected = 1;
 	int actual = isGameOver(gS);
-
 
 	return assertTrue(actual, expected);
 

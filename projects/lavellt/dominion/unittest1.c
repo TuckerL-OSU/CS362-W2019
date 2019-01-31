@@ -36,7 +36,6 @@ int playCard_phaseTest() {
 	int expected = -1;
 	int actual = playCard(0, 0, 0, 0, gS);
 
-
 	return assertTrue(actual, expected);
 
 	//free gS;
@@ -50,7 +49,6 @@ int playCard_actionsTest() {
 
 	int expected = -1;
 	int actual = playCard(0, 0, 0, 0, gS);
-
 
 	return assertTrue(actual, expected);
 
@@ -68,7 +66,6 @@ int playCard_checkActionTest_adventurer() {
 
 	int expected = -1;
 	int actual = playCard(0, 0, 0, 0, gS);
-
 
 	return assertTrue(actual, expected);
 
@@ -92,7 +89,7 @@ int playCard_checkActionTest_treasure_map() {
 	//free gS;
 }
 
-// incompelete
+// doesn't really prove much, still triggers same place as treasure_map
 int playCard_cardEffectTest() {
 	struct gameState* gS = newGame();
 
@@ -117,7 +114,7 @@ int playCard_reduceActions() {
 	gS->numActions = 1;
 	gS->whoseTurn = 0;
 	// setting first card of P1s hand to any card higher in the enum than TM
-	gS->hand[0][0] = baron; // middle of the cards
+	gS->hand[0][0] = baron; // random valid card that doesnt mess with the case
 
 	int expected = 0;
 
@@ -137,7 +134,7 @@ int playCard_successfulPlay() {
 	gS->numActions = 1;
 	gS->whoseTurn = 0;
 	// setting first card of P1s hand to any card higher in the enum than TM
-	gS->hand[0][0] = baron; // beyond the current set of cards
+	gS->hand[0][0] = baron; // random valid card that doesnt mess with the case
 
 	int expected = 0;
 	int actual = playCard(0, 0, 0, 0, gS);

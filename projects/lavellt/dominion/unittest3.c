@@ -28,9 +28,6 @@ int updateCoins_coinReset_add1Copper() {
 	gS->whoseTurn = 0;
 	gS->coins = -1;
 
-	// need to set proper number hanlers
-
-
 	//drawCard(gS->whoseTurn, gS);
 	// overwrite the card to guarntee it is a copper
 	gS->hand[gS->whoseTurn][0] = copper;
