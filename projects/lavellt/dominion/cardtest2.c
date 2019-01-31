@@ -5,31 +5,26 @@
 //ct2: unittests.o dominion.o cardtest2.c
 //	gcc - o ct2 cardtest2.c - g  unittests.o dominion.o rngs.o $(CFLAGS)
 
-
+int smithy_drawCards();
+int smithy_discardCard();
 
 int main() {
 	int passed = 0;
-	int numTests = 5;
+	int numTests = 2;
 
-	passed += playCard_phaseTest();
-	passed += playCard_actionsTest();
-	passed += playCard_checkActionTest_adventurer();
-	passed += playCard_checkActionTest_treasure_map();
-	//passed += playCard_cardEffectTest();
+	passed += smithy_drawCards();
+	passed += smithy_discardCard();
 
 	printf("%d/%d Smithy Card Tests Passed.\n", passed, numTests);
 }
 
 int smithy_drawCards() {
-	struct gameState* gS = newGame();
+	struct gameState* actualGS = newGame();
+	struct gameState* expectedGS = newGame();
+	
 
-	gS->hand
 }
 
 int smithy_discardCard() {
-
-}
-
-int smithy_numCardsDrawn() {
 
 }
