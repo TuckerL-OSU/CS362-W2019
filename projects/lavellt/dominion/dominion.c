@@ -265,7 +265,7 @@ int playCard(int handPos, int choice1, int choice2, int choice3, struct gameStat
     }
 	
   //reduce number of actions
-  (state->numActions)--;
+  state->numActions--;
   printf("After reducing: %d actions.\n", state->numActions);
 
 
