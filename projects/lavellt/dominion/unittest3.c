@@ -55,7 +55,7 @@ int updateCoins_add10Gold() {
 	int i;
 	// set P1s hand to only 10 golds
 	for (i = 0; i < 10; i++) {
-		gS->hand[0][i] == gold;
+		gS->hand[gS->whoseTurn][i] == gold;
 	}
 	gS->handCount[gS->whoseTurn] = 10;
 

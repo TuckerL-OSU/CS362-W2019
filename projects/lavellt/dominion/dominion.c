@@ -1539,6 +1539,7 @@ int updateCoins(int player, struct gameState *state, int bonus)
   //reset coin count
   state->coins = 0;
 
+  printf("handCount for player %d: %d", player, state->handCount[player]);
   //add coins for each Treasure card in player's hand
   for (i = 0; i < state->handCount[player]; i++)
     {
