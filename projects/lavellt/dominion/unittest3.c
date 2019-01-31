@@ -55,7 +55,7 @@ int updateCoins_add10Gold() {
 	int i;
 	// set P1s hand to only 10 golds
 	for (i = 0; i < 10; i++) {
-		gS->hand[gS->whoseTurn][i] == gold;
+		gS->hand[gS->whoseTurn][i] = gold;
 	}
 	gS->handCount[gS->whoseTurn] = 10;
 
@@ -73,9 +73,9 @@ int updateCoins_add1ofEach() {
 	struct gameState* gS = newGame();
 	gS->whoseTurn = 0;
 
-	gS->hand[0][0] == copper;
-	gS->hand[0][1] == silver;
-	gS->hand[0][2] == gold;
+	gS->hand[0][0] = copper;
+	gS->hand[0][1] = silver;
+	gS->hand[0][2] = gold;
 
 	gS->handCount[gS->whoseTurn] = 3;
 
