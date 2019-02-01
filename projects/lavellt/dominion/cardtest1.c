@@ -70,7 +70,7 @@ int adventurer_discardCards() {
 
 	cardEffect(adventurer, 0, 0, 0, gS, 0, 0);
 
-	if gS->whoseTurn == 0) {
+	if (gS->whoseTurn == 0) {
 		actual = gS->discardCount[gS->whoseTurn];
 	}
 
