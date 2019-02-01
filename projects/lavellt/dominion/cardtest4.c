@@ -7,11 +7,11 @@ int treasure_map_checkHand();
 
 int main() {
 	int passed = 0;
-	int numTests = 2;
+	int numTests = 3;
 
 	passed += treasure_map_checkNumCardsPlayed();
-	passed += treasure_map_checkHand();
-	//passed += playCard_checkActionTest_adventurer();
+	passed += treasure_map_checkHand_worksOriginal();
+	passed += treasure_map_checkHand_provesOriginalBug();
 	//passed += playCard_checkActionTest_treasure_map();
 	//passed += playCard_cardEffectTest();
 
@@ -44,7 +44,7 @@ int treasure_map_checkNumCardsPlayed() {
 	return assertTrue(actual, expected);
 }
 
-int treasure_map_checkHand() {
+int treasure_map_checkHand_worksOriginal() {
 	struct gameState* gS = newGame();
 
 	// can't check which cards are trashed, but we can set the 
@@ -75,6 +75,41 @@ int treasure_map_checkHand() {
 
 	return assertTrue(actual, expected);
 }
+
+// still want to see what happens with the bug
+// I introduced on top of the existing bug
+int treasure_map_checkHand_provesOriginalBug() {
+	struct gameState* gS = newGame();
+
+	// can't check which cards are trashed, but we can set the 
+	// playedCardCount = 0, and if it stays at 0 when playing,
+	// treasure_map, then we can assume the treasure maps were discarded
+	int expected = 0;
+	int actual = 0;
+
+	gS->whoseTurn = 0;
+	gS->handCount[gS->whoseTurn] = 4;
+	gS->hand[gS->whoseTurn][0] = treasure_map;
+	gS->hand[gS->whoseTurn][1] = copper;
+	gS->hand[gS->whoseTurn][2] = copper;
+	gS->hand[gS->whoseTurn][3] = treasure_map;
+	gS->playedCardCount = 0;
+
+	cardEffect(treasure_map, 0, 0, 0, gS, 0, 0);
+
+	if (gS->whoseTurn == 0) {
+		int i;
+		for (i = 0; i < gS->handCount[gS->whoseTurn]; i++) {
+			printf("card: %d\n", gS->hand[gS->whoseTurn][i]);
+			if (gS->hand[gS->whoseTurn][i] == treasure_map) {
+				actual++;
+			}
+		}
+	}
+
+	return assertTrue(actual, expected);
+}
+
 
 //int treasure_map_checkDeckCount() {
 //
