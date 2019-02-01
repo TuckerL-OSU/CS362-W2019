@@ -129,7 +129,7 @@ int treasure_map_checkDeckCount() {
 
 	// checking it is still P1
 	if (gS->whoseTurn == 0) {
-		actual = gS->deckCount[gS->whoseTurn]
+		actual = gS->deckCount[gS->whoseTurn];
 	}
 
 	return assertTrue(actual, expected);
