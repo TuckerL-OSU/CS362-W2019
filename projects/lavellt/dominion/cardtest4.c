@@ -63,13 +63,10 @@ int treasure_map_checkHand() {
 
 	cardEffect(treasure_map, 0, 0, 0, gS, 0, 0);
 
-	printf("whoseTurn: %d\n", gS->whoseTurn);
 	if (gS->whoseTurn == 0) {
 		int i;
 		for (i = 0; i < gS->handCount[gS->whoseTurn]; i++) {
-			printf("checking treasure map\n");
 			if (gS->hand[gS->whoseTurn][i] == treasure_map) {
-				printf("found treasure map\n");
 				actual++;
 			}
 		}
