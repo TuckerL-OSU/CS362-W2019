@@ -910,7 +910,6 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 		 //z=z-1;
 	  //     }
 	  //     return 0;
-	  printf("entering effectAdventurer\n");
 	  return effectAdventurer(currentPlayer, state);
 
   case council_room:
