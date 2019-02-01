@@ -40,7 +40,7 @@ int treasure_map_checkTrashCount() {
 
 	printf("whoseTurn: %d\n", gS->whoseTurn);
 	printf("playedCardCount: %d\n", gS->playedCardCount);
-	if (gS->whoseTurn == 0 && gS->playedCardCount != expected) {
+	if (gS->whoseTurn == 0) {
 		printf("setting actual\n");
 		actual = gS->playedCardCount;
 	}
