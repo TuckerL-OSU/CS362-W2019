@@ -2,20 +2,21 @@
 // card test 2: smithy
 #include "unittests.h"
 
-int smithy_drawCards();
-int smithy_discardCard();
+int smithy_numCardsDrawn();
+int smithy_numCardsDiscarded();
 
 int main() {
 	int passed = 0;
 	int numTests = 2;
 
-	passed += smithy_drawCards();
-	passed += smithy_discardCard();
+	passed += smithy_numCardsDrawn();
+	passed += smithy_numCardsDiscarded();
 
 	printf("%d/%d Smithy Card Tests Passed.\n", passed, numTests);
 }
 
-int smithy_drawCards() {
+// check number of cards smithy causes us to draw
+int smithy_numCardsDrawn() {
 	struct gameState* gS = newGame();
 
 	int expected = 3;
@@ -43,7 +44,8 @@ int smithy_drawCards() {
 	return assertTrue(actual, expected);
 }
 
-int smithy_discardCard() {
+// check to make sure smithy was discarded afterwards
+int smithy_numCardsDiscarded() {
 	struct gameState* gS = newGame();
 
 	int expected = 3;

@@ -50,6 +50,9 @@ ct1: unittests.o dominion.o cardtest1.c
 ct2: unittests.o dominion.o cardtest2.c
 	gcc -o ct2 cardtest2.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
 
+ct3: unittests.o dominion.o cardtest3.c
+	gcc -o ct3 cardtest3.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
+
 ct4: unittests.o dominion.o cardtest4.c
 	gcc -o ct4 cardtest4.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
 

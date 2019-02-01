@@ -23,12 +23,13 @@ int main() {
 	printf("%d/%d Treasure Map Card Tests Passed.\n", passed, numTests);
 }
 
+// check to see how many cards were played this round
+// can't check which cards are trashed, but we can set the 
+// playedCardCount = 0, and if it stays at 0 when playing,
+// treasure_map, then we can assume treasure map was played and trashed
 int treasure_map_checkNumCardsPlayed() {
 	struct gameState* gS = newGame();
 
-	// can't check which cards are trashed, but we can set the 
-	// playedCardCount = 0, and if it stays at 0 when playing,
-	// treasure_map, then we can assume the treasure maps were discarded
 	int expected = 0;
 	int actual = -1;
 
@@ -49,6 +50,11 @@ int treasure_map_checkNumCardsPlayed() {
 	return assertTrue(actual, expected);
 }
 
+// check hand to make sure treasure maps were discarded
+// testing found a bug in the original code for TM,
+// so when I was testing use cases, I first tested to make sure
+// the card worked before I tested, my bug.
+// with my bug, this does not work, which is expected
 int treasure_map_checkHand_worksOriginal() {
 	struct gameState* gS = newGame();
 
@@ -77,8 +83,9 @@ int treasure_map_checkHand_worksOriginal() {
 	return assertTrue(actual, expected);
 }
 
-// still want to see what happens with the bug
-// I introduced on top of the existing bug
+// still want to see what happens with the bug I introduced,
+// on top of the existing bug
+// this only works because of the bug I added, on top of the existing bug
 int treasure_map_checkHand_provesOriginalBug() {
 	struct gameState* gS = newGame();
 
@@ -107,7 +114,7 @@ int treasure_map_checkHand_provesOriginalBug() {
 	return assertTrue(actual, expected);
 }
 
-
+// check how many cards are in the deck if we know it started with 1
 int treasure_map_checkDeckCount() {
 	struct gameState* gS = newGame();
 
@@ -135,6 +142,7 @@ int treasure_map_checkDeckCount() {
 	return assertTrue(actual, expected);
 }
 
+// check which cards were added to the top of the deck. need to be gold
 int treasure_map_checkCardsGained() {
 	struct gameState* gS = newGame();
 
@@ -155,14 +163,27 @@ int treasure_map_checkCardsGained() {
 	cardEffect(treasure_map, 0, 0, 0, gS, 0, 0);
 
 	// checking it is still P1, and checking to make sure deck is right size
-	if (gS->whoseTurn == 0 && gS->deckCount[gS->whoseTurn] == 5) {
-		int i;
-		// will check top 4 cards of deck to see if they are gold.
-		// if they are gold and the deck size is 5, it is safe to assume,
-		// baron was moved down in the deck correctly
-		for (i = 0; i < 4; i++) {
-			if (gS->deck[gS->whoseTurn][i] == gold) {
-				actual++;
+	//if (gS->whoseTurn == 0 && gS->deckCount[gS->whoseTurn] == 5) {
+	//	int i;
+	//	// will check top 4 cards of deck to see if they are gold.
+	//	// if they are gold and the deck size is 5, it is safe to assume,
+	//	// baron was moved down in the deck correctly
+	//	for (i = 0; i < 4; i++) {
+	//		if (gS->deck[gS->whoseTurn][i] == gold) {
+	//			actual++;
+	//		}
+	//	}
+
+	if (gS->whoseTurn == 0) {
+		if (gS->deckCount[gS->whoseTurn] == 5) {
+			int i;
+			// will check top 4 cards of deck to see if they are gold.
+			// if they are gold and the deck size is 5, it is safe to assume,
+			// baron was moved down in the deck correctly
+			for (i = 0; i < 4; i++) {
+				if (gS->deck[gS->whoseTurn][i] == gold) {
+					actual++;
+				}
 			}
 		}
 	}
@@ -170,6 +191,7 @@ int treasure_map_checkCardsGained() {
 	return assertTrue(actual, expected);
 }
 
+// check to see if there were not 2 treasure maps to play
 int treasure_map_not2TM() {
 	struct gameState* gS = newGame();
 

@@ -2,32 +2,62 @@
 // card test 3: feast
 #include "unittests.h"
 
-//ct3: unittests.o dominion.o cardtest3.c
-//	gcc - o ct3 cardtest3.c - g  unittests.o dominion.o rngs.o $(CFLAGS)
-
+int feast_gainCard();
+//int feast_checkFeastIsGone();
+//int feast_cardCost();
 
 
 int main() {
 	int passed = 0;
-	int numTests = 5;
+	int numTests = 3;
 
-	passed += playCard_phaseTest();
-	passed += playCard_actionsTest();
-	passed += playCard_checkActionTest_adventurer();
-	passed += playCard_checkActionTest_treasure_map();
-	//passed += playCard_cardEffectTest();
+	passed += feast_gainCard();
+	//passed += feast_checkFeastIsGone();
+	//passed += feast_cardCost();
 
-	printf("%d/%d Adventurer Card Tests Passed.\n", passed, numTests);
-}
-
-int feast_checkTrash() {
-
+	printf("%d/%d Feast Card Tests Passed.\n", passed, numTests);
 }
 
 int feast_gainCard() {
+	struct gameState* gS = newGame();
+
+	int expected = duchy;
+	int actual = -1;
+
+	gS->whoseTurn = 0;
+	gS->handCount[gS->whoseTurn] = 2;
+	gS->hand[gS->whoseTurn][0] = feast;
+	gS->hand[gS->whoseTurn][1] = gold;
+	gS->discardCount = 0;
+
+	// just to make sure nothing is contaminated by passing expected
+	int card = duchy;
+	cardEffect(feast, card, 0, 0, gS, 0, 0);
+
+	// since discard was originally none, we know the first card
+	// in the discard pile will be the chosen card.
+	if (gS->whoseTurn == 0) {
+		actual = gS->discard[gS->whoseTurn][0];
+	}
+
+	return assertTrue(actual, expected);
 
 }
 
-int feast_cardCost() {
 
-}
+//int feast_checkFeastIsGone() {
+//
+//}
+
+
+//int feast_cardCost() {
+//
+//}
+//
+//int feast_tryOverCostCard() {
+//
+//}
+//
+//int feast_buyProvince() {
+//
+//}
