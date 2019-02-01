@@ -35,13 +35,9 @@ int treasure_map_checkTrashCount() {
 	gS->hand[gS->whoseTurn][3] = treasure_map;
 	gS->playedCardCount = 0;
 
-	printf("entering cardEffect\n");
 	cardEffect(treasure_map, 0, 0, 0, gS, 0, 0);
 
-	printf("whoseTurn: %d\n", gS->whoseTurn);
-	printf("playedCardCount: %d\n", gS->playedCardCount);
 	if (gS->whoseTurn == 0) {
-		printf("setting actual\n");
 		actual = gS->playedCardCount;
 	}
 
