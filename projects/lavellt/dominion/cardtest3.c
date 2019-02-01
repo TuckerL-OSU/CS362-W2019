@@ -34,6 +34,7 @@ int feast_gainCard() {
 
 	// just to make sure nothing is contaminated by passing expected
 	int card = duchy;
+	gS->supplyCount[card] = 1;
 	printf("entering cardEffect\n");
 	cardEffect(feast, card, 0, 0, gS, 0, 0);
 

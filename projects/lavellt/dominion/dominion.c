@@ -702,10 +702,13 @@ int effectFeast(int currentPlayer, struct gameState *state, int choice1) {
 	int temphand[MAX_HAND];
 	int i;
 
+	printf("making backup hand\n");
 	for (i = 0; i <= state->handCount[currentPlayer]; i++) {
 		temphand[i] = state->hand[currentPlayer][i];//Backup card
 		state->hand[currentPlayer][i] = -1;//Set to nothing
 	}
+	printf("finished backup hand\n");
+
 	//Backup hand
 
 	//Update Coins for Buy
@@ -714,8 +717,10 @@ int effectFeast(int currentPlayer, struct gameState *state, int choice1) {
 	//updateCoins(currentPlayer, state, 5);
 
 	// broken
+	printf("updating coins\n");
 	updateCoins(currentPlayer, state, 6);
 
+	printf("entering while loop\n");
 	int x = 1;//Condition to loop on
 	while (x == 1) {//Buy one card
 		if (supplyCount(choice1, state) <= 0) {
