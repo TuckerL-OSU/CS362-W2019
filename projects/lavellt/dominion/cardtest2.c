@@ -36,7 +36,7 @@ int smithy_drawCards() {
 
 	cardEffect(smithy, 0, 0, 0, gS, 0, 0);
 
-	if (gS->handCount[gS->whoseTurn] != expected) {
+	if (gS->whoseTurn == 0) {
 		actual = gS->handCount[gS->whoseTurn];
 	}
 
@@ -64,7 +64,7 @@ int smithy_discardCard() {
 
 	cardEffect(smithy, 0, 0, 0, gS, 0, 0);
 
-	if (gS->handCount[gS->whoseTurn] != expected) {
+	if (gS->whoseTurn == 0) {
 		actual = gS->handCount[gS->whoseTurn];
 	}
 

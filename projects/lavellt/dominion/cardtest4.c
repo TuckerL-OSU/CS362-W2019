@@ -57,8 +57,8 @@ int treasure_map_checkHand() {
 	gS->handCount[gS->whoseTurn] = 4;
 	gS->hand[gS->whoseTurn][0] = treasure_map;
 	gS->hand[gS->whoseTurn][1] = copper;
-	gS->hand[gS->whoseTurn][2] = copper;
-	gS->hand[gS->whoseTurn][3] = treasure_map;
+	gS->hand[gS->whoseTurn][2] = treasure_map;
+	gS->hand[gS->whoseTurn][3] = copper;
 	gS->playedCardCount = 0;
 
 	cardEffect(treasure_map, 0, 0, 0, gS, 0, 0);
