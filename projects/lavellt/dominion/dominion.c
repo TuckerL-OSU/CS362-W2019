@@ -1492,6 +1492,8 @@ int discardCard(int handPos, int currentPlayer, struct gameState *state, int tra
       //reduce number of cards in hand
       state->handCount[currentPlayer]--;
     }
+
+  printf("discarded\n");
 	
   return 0;
 }
