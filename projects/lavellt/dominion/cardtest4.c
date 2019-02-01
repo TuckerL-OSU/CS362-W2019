@@ -51,7 +51,7 @@ int treasure_map_checkHand() {
 	// playedCardCount = 0, and if it stays at 0 when playing,
 	// treasure_map, then we can assume the treasure maps were discarded
 	int expected = 0;
-	int actual = -1;
+	int actual = 0;
 
 	gS->whoseTurn = 0;
 	gS->handCount[gS->whoseTurn] = 4;
