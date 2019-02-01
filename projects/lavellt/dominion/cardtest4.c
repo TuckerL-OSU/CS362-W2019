@@ -138,7 +138,7 @@ int treasure_map_checkDeckCount() {
 int treasure_map_checkCardsGained() {
 	struct gameState* gS = newGame();
 
-	int expected = 0;
+	int expected = 4;
 	int actual = 0;
 
 	gS->whoseTurn = 0;
@@ -173,8 +173,8 @@ int treasure_map_checkCardsGained() {
 int treasure_map_not2TM() {
 	struct gameState* gS = newGame();
 
-	int expected = 0;
-	int actual = -10;
+	int expected = -1;
+	int actual = 0;
 
 	gS->whoseTurn = 0;
 	gS->handCount[gS->whoseTurn] = 4;
