@@ -1465,7 +1465,6 @@ int discardCard(int handPos, int currentPlayer, struct gameState *state, int tra
     {
       //add card to played pile
       state->playedCards[state->playedCardCount] = state->hand[currentPlayer][handPos]; 
-	  printf("trashed card\n");
       state->playedCardCount++;
     }
 	
