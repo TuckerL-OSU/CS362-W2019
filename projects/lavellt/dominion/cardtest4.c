@@ -67,7 +67,6 @@ int treasure_map_checkHand_worksOriginal() {
 	if (gS->whoseTurn == 0) {
 		int i;
 		for (i = 0; i < gS->handCount[gS->whoseTurn]; i++) {
-			printf("card: %d\n", gS->hand[gS->whoseTurn][i]);
 			if (gS->hand[gS->whoseTurn][i] == treasure_map) {
 				actual++;
 			}
@@ -101,7 +100,6 @@ int treasure_map_checkHand_provesOriginalBug() {
 	if (gS->whoseTurn == 0) {
 		int i;
 		for (i = 0; i < gS->handCount[gS->whoseTurn]; i++) {
-			printf("card: %d\n", gS->hand[gS->whoseTurn][i]);
 			if (gS->hand[gS->whoseTurn][i] == treasure_map) {
 				actual++;
 			}
