@@ -32,16 +32,18 @@ int feast_gainCard() {
 
 	// just to make sure nothing is contaminated by passing expected
 	int card = duchy;
+	printf("entering cardEffect\n");
 	cardEffect(feast, card, 0, 0, gS, 0, 0);
 
 	// since discard was originally none, we know the first card
 	// in the discard pile will be the chosen card.
+	printf("whoseTurn: %d\n", gS->whoseTurn);
 	if (gS->whoseTurn == 0) {
+		printf("checking discard\n");
 		actual = gS->discard[gS->whoseTurn][0];
 	}
-
+	printf("asserting\n");
 	return assertTrue(actual, expected);
-
 }
 
 
