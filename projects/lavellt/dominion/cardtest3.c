@@ -3,7 +3,7 @@
 #include "unittests.h"
 
 int feast_gainCard();
-int feast_checkCardCost();
+int feast_tryOverCostCard();
 int feast_checkFeastIsGone();
 
 int main() {
@@ -11,7 +11,7 @@ int main() {
 	int numTests = 3;
 
 	passed += feast_gainCard();
-	passed += feast_checkCardCost();
+	passed += feast_tryOverCostCard();
 	passed += feast_checkFeastIsGone();
 
 	printf("%d/%d Feast Card Tests Passed.\n", passed, numTests);
