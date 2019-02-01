@@ -33,7 +33,7 @@ int treasure_map_checkTrashCount() {
 
 	cardEffect(treasure_map, 0, 0, 0, gS, 0, 0);
 
-	if (gS->whoseTurn == 0 && gS->playedCardCount != expected) {
+	if (gS->whoseTurn == 0 || gS->playedCardCount != expected) {
 		actual = gS->playedCardCount;
 	}
 
