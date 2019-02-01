@@ -21,8 +21,11 @@ int main() {
 int treasure_map_checkTrashCount() {
 	struct gameState* gS = newGame();
 
-	int expected = 2;
-	int actual = 0;
+	// can't check which cards are trashed, but we can set the 
+	// playedCardCount = 0, and if it stays at 0 when playing,
+	// treasure_map, then we can assume the treasure maps were discarded
+	int expected = 0;
+	int actual = -1;
 
 	gS->whoseTurn = 0;
 	gS->handCount[gS->whoseTurn] = 4;
@@ -30,6 +33,7 @@ int treasure_map_checkTrashCount() {
 	gS->hand[gS->whoseTurn][1] = copper;
 	gS->hand[gS->whoseTurn][2] = copper;
 	gS->hand[gS->whoseTurn][3] = treasure_map;
+	gS->playedCardCount = 0;
 
 	printf("entering cardEffect\n");
 	cardEffect(treasure_map, 0, 0, 0, gS, 0, 0);
