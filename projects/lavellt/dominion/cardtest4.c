@@ -3,7 +3,8 @@
 #include "unittests.h"
 
 int treasure_map_checkNumCardsPlayed();
-int treasure_map_checkHand();
+int treasure_map_checkHand_worksOriginal();
+int treasure_map_checkHand_provesOriginalBug();
 
 int main() {
 	int passed = 0;
