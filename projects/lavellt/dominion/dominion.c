@@ -845,11 +845,13 @@ int effectTreasure_Map(int currentPlayer, struct gameState *state, int handPos) 
 			break;
 		}
 	}
-	printf("index: %d\n", index);
+	
 	if (index > -1)
 	{
 		//trash both treasure cards
+		printf("handPos: %d\n", handPos);
 		discardCard(handPos, currentPlayer, state, 1);
+		printf("index: %d\n", index);
 		discardCard(index, currentPlayer, state, 1);
 
 		//gain 4 Gold cards
