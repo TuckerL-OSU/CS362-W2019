@@ -3,14 +3,14 @@
 #include "unittests.h"
 
 int treasure_map_checkNumCardsPlayed();
-
+int treasure_map_checkHand();
 
 int main() {
 	int passed = 0;
-	int numTests = 1;
+	int numTests = 2;
 
 	passed += treasure_map_checkNumCardsPlayed();
-	//passed += playCard_actionsTest();
+	passed += treasure_map_checkHand();
 	//passed += playCard_checkActionTest_adventurer();
 	//passed += playCard_checkActionTest_treasure_map();
 	//passed += playCard_cardEffectTest();
