@@ -20,6 +20,14 @@ int main() {
 	printf("%d/%d Adventurer Card Tests Passed.\n", passed, numTests);
 }
 
-int adventurer_() {
+int feast_checkTrash() {
+
+}
+
+int feast_gainCard() {
+
+}
+
+int feast_cardCost() {
 
 }
