@@ -28,7 +28,7 @@ int feast_gainCard() {
 	gS->handCount[gS->whoseTurn] = 2;
 	gS->hand[gS->whoseTurn][0] = feast;
 	gS->hand[gS->whoseTurn][1] = gold;
-	gS->discardCount = 0;
+	gS->discardCount[gS->whoseTurn] = 0;
 
 	// just to make sure nothing is contaminated by passing expected
 	int card = duchy;
