@@ -66,7 +66,7 @@ int treasure_map_checkHand() {
 	if (gS->whoseTurn == 0) {
 		int i;
 		for (i = 0; i < gS->handCount[gS->whoseTurn]; i++) {
-			printf("card: %d\n");
+			printf("card: %s\n", gS->hand[gS->whoseTurn][i]);
 			if (gS->hand[gS->whoseTurn][i] == treasure_map) {
 				actual++;
 			}
