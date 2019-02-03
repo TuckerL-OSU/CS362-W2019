@@ -124,7 +124,5 @@ unittestresults:
 	./ct4 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 
-	echo "===========" >> unittestresults.out
-
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe ut1 ut2 ut3 ut4 ct1 ct2 ct3 ct4
