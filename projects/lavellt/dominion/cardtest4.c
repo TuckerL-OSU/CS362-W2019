@@ -177,7 +177,7 @@ int treasure_map_checkCardsGained() {
 		// if they are gold and the deck size is 5, it is safe to assume,
 		// baron was moved down in the deck correctly
 		for (i = 0; i < 5; i++) {
-			printf("%d: %d", i, gS->deck[gS->whoseTurn][i]);
+			printf("%d: %d\n", i, gS->deck[gS->whoseTurn][i]);
 			if (gS->deck[gS->whoseTurn][i] == gold) {
 				actual++;
 			}
