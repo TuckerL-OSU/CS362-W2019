@@ -181,6 +181,7 @@ int treasure_map_checkCardsGained() {
 				actual++;
 			}
 		}
+	}
 
 	//if (gS->whoseTurn == 0) {
 	//	if (gS->deckCount[gS->whoseTurn] == 5) {
