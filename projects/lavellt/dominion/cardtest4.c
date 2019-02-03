@@ -171,30 +171,30 @@ int treasure_map_checkCardsGained() {
 	cardEffect(treasure_map, 0, 0, 0, gS, 0, 0);
 
 	// checking it is still P1, and checking to make sure deck is right size
-	//if (gS->whoseTurn == 0 && gS->deckCount[gS->whoseTurn] == 5) {
-	//	int i;
-	//	// will check top 4 cards of deck to see if they are gold.
-	//	// if they are gold and the deck size is 5, it is safe to assume,
-	//	// baron was moved down in the deck correctly
-	//	for (i = 0; i < 4; i++) {
-	//		if (gS->deck[gS->whoseTurn][i] == gold) {
-	//			actual++;
-	//		}
-	//	}
-
-	if (gS->whoseTurn == 0) {
-		if (gS->deckCount[gS->whoseTurn] == 5) {
-			int i;
-			// will check top 4 cards of deck to see if they are gold.
-			// if they are gold and the deck size is 5, it is safe to assume,
-			// baron was moved down in the deck correctly
-			for (i = 0; i < 4; i++) {
-				if (gS->deck[gS->whoseTurn][i] == gold) {
-					actual++;
-				}
+	if (gS->whoseTurn == 0 && gS->deckCount[gS->whoseTurn] == 5) {
+		int i;
+		// will check top 4 cards of deck to see if they are gold.
+		// if they are gold and the deck size is 5, it is safe to assume,
+		// baron was moved down in the deck correctly
+		for (i = 0; i < 4; i++) {
+			if (gS->deck[gS->whoseTurn][i] == gold) {
+				actual++;
 			}
 		}
-	}
+
+	//if (gS->whoseTurn == 0) {
+	//	if (gS->deckCount[gS->whoseTurn] == 5) {
+	//		int i;
+	//		// will check top 4 cards of deck to see if they are gold.
+	//		// if they are gold and the deck size is 5, it is safe to assume,
+	//		// baron was moved down in the deck correctly
+	//		for (i = 0; i < 4; i++) {
+	//			if (gS->deck[gS->whoseTurn][i] == gold) {
+	//				actual++;
+	//			}
+	//		}
+	//	}
+	//}
 
 	printf("5. Check if 4 Gold are on Top of deck: ");
 	return assertTrue(actual, expected);
