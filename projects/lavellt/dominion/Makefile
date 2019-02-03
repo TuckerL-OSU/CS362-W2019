@@ -29,13 +29,13 @@ runtests: testDrawCard
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 
-unittests.o: unittests.h unittests.c dominion.o rngs.o
-	gcc -c unittests.c -g  $(CFLAGS)
-
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
 all: playdom player 
+
+unittests.o: unittests.h unittests.c dominion.o rngs.o
+	gcc -c unittests.c -g  $(CFLAGS)
 
 ut1: unittests.o dominion.o unittest1.c
 	gcc -o ut1 unittest1.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
@@ -62,27 +62,50 @@ ct4: unittests.o dominion.o cardtest4.c
 	gcc -o ct4 cardtest4.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
 
 unittestresults: 
+
+	echo "Results for Assignment 3" > unittestresults.out
+
+	make rngs.o
+	make dominion.o
+	make unittests.o
+
+	echo "unittest1.c:" >> unittestresults.out
+	make ut1
 	./ut1 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 
+	echo "unittest2.c:" >> unittestresults.out
+	make ut2
 	./ut2 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-
+	
+	echo "unittest3.c:" >> unittestresults.out
+	make ut3
 	./ut3 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-
+	
+	echo "unittest4.c:" >> unittestresults.out
+	make ut4
 	./ut4 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-
+	
+	echo "cardtest1.c:" >> unittestresults.out
+	make ct1
 	./ct1 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-
+	
+	echo "cardtest2.c:" >> unittestresults.out
+	make ct2
 	./ct2 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-
+	
+	echo "cardtest3.c:" >> unittestresults.out
+	make ct3
 	./ct3 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-
+	
+	echo "cardtest4.c:" >> unittestresults.out
+	make ct4
 	./ct4 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 
