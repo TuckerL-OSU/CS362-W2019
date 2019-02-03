@@ -24,7 +24,7 @@ int whoseTurn_RealPlayer() {
 
 	int actual = whoseTurn(gS);
 
-	printf("1. Check Player is Correct: ");
+	printf("1. Check if Player is Correct: ");
 	return assertTrue(actual, expected);
 
 	//free gS;
@@ -40,7 +40,7 @@ int whoseTurn_nonExistPlayer() {
 
 	int actual = whoseTurn(gS);
 
-	printf("2. Check Non-existent player no weird behavior: ");
+	printf("2. Check if Non-existent player no weird behavior: ");
 	return assertTrue(actual, expected);
 
 	//free gS;

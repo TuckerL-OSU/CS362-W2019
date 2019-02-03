@@ -46,7 +46,7 @@ int adventurer_treasuresDrawn() {
 		}
 	}
 
-	printf("1. Number of Treasures Drawn: ");
+	printf("1. Check Number of Treasures Drawn: ");
 	return assertTrue(actual, expected);
 }
 
@@ -74,7 +74,7 @@ int adventurer_discardCards() {
 		actual = gS->discardCount[gS->whoseTurn];
 	}
 
-	printf("2. Number of Cards Discarded: ");
+	printf("2. Check Number of Cards Discarded: ");
 	return assertTrue(actual, expected);
 }
 
@@ -102,6 +102,6 @@ int adventurer_cardsLeftInDeck() {
 		actual = gS->deckCount[gS->whoseTurn];
 	}
 
-	printf("3. Number of Cards left in deck: ");
+	printf("3. Check Number of Cards left in deck: ");
 	return assertTrue(actual, expected);
 }

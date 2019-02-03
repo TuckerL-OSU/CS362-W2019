@@ -43,7 +43,7 @@ int feast_gainCard() {
 		actual = gS->discard[gS->whoseTurn][0];
 	}
 
-	printf("1. Chosen Card Picked Up: ");
+	printf("1. Check that chosen Card was Picked Up: ");
 	return assertTrue(actual, expected);
 }
 
@@ -147,6 +147,6 @@ int feast_checkFeastIsGone() {
 		}
 	}
 
-	printf("3. Feast was Trashed: ");
+	printf("3. Check if Feast was Trashed: ");
 	return assertTrue(actual, expected);
 }

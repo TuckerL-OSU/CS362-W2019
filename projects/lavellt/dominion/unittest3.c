@@ -38,7 +38,7 @@ int updateCoins_coinReset_add1Copper() {
 	int expected = 1;
 	int actual = gS->coins; // check coins after update
 
-	printf("1. Check coins reset & +1 Copper: ");
+	printf("1. Check if Coins Reset & +1 Copper: ");
 	return assertTrue(actual, expected);
 
 	//free gS;
@@ -100,7 +100,7 @@ int updateCoins_addBonus() {
 	int expected = 1;
 	int actual = gS->coins; // check coins after update
 
-	printf("4. Check Bonus: ");
+	printf("4. Add Bonus: ");
 	return assertTrue(actual, expected);
 
 	//free gS;

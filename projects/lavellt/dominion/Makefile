@@ -63,67 +63,69 @@ ct4: unittests.o dominion.o cardtest4.c
 
 unittestresults: 
 
-	echo "Results for Assignment 3" > unittestresults.out
-	echo "===========" >> unittestresults.out
+	echo "Results for Assignment 3 - Tucker Lavell - lavellt" > unittestresults.out
 	make rngs.o
 	make dominion.o
 	make unittests.o
 
+	echo "===========" >> unittestresults.out
 	echo "unittest1.c:" >> unittestresults.out
 	echo "===========" >> unittestresults.out
 	make ut1
 	./ut1 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
+	
 	echo "===========" >> unittestresults.out
-
 	echo "unittest2.c: isGameOver()" >> unittestresults.out
 	echo "===========" >> unittestresults.out
 	make ut2
 	./ut2 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-	echo "===========" >> unittestresults.out
 	
+	echo "===========" >> unittestresults.out	
 	echo "unittest3.c: updateCoins()" >> unittestresults.out
 	echo "===========" >> unittestresults.out
 	make ut3
 	./ut3 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-	echo "===========" >> unittestresults.out
 	
+	echo "===========" >> unittestresults.out	
 	echo "unittest4.c: whoseTurn()" >> unittestresults.out
 	echo "===========" >> unittestresults.out
 	make ut4
 	./ut4 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-	echo "===========" >> unittestresults.out
-	
+
+	echo "===========" >> unittestresults.out	
 	echo "cardtest1.c: Adventurer" >> unittestresults.out
 	echo "===========" >> unittestresults.out
 	make ct1
 	./ct1 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-	echo "===========" >> unittestresults.out
 	
+	echo "===========" >> unittestresults.out	
 	echo "cardtest2.c: Smithy" >> unittestresults.out
 	echo "===========" >> unittestresults.out
 	make ct2
 	./ct2 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-	echo "===========" >> unittestresults.out
 	
+	echo "===========" >> unittestresults.out
 	echo "cardtest3.c: Feast" >> unittestresults.out
 	echo "===========" >> unittestresults.out
 	make ct3
 	./ct3 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-	echo "===========" >> unittestresults.out
 	
+	echo "===========" >> unittestresults.out
 	echo "cardtest4.c: Treasure Map" >> unittestresults.out
 	echo "===========" >> unittestresults.out
 	make ct4
 	./ct4 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
+
 	echo "===========" >> unittestresults.out
+	echo "Assignment 3 - Tucker Lavell - lavellt" > unittestresults.out
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
