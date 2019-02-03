@@ -63,7 +63,7 @@ ct4: unittests.o dominion.o cardtest4.c
 
 unittestresults: 
 
-	echo "Results for Assignment 3 | Tucker Lavell | lavellt" > unittestresults.out
+	echo "Results for Assignment 3" > unittestresults.out
 	make rngs.o
 	make dominion.o
 	make unittests.o
@@ -125,7 +125,6 @@ unittestresults:
 	gcov dominion.c >> unittestresults.out
 
 	echo "===========" >> unittestresults.out
-	echo "Assignment 3 - Tucker Lavell - lavellt" > unittestresults.out
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe ut1 ut2 ut3 ut4 ct1 ct2 ct3 ct4
