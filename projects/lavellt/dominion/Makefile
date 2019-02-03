@@ -64,35 +64,27 @@ ct4: unittests.o dominion.o cardtest4.c
 unittestresults: 
 	./ut1 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-	cat dominion.c.gcov >> unittestresults.out
 
 	./ut2 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-	cat dominion.c.gcov >> unittestresults.out
 
 	./ut3 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-	cat dominion.c.gcov >> unittestresults.out
 
 	./ut4 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-	cat dominion.c.gcov >> unittestresults.out
 
 	./ct1 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-	cat dominion.c.gcov >> unittestresults.out
 
 	./ct2 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-	cat dominion.c.gcov >> unittestresults.out
 
 	./ct3 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-	cat dominion.c.gcov >> unittestresults.out
 
 	./ct4 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
-	cat dominion.c.gcov >> unittestresults.out
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
