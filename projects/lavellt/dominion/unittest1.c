@@ -36,7 +36,7 @@ int playCard_phaseTest() {
 	int expected = -1;
 	int actual = playCard(0, 0, 0, 0, gS);
 
-	printf("Currently Play Card Phase: ");
+	printf("1. Currently Play Card Phase: ");
 	return assertTrue(actual, expected);
 
 	//free gS;
@@ -51,7 +51,7 @@ int playCard_actionsTest() {
 	int expected = -1;
 	int actual = playCard(0, 0, 0, 0, gS);
 
-	printf("Check Player has Actions: ");
+	printf("2. Check Player has Actions: ");
 	return assertTrue(actual, expected);
 
 	//free gS;
@@ -69,7 +69,7 @@ int playCard_checkActionTest_adventurer() {
 	int expected = -1;
 	int actual = playCard(0, 0, 0, 0, gS);
 
-	printf("Check Card played was Adventurer Action: ");
+	printf("3. Check Card played was Adventurer Action: ");
 	return assertTrue(actual, expected);
 
 	//free gS;
@@ -87,7 +87,7 @@ int playCard_checkActionTest_treasure_map() {
 	int expected = -1;
 	int actual = playCard(0, 0, 0, 0, gS);
 
-	printf("Check Card played was Treasure Map Action: ");
+	printf("4. Check Card played was Treasure Map Action: ");
 	return assertTrue(actual, expected);
 
 	//free gS;
@@ -106,7 +106,7 @@ int playCard_cardEffectTest() {
 	int expected = -1;
 	int actual = playCard(0, 0, 0, 0, gS);
 
-	printf("Check cardEffect(): ");
+	printf("5. Check cardEffect(): ");
 	return assertTrue(actual, expected);
 
 	//free gS;
@@ -127,7 +127,7 @@ int playCard_reduceActions() {
 
 	int actual = gS->numActions;
 
-	printf("Check Number of Actions Reduced: ");
+	printf("6. Check Number of Actions Reduced: ");
 	return assertTrue(actual, expected);
 
 	//free gS;
@@ -145,7 +145,7 @@ int playCard_successfulPlay() {
 	int expected = 0;
 	int actual = playCard(0, 0, 0, 0, gS);
 
-	printf("Check Successful Play: ");
+	printf("7. Check Successful Play: ");
 	return assertTrue(actual, expected);
 
 	//free gS;
