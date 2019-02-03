@@ -17,6 +17,7 @@ int main() {
 	printf("%d/%d Feast Card Tests Passed.\n", passed, numTests);
 }
 
+// check to make sure the chosen card was picked up
 int feast_gainCard() {
 	struct gameState* gS = newGame();
 
