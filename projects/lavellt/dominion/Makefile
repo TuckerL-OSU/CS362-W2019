@@ -62,35 +62,35 @@ ct4: unittests.o dominion.o cardtest4.c
 	gcc -o ct4 cardtest4.c -g  unittests.o dominion.o rngs.o $(CFLAGS)
 
 unittestresults: 
-	./ut1 &> unittestresults.out
+	./ut1 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
 
-	./ut2 &> unittestresults.out
+	./ut2 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
 
-	./ut3 &> unittestresults.out
+	./ut3 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
 
-	./ut4 &> unittestresults.out
+	./ut4 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
 
-	./ct1 &> unittestresults.out
+	./ct1 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
 
-	./ct2 &> unittestresults.out
+	./ct2 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
 
-	./ct3 &> unittestresults.out
+	./ct3 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
 
-	./ct4 &> unittestresults.out
+	./ct4 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
 
