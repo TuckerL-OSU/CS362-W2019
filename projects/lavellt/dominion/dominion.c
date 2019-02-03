@@ -837,10 +837,10 @@ int effectTreasure_Map(int currentPlayer, struct gameState *state, int handPos) 
 	for (i = 0; i < state->handCount[currentPlayer]; i++)
 	{
 		// original
-		if (state->hand[currentPlayer][i] == treasure_map && i != handPos)
+		//if (state->hand[currentPlayer][i] == treasure_map && i != handPos)
 
 		// broken
-		//if (state->hand[currentPlayer][i] == treasure_map && i == handPos)
+		if (state->hand[currentPlayer][i] == treasure_map && i == handPos)
 		{
 			index = i;
 			break;

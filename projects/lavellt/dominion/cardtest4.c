@@ -184,20 +184,6 @@ int treasure_map_checkCardsGained() {
 		}
 	}
 
-	//if (gS->whoseTurn == 0) {
-	//	if (gS->deckCount[gS->whoseTurn] == 5) {
-	//		int i;
-	//		// will check top 4 cards of deck to see if they are gold.
-	//		// if they are gold and the deck size is 5, it is safe to assume,
-	//		// baron was moved down in the deck correctly
-	//		for (i = 0; i < 4; i++) {
-	//			if (gS->deck[gS->whoseTurn][i] == gold) {
-	//				actual++;
-	//			}
-	//		}
-	//	}
-	//}
-
 	printf("5. Check if 4 Gold are on Top of deck: ");
 	return assertTrue(actual, expected);
 }
