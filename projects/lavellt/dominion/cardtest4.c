@@ -47,7 +47,7 @@ int treasure_map_checkNumCardsPlayed() {
 		actual = gS->playedCardCount;
 	}
 
-	printf("Was Treasure Map Played: ");
+	printf("1. Was Treasure Map Played:\t");
 	return assertTrue(actual, expected);
 }
 
@@ -81,7 +81,7 @@ int treasure_map_checkHand_worksOriginal() {
 		}
 	}
 
-	printf("Check Arrangement 1 for discarded Treasure Maps: ");
+	printf("2. Check Arrangement 1 for discarded Treasure Maps:\t");
 	return assertTrue(actual, expected);
 }
 
@@ -113,7 +113,7 @@ int treasure_map_checkHand_provesOriginalBug() {
 		}
 	}
 
-	printf("Check Arrangement 2 for discarded Treasure Maps: ");
+	printf("3. Check Arrangement 2 for discarded Treasure Maps:\t");
 	return assertTrue(actual, expected);
 }
 
@@ -142,7 +142,7 @@ int treasure_map_checkDeckCount() {
 		actual = gS->deckCount[gS->whoseTurn];
 	}
 
-	printf("Deck Count Check: ");
+	printf("4. Deck Count Check\t");
 	return assertTrue(actual, expected);
 }
 
@@ -192,7 +192,7 @@ int treasure_map_checkCardsGained() {
 		}
 	}
 
-	printf("4 Gold on Top of Deck: ");
+	printf("5. 4 Gold on Top of Deck:\t");
 	return assertTrue(actual, expected);
 }
 
@@ -213,6 +213,6 @@ int treasure_map_not2TM() {
 
 	actual = cardEffect(treasure_map, 0, 0, 0, gS, 0, 0);
 
-	printf("Play Treasure Map w/o 2: ");
+	printf("6. Play Treasure Map w/o 2:\t");
 	return assertTrue(actual, expected);
 }
