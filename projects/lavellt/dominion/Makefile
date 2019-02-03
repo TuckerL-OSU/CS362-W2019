@@ -63,7 +63,7 @@ ct4: unittests.o dominion.o cardtest4.c
 
 unittestresults: 
 
-	echo "Results for Assignment 3 - Tucker Lavell - lavellt" > unittestresults.out
+	echo "Results for Assignment 3 | Tucker Lavell | lavellt" > unittestresults.out
 	make rngs.o
 	make dominion.o
 	make unittests.o
