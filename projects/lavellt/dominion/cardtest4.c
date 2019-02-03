@@ -126,6 +126,8 @@ int treasure_map_checkDeckCount() {
 
 	gS->whoseTurn = 0;
 
+	gS->supplyCount[gold] = 4;
+
 	gS->handCount[gS->whoseTurn] = 4;
 	gS->hand[gS->whoseTurn][0] = treasure_map;
 	gS->hand[gS->whoseTurn][1] = copper;
@@ -163,6 +165,8 @@ int treasure_map_checkCardsGained() {
 
 	gS->deckCount[gS->whoseTurn] = 1;
 	gS->deck[gS->whoseTurn][0] = baron;
+
+	gS->supplyCount[gold] = 4;
 
 	cardEffect(treasure_map, 0, 0, 0, gS, 0, 0);
 
@@ -210,6 +214,7 @@ int treasure_map_not2TM() {
 	gS->hand[gS->whoseTurn][2] = copper;
 	gS->hand[gS->whoseTurn][3] = silver;
 	gS->playedCardCount = 0;
+	gS->supplyCount[gold] = 4;
 
 	actual = cardEffect(treasure_map, 0, 0, 0, gS, 0, 0);
 
