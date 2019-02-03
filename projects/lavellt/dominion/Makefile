@@ -69,11 +69,11 @@ unittestresults:
 	make unittests.o
 
 	echo "===========" >> unittestresults.out
-	echo "unittest1.c:" >> unittestresults.out
+	echo "unittest1.c: playCard()" >> unittestresults.out
 	echo "===========" >> unittestresults.out
 	make ut1
 	./ut1 >> unittestresults.out
-	gcov dominion.c >> unittestresults.out
+	gcov -bc dominion.c >> unittestresults.out
 	
 	echo "===========" >> unittestresults.out
 	echo "unittest2.c: isGameOver()" >> unittestresults.out
