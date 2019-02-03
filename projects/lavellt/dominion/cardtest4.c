@@ -176,7 +176,7 @@ int treasure_map_checkCardsGained() {
 		// will check top 4 cards of deck to see if they are gold.
 		// if they are gold and the deck size is 5, it is safe to assume,
 		// baron was left in its correct position
-		for (i = gS->deckCount[gS->whoseTurn]; i < 4; i--) {
+		for (i = gS->deckCount[gS->whoseTurn]; i > 0; i--) {
 			//printf("%d: %d\n", i, gS->deck[gS->whoseTurn][i]);
 			if (gS->deck[gS->whoseTurn][i] == gold) {
 				actual++;
