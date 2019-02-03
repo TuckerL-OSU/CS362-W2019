@@ -74,37 +74,37 @@ unittestresults:
 	./ut1 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 
-	echo "unittest2.c:" >> unittestresults.out
+	echo "unittest2.c: isGameOver()" >> unittestresults.out
 	make ut2
 	./ut2 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	
-	echo "unittest3.c:" >> unittestresults.out
+	echo "unittest3.c: updateCoins()" >> unittestresults.out
 	make ut3
 	./ut3 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	
-	echo "unittest4.c:" >> unittestresults.out
+	echo "unittest4.c: whoseTurn()" >> unittestresults.out
 	make ut4
 	./ut4 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	
-	echo "cardtest1.c:" >> unittestresults.out
+	echo "cardtest1.c: Adventurer" >> unittestresults.out
 	make ct1
 	./ct1 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	
-	echo "cardtest2.c:" >> unittestresults.out
+	echo "cardtest2.c: Smithy" >> unittestresults.out
 	make ct2
 	./ct2 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	
-	echo "cardtest3.c:" >> unittestresults.out
+	echo "cardtest3.c: Feast" >> unittestresults.out
 	make ct3
 	./ct3 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out
 	
-	echo "cardtest4.c:" >> unittestresults.out
+	echo "cardtest4.c: Treasure Map" >> unittestresults.out
 	make ct4
 	./ct4 >> unittestresults.out
 	gcov dominion.c >> unittestresults.out

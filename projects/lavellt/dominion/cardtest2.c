@@ -41,6 +41,7 @@ int smithy_numCardsDrawn() {
 		actual = gS->handCount[gS->whoseTurn];
 	}
 
+	printf("Number of Cards Drawn: ");
 	return assertTrue(actual, expected);
 }
 
@@ -70,5 +71,6 @@ int smithy_numCardsDiscarded() {
 		actual = gS->handCount[gS->whoseTurn];
 	}
 
+	printf("Number of Cards Discarded: ");
 	return assertTrue(actual, expected);
 }

@@ -17,7 +17,7 @@ int main() {
 	printf("%d/%d Adventurer Card Tests Passed.\n", passed, numTests);
 }
 
-// check to see if the cards we kept were treasures
+// check to see if the cards we kept were treasures and how many
 int adventurer_treasuresDrawn() {
 	struct gameState* gS = newGame();
 	int expected = 2;
@@ -46,6 +46,7 @@ int adventurer_treasuresDrawn() {
 		}
 	}
 
+	printf("Number of Treasures Drawn: ");
 	return assertTrue(actual, expected);
 }
 
@@ -73,6 +74,7 @@ int adventurer_discardCards() {
 		actual = gS->discardCount[gS->whoseTurn];
 	}
 
+	printf("Number of Cards Discarded: ");
 	return assertTrue(actual, expected);
 }
 
@@ -100,5 +102,6 @@ int adventurer_cardsLeftInDeck() {
 		actual = gS->deckCount[gS->whoseTurn];
 	}
 
+	printf("Number of Cards left in deck: ");
 	return assertTrue(actual, expected);
 }

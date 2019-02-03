@@ -25,6 +25,7 @@ int isGameOver_isProvinceEmpty() {
 	int expected = 1;
 	int actual = isGameOver(gS);
 
+	printf("Check Province is Empty: ");
 	return assertTrue(actual, expected);
 
 	//free gS;
@@ -40,6 +41,7 @@ int isGameOver_is3SupplyEmpty() {
 	int expected = 1;
 	int actual = isGameOver(gS);
 
+	printf("Check are 3 Supply piles Empty: ");
 	return assertTrue(actual, expected);
 
 	//free gS;
@@ -54,6 +56,7 @@ int isGameOver_isGameNOTOver() {
 	int expected = 0;
 	int actual = isGameOver(gS);
 
+	printf("Check Game is NOT Over: ");
 	// a brand new game shouldn't be ready to end
 	return assertTrue(actual, expected);
 
