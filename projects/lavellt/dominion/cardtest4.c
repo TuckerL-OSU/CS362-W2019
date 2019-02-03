@@ -176,7 +176,7 @@ int treasure_map_checkCardsGained() {
 		// will check top 4 cards of deck to see if they are gold.
 		// if they are gold and the deck size is 5, it is safe to assume,
 		// baron was moved down in the deck correctly
-		for (i = 0; i < 4; i++) {
+		for (i = 0; i < 5; i++) {
 			if (gS->deck[gS->whoseTurn][i] == gold) {
 				actual++;
 			}
