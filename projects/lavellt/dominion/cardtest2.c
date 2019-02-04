@@ -97,6 +97,7 @@ int smithy_smithyDiscarded() {
 	gS->deck[gS->whoseTurn][4] = silver;
 
 	gS->playedCardCount = 0;
+	gS->playedCards[0] = 0;
 
 	cardEffect(smithy, 0, 0, 0, gS, 0, 0);
 
