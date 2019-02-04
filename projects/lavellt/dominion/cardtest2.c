@@ -101,7 +101,7 @@ int smithy_smithyDiscarded() {
 	cardEffect(smithy, 0, 0, 0, gS, 0, 0);
 
 	if (gS->whoseTurn == 0) {
-		actual = gS->playedCards[gS->playedCardCount];
+		actual = gS->playedCards[0];
 	}
 
 	printf("3. Check Discard for Smithy: ");
