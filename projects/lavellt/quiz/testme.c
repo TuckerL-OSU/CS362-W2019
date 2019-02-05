@@ -22,10 +22,9 @@ char *inputString()
 
 	int i;
 	for (i = 0; i < 5; i++) {
-	// get the decimal value of a letter and cast it to char
+	// get the decimal value of a letter and cast it to char 
+	// and set the current string element to it
 		str[i] = (char)((rand() % (116 - 101 + 1)) + 101);
-		// set the current string element to the new letter
-		//str[i] = c;
 	}
 
 	// null terminate string
