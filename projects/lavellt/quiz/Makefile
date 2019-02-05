@@ -3,4 +3,4 @@ testme:
 	./testme
 
 clean:
-	rm -r testme *.o
+	rm -r testme
