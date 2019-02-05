@@ -124,11 +124,5 @@ unittestresults:
 	./ct4 >> unittestresults.out
 	gcov -abcr dominion.c >> unittestresults.out
 
-	echo "===========" >> unittestresults.out
-	echo "Total Coverage" >> unittestresults.out
-	echo "===========" >> unittestresults.out
-	gcov -abcr dominion.c cardtest1.c cardtest2.c cardtest3.c cardtest4.c unittest1.c unittest2.c unittest3.c unittest4.c>> unittestresults.out
-
-
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe ut1 ut2 ut3 ut4 ct1 ct2 ct3 ct4
