@@ -73,14 +73,14 @@ unittestresults:
 	echo "===========" >> unittestresults.out
 	make ut1
 	./ut1 >> unittestresults.out
-	gcov -acr dominion.c >> unittestresults.out
+	gcov -abcr dominion.c >> unittestresults.out
 	
 	echo "===========" >> unittestresults.out
 	echo "unittest2.c: isGameOver()" >> unittestresults.out
 	echo "===========" >> unittestresults.out
 	make ut2
 	./ut2 >> unittestresults.out
-	gcov -acr dominion.c >> unittestresults.out
+	gcov -abcr dominion.c >> unittestresults.out
 	
 	echo "===========" >> unittestresults.out	
 	echo "unittest3.c: updateCoins()" >> unittestresults.out
