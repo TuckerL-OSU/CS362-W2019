@@ -73,28 +73,28 @@ unittestresults:
 	echo "===========" >> unittestresults.out
 	make ut1
 	./ut1 >> unittestresults.out
-	gcov -abcr dominion.c >> unittestresults.out
+	gcov -abcdr dominion.c >> unittestresults.out
 	
 	echo "===========" >> unittestresults.out
 	echo "unittest2.c: isGameOver()" >> unittestresults.out
 	echo "===========" >> unittestresults.out
 	make ut2
 	./ut2 >> unittestresults.out
-	gcov -abcr dominion.c >> unittestresults.out
+	gcov -abcdr dominion.c >> unittestresults.out
 	
 	echo "===========" >> unittestresults.out	
 	echo "unittest3.c: updateCoins()" >> unittestresults.out
 	echo "===========" >> unittestresults.out
 	make ut3
 	./ut3 >> unittestresults.out
-	gcov -abcr dominion.c >> unittestresults.out
+	gcov -abcdr dominion.c >> unittestresults.out
 	
 	echo "===========" >> unittestresults.out	
 	echo "unittest4.c: whoseTurn()" >> unittestresults.out
 	echo "===========" >> unittestresults.out
 	make ut4
 	./ut4 >> unittestresults.out
-	gcov -abcr dominion.c >> unittestresults.out
+	gcov -abcdr dominion.c >> unittestresults.out
 
 	echo "===========" >> unittestresults.out	
 	echo "cardtest1.c: Adventurer" >> unittestresults.out
