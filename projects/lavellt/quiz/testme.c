@@ -22,7 +22,11 @@ char *inputString()
 
 	int i;
 	for (i = 0; i < strlen(str) - 1; i++) {
-		char c = (char)((rand() % (116 - 101 + 1)) + 101);
+	// get the decimal value of the letter
+		int x = (rand() % (116 - 101 + 1)) + 101;
+		// convert the decimal into its correct char
+		char c = (char)x;
+		// set the current string element to the new letter
 		str[i] = c;
 	}
 
