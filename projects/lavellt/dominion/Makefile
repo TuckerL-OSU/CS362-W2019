@@ -127,7 +127,7 @@ unittestresults:
 	echo "===========" >> unittestresults.out
 	echo "Total Coverage" >> unittestresults.out
 	echo "===========" >> unittestresults.out
-	gcov -abcr dominion.c cardtest1.c cardtest2.c cardtest3.c cardtest4.c unittest1.c unittest2.c unittest3.c unittest4.c >> unittestresults.out
+	gcov -abcr dominion.c cardtest1.c cardtest2.c >> unittestresults.out
 
 
 clean:
