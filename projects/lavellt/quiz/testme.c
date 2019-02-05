@@ -1,6 +1,6 @@
 // Tucker Lavell
 // CS362 - Winter 2019
-// Random Testing Quiz.
+// Random Testing Quiz
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
