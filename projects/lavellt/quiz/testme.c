@@ -74,33 +74,35 @@
 //    return 0;
 //}
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <time.h>
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<time.h>
 
-#define STR_LEN 5
 
+//random character generation
 char inputChar()
 {
-	// return a random value between 0 and 127
-	return (char)(rand() % 94 + 32);
+	// TODO: rewrite this function
+	int n = (rand() % (126 - 32 + 1)) + 32;
+	char c = (char)n;
+
+	return c;
 }
 
 char *inputString()
 {
-	//allocate memory for string
-	char *string = (char*)malloc(sizeof(char)* STR_LEN + 1);
-
-	//create a string of random characters
-	for (int a = 0; a < STR_LEN; a++)
-	{
-		string[a] = (char)(rand() % 25 + 97);
+	// TODO: rewrite this function
+	char str[6];
+	int i;
+	for (i = 0; i < 5; i++) {
+		int n = (rand() % (116 - 101 + 1)) + 101;
+		char c = (char)n;
+		str[i] = c;
 	}
-
-	//terminate the string correctly and return it
-	string[5] = '\0';
-	return string;
+	str[5] = '\0';
+	char *final = str;
+	return final;
 }
 
 void testme()
