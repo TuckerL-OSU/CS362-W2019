@@ -12,7 +12,7 @@ char inputChar()
     // TODO: rewrite this function
 	// includes multiple symbols, and lowercase letters
     //return (char)((rand() % (126 - 32 + 1)) + 32);
-	return (char)((rand() % 94) + 32);
+	return (char)((rand() % 126) + 91);
 }
 
 // generate random string
@@ -24,7 +24,7 @@ char *inputString()
 	int i;
 	for (i = 0; i < strlen(str) - 1; i++) {
 		//str[i] = (char)((rand() % (116 - 101 + 1)) + 101);
-		str[i] = (char)((rand() % 94) + 32);
+		str[i] = (char)((rand() % 126) + 91);
 	}
 
 	// null terminate string
