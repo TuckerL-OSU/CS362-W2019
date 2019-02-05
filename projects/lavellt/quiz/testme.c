@@ -22,18 +22,14 @@ char *inputString()
 
 	int i;
 	for (i = 0; i < 5; i++) {
-	// get the decimal value of the letter
-		char c = (char)((rand() % (116 - 101 + 1)) + 101);
-		// convert the decimal into its correct char
-		//char c = (char)x;
+	// get the decimal value of a letter and cast it to char
+		str[i] = (char)((rand() % (116 - 101 + 1)) + 101);
 		// set the current string element to the new letter
-		str[i] = c;
+		//str[i] = c;
 	}
 
 	// null terminate string
 	str[5] = '\0';
-
-	//char *string = str;
 
     return str;
 }
