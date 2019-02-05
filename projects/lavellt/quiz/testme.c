@@ -6,16 +6,29 @@
 #include<stdlib.h>
 #include<time.h>
 
+// generate random char
 char inputChar()
 {
     // TODO: rewrite this function
-    return ' ';
+	// includes multiple symbols, and lowercase letters
+    return (char)((rand() % (126 - 32 + 1)) + 32);
 }
 
+// generate random string
 char *inputString()
 {
     // TODO: rewrite this function
-    return "";
+	char str[6];
+
+	int i;
+	for (i = 0; i < strlen(str); i++) {
+		str[i] = (char)
+	}
+
+	// null terminate string
+	str[strlen(str) - 1] = '\0';
+
+    return str;
 }
 
 void testme()
@@ -34,7 +47,7 @@ void testme()
     if (c == '[' && state == 0) state = 1;
     if (c == '(' && state == 1) state = 2;
     if (c == '{' && state == 2) state = 3;
-    if (c == ' '&& state == 3) state = 4;
+    if (c == ' ' && state == 3) state = 4;
     if (c == 'a' && state == 4) state = 5;
     if (c == 'x' && state == 5) state = 6;
     if (c == '}' && state == 6) state = 7;
