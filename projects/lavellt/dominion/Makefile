@@ -63,7 +63,7 @@ ct4: unittests.o dominion.o cardtest4.c
 
 unittestresults: 
 
-	echo "Results for Assignment 3" > unittestresults.out
+	echo "Results for Assignment 3: Tucker Lavell" > unittestresults.out
 	make rngs.o
 	make dominion.o
 	make unittests.o
@@ -73,7 +73,7 @@ unittestresults:
 	echo "===========" >> unittestresults.out
 	make ut1
 	./ut1 >> unittestresults.out
-	gcov -abcr dominion.c unittest1.c >> unittestresults.out
+	gcov -abcr dominion.c >> unittestresults.out
 	
 	echo "===========" >> unittestresults.out
 	echo "unittest2.c: isGameOver()" >> unittestresults.out
