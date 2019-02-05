@@ -21,12 +21,12 @@ char *inputString()
 	char str[6];
 
 	int i;
-	for (i = 0; i < strlen(str); i++) {
-		str[i] = (char)
+	for (i = 0; i < strlen(str) - 1; i++) {
+		str[i] = (char)((rand() % (116 - 101 + 1)) + 101);
 	}
 
 	// null terminate string
-	str[strlen(str) - 1] = '\0';
+	str[5] = '\0';
 
     return str;
 }
