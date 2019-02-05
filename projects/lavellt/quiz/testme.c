@@ -21,7 +21,7 @@ char *inputString()
 	char str[6];
 
 	int i;
-	for (i = 0; i < strlen(str) - 1; i++) {
+	for (i = 0; i < 5; i++) {
 	// get the decimal value of the letter
 		int x = (rand() % (116 - 101 + 1)) + 101;
 		// convert the decimal into its correct char
