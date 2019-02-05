@@ -247,7 +247,9 @@ int playCard(int handPos, int choice1, int choice2, int choice3, struct gameStat
 	
   //get card played
   card = handCard(handPos, state);
-	
+
+  //printf("card returned: %d\n", card);
+
   //check if selected card is an action
   if ( card < adventurer || card > treasure_map )
     {
@@ -262,6 +264,7 @@ int playCard(int handPos, int choice1, int choice2, int choice3, struct gameStat
 	
   //reduce number of actions
   state->numActions--;
+
 
   //update coins (Treasure cards may be added with card draws)
   updateCoins(state->whoseTurn, state, coin_bonus);
@@ -649,6 +652,7 @@ int effectAdventurer(int currentPlayer, struct gameState *state) {
 	int cardDrawn = -1; // originally uninit (could break in future)
 	int drawntreasure = 0;
 
+	//while (drawntreasure<2) {
 	while (drawntreasure<3) { // 2 is original. playdom 30 results in P0: 0, P1: 51
 		if (state->deckCount[currentPlayer] <1) {//if the deck is empty we need to shuffle discard and add to deck
 			shuffle(currentPlayer, state);
@@ -698,6 +702,7 @@ int effectFeast(int currentPlayer, struct gameState *state, int choice1) {
 		temphand[i] = state->hand[currentPlayer][i];//Backup card
 		state->hand[currentPlayer][i] = -1;//Set to nothing
 	}
+
 	//Backup hand
 
 	//Update Coins for Buy
@@ -837,6 +842,7 @@ int effectTreasure_Map(int currentPlayer, struct gameState *state, int handPos) 
 			break;
 		}
 	}
+	
 	if (index > -1)
 	{
 		//trash both treasure cards
@@ -901,7 +907,6 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 		 //z=z-1;
 	  //     }
 	  //     return 0;
-
 	  return effectAdventurer(currentPlayer, state);
 
   case council_room:
