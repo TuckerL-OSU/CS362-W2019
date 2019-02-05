@@ -33,9 +33,9 @@ char *inputString()
 	// null terminate string
 	str[5] = '\0';
 
-	char *string = str;
+	//char *string = str;
 
-    return string;
+    return str;
 }
 
 void testme()
@@ -68,10 +68,6 @@ void testme()
       printf("error ");
       exit(200);
     }
-	//if (tcCount >= 100000) {
-	//	printf("100k tests stopping");
-	//	exit(200);
-	//}
   }
 }
 
