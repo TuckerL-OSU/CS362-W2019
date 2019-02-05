@@ -22,7 +22,8 @@ char *inputString()
 
 	int i;
 	for (i = 0; i < strlen(str) - 1; i++) {
-		str[i] = (char)((rand() % (116 - 101 + 1)) + 101);
+		char c = (char)((rand() % (116 - 101 + 1)) + 101);
+		str[i] = c;
 	}
 
 	// null terminate string
