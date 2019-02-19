@@ -39,7 +39,7 @@ int main() {
 
 	int i;
 	for (i = 0; i < MAX_TESTS; i++) {
-		printf("Test #%d\n", i);
+		printf("Test #%d\n", i + 1);
 		// set up a game
 		initializeGame(numPlayers, k, seed, &pre);
 		// set a players turn, which player doesn't matter
@@ -152,17 +152,18 @@ int main() {
 		//	passed = 0;
 		//}
 
-		if (passed == 1) {
-			printf("All Tests: Passed\n\n");
+		if (assertTrue(passed, 1) {
+			printf("All Tests:  ");
 			testPassed++;
 		}
 
 	}
 
 	printf("\n\n");
-	printf("# of Tests Passed: %d\n", testPassed);
-	printf("# of Cards Drawn To Hand Failed: %d\n", drawTestFailed);
-	//printf("# of Smithy Discarded Fails: %d\n\n", discardTestFailed);
+	printf("Number of Tests Fully Passed: %d out of %d\n", testPassed, i);
+	printf("Number of Cards Drawn to Hand Failed: %d\n", drawTestFailed);
+	printf("Number of Cards Discarded Failed: %d\n\n", discardTestFailed);
+	printf("Number of Cards Left in Deck Failed: %d\n\n", discardTestFailed);
 
 	return 0;
 }
