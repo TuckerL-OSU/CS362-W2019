@@ -158,7 +158,6 @@ int main() {
 			testPassed++;
 		}
 
-		free 
 	}
 
 	printf("\n\n");
