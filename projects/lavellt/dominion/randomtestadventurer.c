@@ -73,7 +73,7 @@ int main() {
 				}
 				else {
 					// else fill hand with a random kingdom card
-					int randomK = rand() % (10);
+					int randomK = rand() % (9 + 0);
 					pre.deck[currentPlayer][j] = k[randomK];
 				}
 			}
