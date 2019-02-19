@@ -25,20 +25,14 @@ int main() {
 	int currentPlayer = 0;
 	int k[10] = { adventurer, gardens, embargo, village, minion, mine, cutpurse,
 		sea_hag, tribute, smithy };
-	int deckSize;
-	int handSize;
-	int m;
-	int coinCount;
-	int x;
-	int discardCopper;
-	int discardSilver;
-	int discardGold;
+	int deckSize = 0;
+	int handSize = 0;
 	int totalTestsPassed = 0;
 	int drawTreasureTestsFailed = 0;
 	int discardTestsFailed = 0;
 	int deckTestsFailed = 0;
 	int discardTreasureTestsFailed = 0;
-	int numTests = 3;
+	int numTests = 4;
 	int numPassed = 0;
 
 	int i;
@@ -139,39 +133,6 @@ int main() {
 			allTestsPassed = 0;
 		}
 		
-
-		//discardCopper = 0;
-		//discardSilver = 0;
-		//discardGold = 0;
-		//for (x = 0; x < post.discardCount[currentPlayer]; x++) {
-		//	if (post.discard[currentPlayer][x] == copper) {
-		//		discardCopper++;
-		//	}
-		//	else if (post.discard[currentPlayer][x] == silver) {
-		//		discardSilver++;
-		//	}
-		//	else if (post.discard[currentPlayer][x] == gold) {
-		//		discardGold++;
-		//	}
-		//}
-		//
-		//if (discardCopper != 0) {
-		//	printf("Copper was discarded: Test Failed\n\n");
-		//	discardTestFailed++;
-		//	passed = 0;
-		//}
-
-		//if (discardSilver != 0) {
-		//	printf("Silver was discarded: Test Failed\n\n");
-		//	discardTestFailed++;
-		//	passed = 0;
-		//}
-
-		//if (discardGold != 0) {
-		//	printf("Gold was discarded: Test Failed\n\n");
-		//	discardTestFailed++;
-		//	passed = 0;
-		//}
 		if (allTestsPassed != 0) {
 			printf("%d/%d: ", numPassed, numTests);
 			if (assertTrue(allTestsPassed, 1)) {
@@ -185,6 +146,7 @@ int main() {
 	printf("Number of Treasures Drawn to Hand Failed: %d/%d\n", drawTestsFailed, i);
 	printf("Number of Cards Discarded Failed: %d/%d\n", discardTestsFailed, i);
 	printf("Number of Cards Left in Deck Failed: %d/%d\n", deckTestsFailed, i);
+	printf("Treasures Discarded Tests Failed: %d/%d\n", discardTreasureTestsFailed, i);
 
 	return 0;
 }
