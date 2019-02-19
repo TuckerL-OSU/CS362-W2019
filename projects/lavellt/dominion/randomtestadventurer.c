@@ -75,10 +75,16 @@ int main() {
 				coinCountBefore++;
 			}
 		}
+
+		int bonus = rand() % 50;
+		int choice1 = rand() % 50;
+		int choice2 = rand() % 50;
+		int choice3 = rand() % 50;
+		int handPos = rand() % MAX_HAND;
 		//printf("Coin Count before: %d\n", coinCount);
 		//printf("discard count before: %d\n", G.discardCount[curPlayer]);
 		//printf("deckSize: %d, deck: %d, and hand: %d\n", deckSize, G.deckCount[0], G.handCount[0]); 
-		effectAdventurer(curPlayer, &G);
+		cardEffect(adventurer, choice1, choice2, choice3, &G, handPos, &bonus);
 
 		coinCount = 0;
 
