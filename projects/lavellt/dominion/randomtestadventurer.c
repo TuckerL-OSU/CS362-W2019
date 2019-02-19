@@ -114,7 +114,7 @@ int main() {
 		printf("3. Check Number of Cards Left in Deck: ");
 		// calc pre's potential deck size
 		pre.deckCount[currentPlayer] = deckSize - post.handCount[currentPlayer] - post.discardCount[currentPlayer];
-		if (!assertTrue(post.deckCount[currentPlayer], pre.deckCount[currentPlayer] - )) {
+		if (!assertTrue(post.deckCount[currentPlayer], pre.deckCount[currentPlayer])) {
 			discardTestFailed++;
 			passed = 0;
 		}
