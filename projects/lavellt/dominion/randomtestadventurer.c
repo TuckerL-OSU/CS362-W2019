@@ -151,19 +151,19 @@ int main() {
 		//	discardTestFailed++;
 		//	passed = 0;
 		//}
-
-		if (assertTrue(passed, 1)) {
-			printf("All Tests:  ");
-			testPassed++;
+		if (passed != 0) {
+			if (assertTrue(passed, 1)) {
+				printf("All Tests:  ");
+				testPassed++;
+			}
 		}
-
 	}
 
 	printf("\n\n");
 	printf("Number of Tests Fully Passed: %d out of %d\n", testPassed, i);
-	printf("Number of Cards Drawn to Hand Failed: %d\n", drawTestFailed);
-	printf("Number of Cards Discarded Failed: %d\n\n", discardTestFailed);
-	printf("Number of Cards Left in Deck Failed: %d\n\n", discardTestFailed);
+	printf("Number of Treasures Drawn to Hand Failed: %d\n", drawTestFailed);
+	printf("Number of Cards Discarded Failed: %d\n", discardTestFailed);
+	printf("Number of Cards Left in Deck Failed: %d\n", discardTestFailed);
 
 	return 0;
 }
