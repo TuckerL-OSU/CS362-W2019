@@ -152,7 +152,7 @@ int main() {
 		//	passed = 0;
 		//}
 
-		if (assertTrue(passed, 1) {
+		if (assertTrue(passed, 1)) {
 			printf("All Tests:  ");
 			testPassed++;
 		}
