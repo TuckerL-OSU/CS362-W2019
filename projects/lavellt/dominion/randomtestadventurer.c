@@ -21,7 +21,7 @@ int main() {
 	srand(time(NULL));
 	struct gameState pre;
 	int seed = 1000;
-	int numPlayers = 4;
+	int numPlayers = rand() % (4 + 2);
 	int curPlayer = 0;
 	int k[10] = { adventurer, gardens, embargo, village, minion, mine, cutpurse,
 		sea_hag, tribute, smithy };
@@ -55,30 +55,27 @@ int main() {
 
 		// position of adventurer
 		int handPos = 0;
-
-		//int j;
-		//for (j = 0; j < numPlayers; j++) {
 		
-			int j;
-			for (j = 0; j < pre.deckCount[currentPlayer]; j++) {
-				int randomCard = rand() % (27 + 1) - 1;
-				// attempt to stack the deck with some treasures just to be safe
-				if (randomCard == copper) {
-					pre.deck[currentPlayer][j] = copper;
-				}
-				else if (randomCard == silver) {
-					pre.deck[currentPlayer][j] = silver;
-				}
-				else if (randomCard == gold) {
-					pre.deck[currentPlayer][j] = gold;
-				}
-				else {
-					// else fill hand with a random kingdom card
-					int randomK = rand() % (10 + 1) - 1;
-					pre.deck[currentPlayer][j] = k[randomK];
-				}
+		int j;
+		for (j = 0; j < pre.deckCount[currentPlayer]; j++) {
+			// choose a card from 0-26 (matches enum)
+			int randomCard = rand() % (27 + 1) - 1;
+			// attempt to "load" the deck with some treasures just to be safe
+			if (randomCard == copper) {
+				pre.deck[currentPlayer][j] = copper;
 			}
-		//}
+			else if (randomCard == silver) {
+				pre.deck[currentPlayer][j] = silver;
+			}
+			else if (randomCard == gold) {
+				pre.deck[currentPlayer][j] = gold;
+			}
+			else {
+				// else fill deck with a random kingdom card
+				int randomK = rand() % (10 + 1) - 1;
+				pre.deck[currentPlayer][j] = k[randomK];
+			}
+		}
 
 		//for (m = 0; m < pre.handCount[curPlayer]; m++) {
 		//	if (pre.hand[curPlayer][m] == copper || pre.hand[curPlayer][m] == silver || pre.hand[curPlayer][m] == gold) {
