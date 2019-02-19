@@ -60,21 +60,21 @@ int main() {
 		
 			int j;
 			for (j = 0; j < pre.deckCount[currentPlayer]; j++) {
-				int randomCard = rand() % (27 + 1);
+				int randomCard = rand() % (27 + 1) - 1;
 				// attempt to stack the deck with some treasures just to be safe
-				if (randomCard == copper - 1) {
+				if (randomCard == copper) {
 					pre.deck[currentPlayer][j] = copper;
 				}
-				else if (randomCard == silver - 1) {
+				else if (randomCard == silver) {
 					pre.deck[currentPlayer][j] = silver;
 				}
-				else if (randomCard == gold - 1) {
+				else if (randomCard == gold) {
 					pre.deck[currentPlayer][j] = gold;
 				}
 				else {
 					// else fill hand with a random kingdom card
-					int randomK = rand() % (10 + 1);
-					pre.deck[currentPlayer][j] = k[randomK - 1];
+					int randomK = rand() % (10 + 1) - 1;
+					pre.deck[currentPlayer][j] = k[randomK];
 				}
 			}
 		//}
