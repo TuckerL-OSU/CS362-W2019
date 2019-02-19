@@ -2,138 +2,55 @@
 // random test: Adventurer
 #include "unittests.h"
 
-int main() {
-	struct gameState G;
-	int seed = 1000;
-	int numPlayers = 2;
-	int curPlayer = 0;
-	int k[10] = { adventurer, embargo, village, minion, mine, cutpurse,
-		sea_hag, tribute, smithy, council_room };
-	int deckSize;
-	int handSize;
-	int i;
-	int j;
-	int q;
-	int randomCard;
-	int randK;
-	int m;
-	int coinCount;
-	int x;
-	int discardCopper;
-	int discardSilver;
-	int discardGold;
-	int coinCountBefore;
-	int testPassed = 0;
-	int drawTestFailed = 0;
-	int discardTestFailed = 0;
+// Tests the adventurer card in dominion.c
+int main(int argc, char** argv) {
+	printf("TESTING adventurer card\n");
 
 	srand(time(NULL));
-	//randomize hand size
-	for (i = 0; i < 1000000; i++) {
-		initializeGame(numPlayers, k, seed, &G);
-		coinCountBefore = 0;
-		deckSize = rand() % (MAX_DECK + 1);
-		//set handsize
-		handSize = rand() % (deckSize + 1);
 
+	printf("RANDOM TESTS\n");
 
-		G.deckCount[0] = deckSize - handSize;
-		G.handCount[0] = handSize;
+	int numtests = 1000;
+	int NUMQUESTIONS = 3;
+	int bad = 0;
+	for (int i = 0; i < numtests; i++) {
+		int numplayers = rand() % (MAX_PLAYERS - 1) + 2; // Value between 2 and 4.
+		struct gameState G;
+		int k[10] = { adventurer, gardens, embargo, village, steward, mine, cutpurse, sea_hag, tribute, smithy };
 
+		initializeGame(numplayers, k, rand(), &G);
 
+		int player = rand() % numplayers;
+		G.whoseTurn = player;
 
-		for (j = 0; j < numPlayers; j++) {
-			for (q = 0; q < G.deckCount[j]; q++) {
-				randomCard = rand() % (50 + 1);
-				randK = rand() % (10);
-				if (randomCard == 1) {
-					G.deck[j][q] = copper;
-				}
-				else if (randomCard == 2) {
-					G.deck[j][q] = silver;
-				}
-				else if (randomCard == 3) {
-					G.deck[j][q] = gold;
-				}
-				else {
-					G.deck[j][q] = k[randK];
-				}
-			}
+		int bonus = rand() % 50;
+		int choice1 = rand() % 50;
+		int choice2 = rand() % 50;
+		int choice3 = rand() % 50;
+		int handPos = rand() % MAX_HAND;
+
+		struct gameState orig;
+		memcpy(&orig, &G, sizeof(struct gameState));
+
+		cardEffect(adventurer, choice1, choice2, choice3, &G, handPos, &bonus);
+
+		if (G.handCount[player] != orig.handCount[player] + 2) {
+			printf("TEST FAILED: Player %d didn't draw 2 cards.\n", player);
+			bad++;
 		}
 
-		for (m = 0; m < G.handCount[curPlayer]; m++) {
-			if (G.hand[curPlayer][m] == copper || G.hand[curPlayer][m] == silver || G.hand[curPlayer][m] == gold) {
-				coinCountBefore++;
-			}
-		}
-		//printf("Coin Count before: %d\n", coinCount);
-		//printf("discard count before: %d\n", G.discardCount[curPlayer]);
-		//printf("deckSize: %d, deck: %d, and hand: %d\n", deckSize, G.deckCount[0], G.handCount[0]); 
-		adventurerEffect(curPlayer, &G);
-
-		coinCount = 0;
-
-		for (m = 0; m < G.handCount[curPlayer]; m++) {
-			if (G.hand[curPlayer][m] == copper || G.hand[curPlayer][m] == silver || G.hand[curPlayer][m] == gold) {
-				coinCount++;
-			}
-		}
-		//printf("Coin Count after: %d\n", coinCount);
-		//printf("discard count after: %d\n", G.discardCount[curPlayer]);
-		discardCopper = 0;
-		discardSilver = 0;
-		discardGold = 0;
-		for (x = 0; x < G.discardCount[curPlayer]; x++) {
-			if (G.discard[curPlayer][x] == copper) {
-				discardCopper++;
-			}
-			else if (G.discard[curPlayer][x] == silver) {
-				discardSilver++;
-			}
-			else if (G.discard[curPlayer][x] == gold) {
-				discardGold++;
-			}
-		}
-		int passed = 1;
-		if (coinCount > (coinCountBefore + 2)) {
-			printf("Too many cards drawn: Test Failed\n\n");
-			drawTestFailed++;
-			passed = 0;
+		int cardDrawn1 = G.hand[player][G.handCount[player] - 1];
+		if (cardDrawn1 != copper && cardDrawn1 != silver && cardDrawn1 != gold) {
+			printf("TEST FAILED: Player %d's newest card isn't money.\n", player);
+			bad++;
 		}
 
-		if (coinCount < coinCountBefore) {
-			printf("Fewer cards exist in hand than were first present: Test Failed\n\n");
-			drawTestFailed++;
-			passed = 0;
-		}
-		if (discardCopper != 0) {
-			printf("Copper was discarded: Test Failed\n\n");
-			discardTestFailed++;
-			passed = 0;
-		}
-
-		if (discardSilver != 0) {
-			printf("Silver was discarded: Test Failed\n\n");
-			discardTestFailed++;
-			passed = 0;
-		}
-
-		if (discardGold != 0) {
-			printf("Gold was discarded: Test Failed\n\n");
-			discardTestFailed++;
-			passed = 0;
-		}
-
-		if (passed == 1) {
-			printf("All Tests: Passed\n\n");
-			testPassed++;
+		int cardDrawn2 = G.hand[player][G.handCount[player] - 2];
+		if (cardDrawn2 != copper && cardDrawn2 != silver && cardDrawn2 != gold) {
+			printf("TEST FAILED: Player %d's second newest card isn't money.\n", player);
+			bad++;
 		}
 	}
 
-	printf("\n\n");
-	printf("# of Tests Passed: %d\n", testPassed);
-	printf("# of Cards Drawn To Hand Failed: %d\n", handFailure);
-	printf("# of Smithy Discarded Fails: %d\n\n", discardFailure);
-
-	return 0;
+	printf("%d of %d TESTS PASSED\n", numtests * NUMQUESTIONS - bad, numtests * NUMQUESTIONS);
 }
