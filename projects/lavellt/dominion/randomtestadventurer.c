@@ -105,7 +105,7 @@ int main() {
 
 		printf("2. Check Number of Cards Discarded: ");
 		pre.discardCount[currentPlayer] = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
-		if (!assertTrue(post.discardCount, pre.discardCount[currentPlayer])) {
+		if (!assertTrue(post.discardCount[currentPlayer], pre.discardCount[currentPlayer])) {
 			discardTestFailed++;
 			passed = 0;
 		}
