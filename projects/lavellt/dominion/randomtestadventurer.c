@@ -90,7 +90,7 @@ int main() {
 
 		// create the object to do work on
 		struct gameState post;
-		memcpy(&post, pre, sizeof(struct gameState*));
+		memcpy(&post, *pre, sizeof(struct gameState));
 		
 		//printf("Coin Count before: %d\n", coinCount);
 		//printf("discard count before: %d\n", pre.discardCount[curPlayer]);
