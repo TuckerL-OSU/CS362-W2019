@@ -33,9 +33,13 @@ int main() {
 	int discardCopper;
 	int discardSilver;
 	int discardGold;
-	int testPassed = 0;
-	int drawTestFailed = 0;
-	int discardTestFailed = 0;
+	int totalTestsPassed = 0;
+	int drawTreasureTestsFailed = 0;
+	int discardTestsFailed = 0;
+	int deckTestsFailed = 0;
+	int discardTreasureTestsFailed = 0;
+	int numTests = 3;
+	int numPassed = 0;
 
 	int i;
 	for (i = 0; i < MAX_TESTS; i++) {
@@ -88,30 +92,53 @@ int main() {
 
 		post.coins += countNumTreasureCards(post.whoseTurn, &post);
 
-		int passed = 1;
+		// used for true/false flagging in if structure
+		int allTestsPassed = 1;
+
 		// Adv should add 2 treasures to the hand
-		/*if (post.coins > (pre.coins + 2)) {*/
 		printf("1. Check Number of Treasures Drawn: ");
 		if (!assertTrue(post.coins, pre.coins + 2)) {		
-			drawTestFailed++;
-			passed = 0;
+			drawTreasureTestsFailed++;
+			allTestsPassed = 0;
 		}
+
+		numPassed++;
 
 		printf("2. Check Number of Cards Discarded: ");
 		// calc pre's potential discard size
 		pre.discardCount[currentPlayer] = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
 		if (!assertTrue(post.discardCount[currentPlayer], pre.discardCount[currentPlayer])) {
-			discardTestFailed++;
-			passed = 0;
+			discardTestsFailed++;
+			allTestsPassed = 0;
 		}
+
+		numPassed++;
 
 		printf("3. Check Number of Cards Left in Deck: ");
 		// calc pre's potential deck size
 		pre.deckCount[currentPlayer] = deckSize - post.handCount[currentPlayer] - post.discardCount[currentPlayer];
 		if (!assertTrue(post.deckCount[currentPlayer], pre.deckCount[currentPlayer])) {
-			discardTestFailed++;
-			passed = 0;
+			deckTestsFailed++;
+			allTestsPassed = 0;
 		}
+
+		numPassed++;
+
+		printf("4. Check if Treasure(s) got Discarded: ");
+		int x;
+		int numTreasureDiscarded = 0;
+		for (x = 0; x < post.discardCount[currentPlayer]; x++) {
+			if (post.discard[currentPlayer][x] == copper ||
+				post.discard[currentPlayer][x] == silver ||
+				post.discard[currentPlayer][x] == gold) {
+				numTreasureDiscarded++;
+			}
+		}
+		if (!assertTrue(numTreasureDiscarded, 0)) {
+			discardTreasureTestsFailed++;
+			allTestsPassed = 0;
+		}
+		
 
 		//discardCopper = 0;
 		//discardSilver = 0;
@@ -145,19 +172,19 @@ int main() {
 		//	discardTestFailed++;
 		//	passed = 0;
 		//}
-		if (passed != 0) {
-			printf("All Tests:  ");
-			if (assertTrue(passed, 1)) {
-				testPassed++;
+		if (allTestsPassed != 0) {
+			printf("%d/%d: ", numPassed, numTests);
+			if (assertTrue(allTestsPassed, 1)) {
+				totalTestsPassed++;
 			}
 		}
 	}
 
 	printf("\n\n");
-	printf("Number of Tests Fully Passed: %d out of %d\n", testPassed, i);
-	printf("Number of Treasures Drawn to Hand Failed: %d\n", drawTestFailed);
-	printf("Number of Cards Discarded Failed: %d\n", discardTestFailed);
-	printf("Number of Cards Left in Deck Failed: %d\n", discardTestFailed);
+	printf("Number of Tests Fully Passed: %d/%d\n", totalTestsPassed, i);
+	printf("Number of Treasures Drawn to Hand Failed: %d/%d\n", drawTestsFailed, i);
+	printf("Number of Cards Discarded Failed: %d/%d\n", discardTestsFailed, i);
+	printf("Number of Cards Left in Deck Failed: %d/%d\n", deckTestsFailed, i);
 
 	return 0;
 }
