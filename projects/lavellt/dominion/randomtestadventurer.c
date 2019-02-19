@@ -20,7 +20,7 @@ int main() {
 	srand(time(NULL));
 	struct gameState pre;
 	int seed = 1000;
-	int numPlayers = rand() % (4 + 2);
+	int numPlayers = 4;
 	int curPlayer = 0;
 	int k[10] = { adventurer, gardens, embargo, village, minion, mine, cutpurse,
 		sea_hag, tribute, smithy };
@@ -157,6 +157,8 @@ int main() {
 			printf("All Tests: Passed\n\n");
 			testPassed++;
 		}
+
+		free 
 	}
 
 	printf("\n\n");
