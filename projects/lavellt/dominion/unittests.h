@@ -7,6 +7,9 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
+#include <time.h>
+#include <assert.h>
+#include <string.h>
 
 int assertTrue(int, int);
 int assertObjectTrue(struct gameState*, struct gameState*);
