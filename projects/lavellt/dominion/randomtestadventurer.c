@@ -143,7 +143,7 @@ int main() {
 
 	printf("\n\n");
 	printf("Number of Tests Fully Passed: %d/%d\n", totalTestsPassed, i);
-	printf("Number of Treasures Drawn to Hand Failed: %d/%d\n", drawTestsFailed, i);
+	printf("Number of Treasures Drawn to Hand Failed: %d/%d\n", drawTreasureTestsFailed, i);
 	printf("Number of Cards Discarded Failed: %d/%d\n", discardTestsFailed, i);
 	printf("Number of Cards Left in Deck Failed: %d/%d\n", deckTestsFailed, i);
 	printf("Treasures Discarded Tests Failed: %d/%d\n", discardTreasureTestsFailed, i);
