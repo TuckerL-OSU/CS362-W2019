@@ -79,7 +79,7 @@ int main() {
 		// coins is unused so I am going to use it here for testing
 		pre.coins = countNumTreasureCards(currentPlayer, &pre);
 
-		// create the object to modify, saves pre for comparison later
+		// create the object to modify (copy of pre), saves pre for comparison later
 		struct gameState post;
 		memcpy(&post, &pre, sizeof(struct gameState));
 		
@@ -96,12 +96,6 @@ int main() {
 			drawTestFailed++;
 			passed = 0;
 		}
-
-		//if (post.coins <= pre.coins) {
-		//	printf("Not enough treasures drawn: Test Failed\n");
-		//	drawTestFailed++;
-		//	passed = 0;
-		//}
 
 		printf("2. Check Number of Cards Discarded: ");
 		// calc pre's potential discard size
@@ -152,8 +146,8 @@ int main() {
 		//	passed = 0;
 		//}
 		if (passed != 0) {
+			printf("All Tests:  ");
 			if (assertTrue(passed, 1)) {
-				printf("All Tests:  ");
 				testPassed++;
 			}
 		}
