@@ -21,8 +21,7 @@ int main() {
 	srand(time(NULL));
 	struct gameState pre;
 	int seed = 1000;
-	int numPlayers = rand() % (4 + 2);
-	int curPlayer = 0;
+	int numPlayers = 2;
 	int k[10] = { adventurer, gardens, embargo, village, minion, mine, cutpurse,
 		sea_hag, tribute, smithy };
 	int deckSize;
@@ -33,13 +32,13 @@ int main() {
 	int discardCopper;
 	int discardSilver;
 	int discardGold;
-	int coinCountBefore;
 	int testPassed = 0;
 	int drawTestFailed = 0;
 	int discardTestFailed = 0;
 
 	int i;
 	for (i = 0; i < MAX_TESTS; i++) {
+		printf("Test #%d\n", i);
 		// set up a game
 		initializeGame(numPlayers, k, seed, &pre);
 		// set a players turn, which player doesn't matter
@@ -77,79 +76,71 @@ int main() {
 			}
 		}
 
-		//for (m = 0; m < pre.handCount[curPlayer]; m++) {
-		//	if (pre.hand[curPlayer][m] == copper || pre.hand[curPlayer][m] == silver || pre.hand[curPlayer][m] == gold) {
-		//		coinCountBefore++;
-		//	}
-		//}
-
 		// coins is unused so I am going to use it here for testing
 		pre.coins = countNumTreasureCards(currentPlayer, &pre);
 
-		// create the object to do work on
+		// create the object to modify, saves pre for comparison later
 		struct gameState post;
 		memcpy(&post, &pre, sizeof(struct gameState));
 		
-		//printf("Coin Count before: %d\n", coinCount);
-		//printf("discard count before: %d\n", pre.discardCount[curPlayer]);
-		//printf("deckSize: %d, deck: %d, and hand: %d\n", deckSize, pre.deckCount[0], pre.handCount[0]); 
+		// call adventurer, using post
 		cardEffect(adventurer, 0, 0, 0, &post, handPos, 0);
-
-		coinCount = 0;
-
-		//for (m = 0; m < pre.handCount[curPlayer]; m++) {
-		//	if (pre.hand[curPlayer][m] == copper || pre.hand[curPlayer][m] == silver || pre.hand[curPlayer][m] == gold) {
-		//		coinCount++;
-		//	}
-		//}
 
 		post.coins += countNumTreasureCards(post.whoseTurn, &post);
 
-		//printf("Coin Count after: %d\n", coinCount);
-		//printf("discard count after: %d\n", pre.discardCount[curPlayer]);
-		discardCopper = 0;
-		discardSilver = 0;
-		discardGold = 0;
-		for (x = 0; x < post.discardCount[curPlayer]; x++) {
-			if (post.discard[curPlayer][x] == copper) {
-				discardCopper++;
-			}
-			else if (post.discard[curPlayer][x] == silver) {
-				discardSilver++;
-			}
-			else if (post.discard[curPlayer][x] == gold) {
-				discardGold++;
-			}
-		}
 		int passed = 1;
-		if (post.coins > (pre.coins + 2)) {
-			printf("Too many cards drawn: Test Failed\n\n");
+		// Adv should add 2 treasures to the hand
+		/*if (post.coins > (pre.coins + 2)) {*/
+		printf("1. Check Number of Treasures Drawn: ");
+		if (!assertTrue(post.coins, pre.coins + 2)) {		
 			drawTestFailed++;
 			passed = 0;
 		}
 
-		if (post.coins < pre.coins) {
-			printf("Fewer cards exist in hand than were first present: Test Failed\n\n");
-			drawTestFailed++;
-			passed = 0;
-		}
-		if (discardCopper != 0) {
-			printf("Copper was discarded: Test Failed\n\n");
-			discardTestFailed++;
-			passed = 0;
-		}
+		//if (post.coins <= pre.coins) {
+		//	printf("Not enough treasures drawn: Test Failed\n");
+		//	drawTestFailed++;
+		//	passed = 0;
+		//}
 
-		if (discardSilver != 0) {
-			printf("Silver was discarded: Test Failed\n\n");
+		printf("2. Check Number of Cards Discarded: ");
+		pre.discardCount[currentPlayer] = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
+		if (!assertTrue(post.discardCount, pre.discardCount[currentPlayer])) {
 			discardTestFailed++;
 			passed = 0;
 		}
+		//discardCopper = 0;
+		//discardSilver = 0;
+		//discardGold = 0;
+		//for (x = 0; x < post.discardCount[currentPlayer]; x++) {
+		//	if (post.discard[currentPlayer][x] == copper) {
+		//		discardCopper++;
+		//	}
+		//	else if (post.discard[currentPlayer][x] == silver) {
+		//		discardSilver++;
+		//	}
+		//	else if (post.discard[currentPlayer][x] == gold) {
+		//		discardGold++;
+		//	}
+		//}
+		//
+		//if (discardCopper != 0) {
+		//	printf("Copper was discarded: Test Failed\n\n");
+		//	discardTestFailed++;
+		//	passed = 0;
+		//}
 
-		if (discardGold != 0) {
-			printf("Gold was discarded: Test Failed\n\n");
-			discardTestFailed++;
-			passed = 0;
-		}
+		//if (discardSilver != 0) {
+		//	printf("Silver was discarded: Test Failed\n\n");
+		//	discardTestFailed++;
+		//	passed = 0;
+		//}
+
+		//if (discardGold != 0) {
+		//	printf("Gold was discarded: Test Failed\n\n");
+		//	discardTestFailed++;
+		//	passed = 0;
+		//}
 
 		if (passed == 1) {
 			printf("All Tests: Passed\n\n");
