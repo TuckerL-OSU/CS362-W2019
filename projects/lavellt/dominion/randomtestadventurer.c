@@ -86,7 +86,7 @@ int main() {
 		//}
 
 		// coins is unused so I am going to use it here for testing
-		pre.coins = countNumTreasureCards(pre.whoseTurn, &pre);
+		pre.coins = countNumTreasureCards(currentPlayer, &pre);
 
 		// create the object to do work on
 		struct gameState post;
