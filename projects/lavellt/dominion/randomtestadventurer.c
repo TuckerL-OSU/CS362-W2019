@@ -2,6 +2,7 @@
 // random test: Adventurer
 #include "unittests.h"
 
+#define MAX_TESTS 1000000
 
 int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
 	int numTreasure = 0;
@@ -38,7 +39,7 @@ int main() {
 	int discardTestFailed = 0;
 
 	int i;
-	for (i = 0; i < 1000000; i++) {
+	for (i = 0; i < MAX_TESTS; i++) {
 		// set up a game
 		initializeGame(numPlayers, k, seed, &pre);
 		// set a players turn, which player doesn't matter
@@ -60,20 +61,20 @@ int main() {
 		
 			int j;
 			for (j = 0; j < pre.deckCount[currentPlayer]; j++) {
-				int randomCard = rand() % (50 + 1);
+				int randomCard = rand() % (27 + 1) - 1;
 				// attempt to stack the deck with some treasures just to be safe
-				if (randomCard == 1) {
+				if (randomCard == copper) {
 					pre.deck[currentPlayer][j] = copper;
 				}
-				else if (randomCard == 2) {
+				else if (randomCard == silver) {
 					pre.deck[currentPlayer][j] = silver;
 				}
-				else if (randomCard == 3) {
+				else if (randomCard == gold) {
 					pre.deck[currentPlayer][j] = gold;
 				}
 				else {
 					// else fill hand with a random kingdom card
-					int randomK = rand() % (10);
+					int randomK = rand() % (10 + 1) - 1;
 					pre.deck[currentPlayer][j] = k[randomK];
 				}
 			}
