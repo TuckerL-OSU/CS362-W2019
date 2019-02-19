@@ -53,7 +53,7 @@ int main() {
 		pre.handCount[0] = handSize;
 
 		// position of adventurer
-		int handPos = rand() % (handSize);
+		int handPos = 0;
 
 		//int j;
 		//for (j = 0; j < numPlayers; j++) {
