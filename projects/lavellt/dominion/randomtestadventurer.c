@@ -22,6 +22,7 @@ int main() {
 	struct gameState pre;
 	int seed = 1000;
 	int numPlayers = 2;
+	int currentPlayer = 0;
 	int k[10] = { adventurer, gardens, embargo, village, minion, mine, cutpurse,
 		sea_hag, tribute, smithy };
 	int deckSize;
@@ -42,8 +43,7 @@ int main() {
 		// set up a game
 		initializeGame(numPlayers, k, seed, &pre);
 		// set a players turn, which player doesn't matter
-		pre.whoseTurn = 0;
-		int currentPlayer = pre.whoseTurn;
+		pre.whoseTurn = currentPlayer;
 		deckSize = rand() % (MAX_DECK + 1);
 		// just to prevent the hand from being bigger than the deck
 		handSize = rand() % (deckSize + 1);
