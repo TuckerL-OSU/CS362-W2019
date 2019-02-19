@@ -43,7 +43,7 @@ int main() {
 		initializeGame(numPlayers, k, seed, &pre);
 		// set a players turn, which player doesn't matter
 		pre.whoseTurn = 0;
-		currentPlayer = pre.whoseTurn;
+		int currentPlayer = pre.whoseTurn;
 		deckSize = rand() % (MAX_DECK + 1);
 		// just to prevent the hand from being bigger than the deck
 		handSize = rand() % (deckSize + 1);
