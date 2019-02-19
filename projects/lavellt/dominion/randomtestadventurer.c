@@ -2,7 +2,8 @@
 // random test: Adventurer
 #include "unittests.h"
 
-#define MAX_TESTS 1000
+//#define MAX_TESTS 1000
+#define MAX_TESTS 1000000
 
 int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
 	int numTreasure = 0;
@@ -132,6 +133,8 @@ int main() {
 			discardTreasureTestsFailed++;
 			allTestsPassed = 0;
 		}
+
+		numPassed++;
 		
 		if (allTestsPassed != 0) {
 			printf("%d/%d: ", numPassed, numTests);
@@ -142,11 +145,11 @@ int main() {
 	}
 
 	printf("\n\n");
-	printf("Number of Tests Fully Passed: %d/%d\n", totalTestsPassed, i);
-	printf("Number of Treasures Drawn to Hand Failed: %d/%d\n", drawTreasureTestsFailed, i);
-	printf("Number of Cards Discarded Failed: %d/%d\n", discardTestsFailed, i);
-	printf("Number of Cards Left in Deck Failed: %d/%d\n", deckTestsFailed, i);
-	printf("Treasures Discarded Tests Failed: %d/%d\n", discardTreasureTestsFailed, i);
+	printf("Number of Tests Fully Passed (: %d/%d\n", totalTestsPassed, i);
+	printf("1. Number of Treasures Drawn to Hand Failed: %d/%d\n", drawTreasureTestsFailed, i);
+	printf("2. Number of Cards Discarded Failed: %d/%d\n", discardTestsFailed, i);
+	printf("3. Number of Cards Left in Deck Failed: %d/%d\n", deckTestsFailed, i);
+	printf("4. Treasure(s) Discarded Tests Failed: %d/%d\n", discardTreasureTestsFailed, i);
 
 	return 0;
 }
