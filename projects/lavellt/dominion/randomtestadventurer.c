@@ -2,7 +2,7 @@
 // random test: Adventurer
 #include "unittests.h"
 
-#define MAX_TESTS 10
+#define MAX_TESTS 1000
 
 int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
 	int numTreasure = 0;
@@ -104,11 +104,21 @@ int main() {
 		//}
 
 		printf("2. Check Number of Cards Discarded: ");
+		// calc pre's potential discard size
 		pre.discardCount[currentPlayer] = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
 		if (!assertTrue(post.discardCount[currentPlayer], pre.discardCount[currentPlayer])) {
 			discardTestFailed++;
 			passed = 0;
 		}
+
+		printf("3. Check Number of Cards Left in Deck: ");
+		// calc pre's potential deck size
+		pre.deckCount[currentPlayer] = deckSize - post.handCount[currentPlayer] - post.discardCount[currentPlayer];
+		if (!assertTrue(post.deckCount[currentPlayer], pre.deckCount[currentPlayer] - )) {
+			discardTestFailed++;
+			passed = 0;
+		}
+
 		//discardCopper = 0;
 		//discardSilver = 0;
 		//discardGold = 0;
