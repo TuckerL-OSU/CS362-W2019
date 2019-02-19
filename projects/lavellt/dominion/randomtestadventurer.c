@@ -2,7 +2,7 @@
 // random test: Adventurer
 #include "unittests.h"
 
-#define MAX_TESTS 1000000
+#define MAX_TESTS 10
 
 int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
 	int numTreasure = 0;
