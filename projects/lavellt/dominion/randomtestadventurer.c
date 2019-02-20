@@ -52,7 +52,7 @@ int main() {
 	int deckTestsFailed = 0;
 	int discardTreasureTestsFailed = 0;
 	int numTests = 4;
-	int numPassed = 0;
+	//int numPassed = 0;
 
 	int i;
 	for (i = 0; i < MAX_TESTS; i++) {
@@ -105,6 +105,7 @@ int main() {
 
 		post.coins = countNumTreasureCards(post.whoseTurn, &post);
 
+		int numPassed = 0;
 		// used for true/false flagging in if structure
 		int allTestsPassed = 1;
 
