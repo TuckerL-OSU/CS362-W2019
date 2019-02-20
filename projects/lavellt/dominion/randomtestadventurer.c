@@ -10,13 +10,31 @@ int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
 
 	int i;
 	for (i = 0; i < gS->handCount[currentPlayer]; i++) {
-		if (gS->hand[currentPlayer][i] == copper || gS->hand[currentPlayer][i] == silver || gS->hand[currentPlayer][i] == gold) {
+		if (gS->hand[currentPlayer][i] == copper ||
+			gS->hand[currentPlayer][i] == silver ||
+			gS->hand[currentPlayer][i] == gold) {
 			numTreasure++;
 		}
 	}
 
 	return numTreasure;
 }
+
+//int rand_adventurer_treasuresDrawn() {
+//
+//}
+//
+//int rand_adventurer_discardCards() {
+//
+//}
+//
+//int rand_adventurer_cardsLeftInDeck() {
+//
+//}
+//
+//int rand_adventurer_treasuresDiscarded() {
+//
+//}
 
 int main() {
 	srand(time(NULL));
@@ -85,7 +103,7 @@ int main() {
 		// call adventurer, using post
 		cardEffect(adventurer, 0, 0, 0, &post, handPos, 0);
 
-		post.coins += countNumTreasureCards(post.whoseTurn, &post);
+		post.coins = countNumTreasureCards(post.whoseTurn, &post);
 
 		// used for true/false flagging in if structure
 		int allTestsPassed = 1;
@@ -121,6 +139,7 @@ int main() {
 
 		printf("4. Check if Treasure(s) got Discarded: ");
 		int x;
+		// calc number of treasures discarded just for debugging purposes
 		int numTreasureDiscarded = 0;
 		for (x = 0; x < post.discardCount[currentPlayer]; x++) {
 			if (post.discard[currentPlayer][x] == copper ||
@@ -135,6 +154,8 @@ int main() {
 		}
 
 		numPassed++;
+
+		// 5. check discard for adventurer
 		
 		if (allTestsPassed != 0) {
 			printf("%d/%d: ", numPassed, numTests);
@@ -145,11 +166,12 @@ int main() {
 	}
 
 	printf("\n\n");
-	printf("Number of Tests Fully Passed (: %d/%d\n", totalTestsPassed, i);
 	printf("1. Number of Treasures Drawn to Hand Failed: %d/%d\n", drawTreasureTestsFailed, i);
 	printf("2. Number of Cards Discarded Failed: %d/%d\n", discardTestsFailed, i);
 	printf("3. Number of Cards Left in Deck Failed: %d/%d\n", deckTestsFailed, i);
 	printf("4. Treasure(s) Discarded Tests Failed: %d/%d\n", discardTreasureTestsFailed, i);
+	printf("Number of Tests Fully Passed: %d/%d\n", totalTestsPassed, i);
+
 
 	return 0;
 }
