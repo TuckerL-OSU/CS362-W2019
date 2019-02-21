@@ -104,6 +104,7 @@ int main() {
 			allCasesPassed = 0;
 			break;
 		default:
+			assertTrue(post.discard[currentPlayer][0], card);
 			break;
 		}
 		//if (assertTrue(post.discard[currentPlayer][0], province) ||
