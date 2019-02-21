@@ -141,7 +141,7 @@ int main() {
 			}
 		}
 		if (x > -1) {
-			if (!assertTrue(post.hand[currentPlayer][x], !feast)) {
+			if (assertTrue(post.hand[currentPlayer][x], feast)) {
 				feastInHandNotTrashFailed++;
 				allCasesPassed = 0;
 			}
