@@ -144,6 +144,8 @@ int main() {
 
 		printf("2. Check Number of Cards Discarded: ");
 		// calc pre's potential discard size
+		// this at least ensures that even with a failed number of
+		// treasures drawn, the card is still handling card management
 		pre->discardCount[currentPlayer] = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
 		if (!assertTrue(post.discardCount[currentPlayer], pre->discardCount[currentPlayer])) {
 			discardTestsFailed++;
@@ -193,7 +195,7 @@ int main() {
 		}
 	}
 
-	printf("\n\n");
+	printf("\nAdventurer Summary\n");
 	printf("Number of Tests Fully Passed: %d/%d\n", totalTestsPassed, i);
 	printf("1. Number of Treasures Drawn to Hand Failed: %d\n", drawTreasureTestsFailed);
 	printf("2. Number of Cards Discarded Failed: %d\n", discardTestsFailed);
