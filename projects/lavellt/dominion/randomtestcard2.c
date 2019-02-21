@@ -152,7 +152,7 @@ int main() {
 			}
 		}
 
-		if (trashCheck == 0) {
+		if (!assertTrue(trashCheck, 0)) {
 			trashFeastFailed++;
 		}
 		
