@@ -51,7 +51,7 @@ int main() {
 		//printf("Discard before %d\n", discardBefore);
 
 
-		cardEffect(smithy, 0, 0, 0, &G, handPos);
+		cardEffect(smithy, 0, 0, 0, &G, handPos, 0);
 
 		deckAfter = G.deckCount[0];
 		//printf("deck after %d\n", deckAfter);
