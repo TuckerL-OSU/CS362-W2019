@@ -43,9 +43,12 @@ int main() {
 
 		// choose a card from 0-26 (matches enum)
 		//int chosenCard = rand() % (27 + 1) - 1;
-		int card = gold;
-		while (card == gold) {
+		int card = -1;
+		while (1) {
 			card = rand() % (27 + 1) - 1;
+			if (card != gold) {
+				break;
+			}
 		}
 
 		// set supply counts to 0 for testing later
