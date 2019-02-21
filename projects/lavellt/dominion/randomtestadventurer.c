@@ -144,8 +144,8 @@ int main() {
 
 		printf("2. Check Number of Cards Discarded: ");
 		// calc pre's potential discard size
-		pre->discardCount[currentPlayer] = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
-		if (!assertTrue(post.discardCount[currentPlayer], pre->discardCount[currentPlayer])) {
+		pre->playedCardCount[currentPlayer] = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
+		if (!assertTrue(post.playedCardCount[currentPlayer], pre->playedCardCount[currentPlayer])) {
 			discardTestsFailed++;
 			allCasesPassed = 0;
 		}
@@ -155,7 +155,7 @@ int main() {
 
 		printf("3. Check Number of Cards Left in Deck: ");
 		// calc pre's potential deck size
-		pre->deckCount[currentPlayer] = deckSize - post.handCount[currentPlayer] - post.discardCount[currentPlayer];
+		pre->deckCount[currentPlayer] = deckSize - post.handCount[currentPlayer] - post.playedCardCount[currentPlayer];
 		if (!assertTrue(post.deckCount[currentPlayer], pre->deckCount[currentPlayer])) {
 			deckTestsFailed++;
 			allCasesPassed = 0;
@@ -168,10 +168,10 @@ int main() {
 		int x;
 		 //calc number of treasures discarded just for debugging purposes
 		int numTreasureDiscarded = 0;
-		for (x = 0; x < post.discardCount[currentPlayer]; x++) {
-			if (post.discard[currentPlayer][x] == copper ||
-				post.discard[currentPlayer][x] == silver ||
-				post.discard[currentPlayer][x] == gold) {
+		for (x = 0; x < post.playedCardCount[currentPlayer]; x++) {
+			if (post.playedCardCount[currentPlayer][x] == copper ||
+				post.playedCardCount[currentPlayer][x] == silver ||
+				post.playedCardCount[currentPlayer][x] == gold) {
 				numTreasureDiscarded++;
 			}
 		}
