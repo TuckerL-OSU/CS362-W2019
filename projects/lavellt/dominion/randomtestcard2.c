@@ -44,14 +44,14 @@ int main() {
 
 		// choose a card from 0-26 (matches enum)
 		//int chosenCard = rand() % (27 + 1) - 1;
-		int card = -1;
-		while (1) {
-			card = rand() % (27 + 1) - 1;
-			if (card != gold) {
-				break;
-			}
-		}
-		//int card = duchy;
+		//int card = -1;
+		//while (1) {
+		//	card = rand() % (27 + 1) - 1;
+		//	if (card != gold) {
+		//		break;
+		//	}
+		//}
+		int card = duchy;
 
 		// set supply counts to 0 for testing later
 		int j;
@@ -97,8 +97,8 @@ int main() {
 		int trashCheck = 1;
 		printf("3. Check if Feast was Moved to Supply Piles: ");
 		// check supply piles for anything > 0, indicate feast/problem
-		for (i = 0; i < (treasure_map + 1); i++) {
-			if (post.supplyCount[i] != 0) {
+		for (x = 0; x < (treasure_map + 1); x++) {
+			if (post.supplyCount[x] != 0) {
 				trashCheck = 0;
 				feastInSupplyNotTrashFailed++;
 				allCasesPassed = 0;
@@ -114,8 +114,8 @@ int main() {
 
 		//printf("4. Check if Feast was Moved to Hand: ");
 		// check if there is a feast in the hand
-		for (i = 0; i < post.handCount[currentPlayer]; i++) {
-			if (post.hand[currentPlayer][i] == feast) {
+		for (x = 0; x < post.handCount[currentPlayer]; x++) {
+			if (post.hand[currentPlayer][x] == feast) {
 				trashCheck = 0;
 				feastInHandNotTrashFailed++;
 				allCasesPassed = 0;
@@ -124,8 +124,8 @@ int main() {
 
 		//printf("5. Check if Feast was Moved to Discard: ");
 		// check discard for feast
-		for (i = 0; i < post.discardCount[currentPlayer]; i++) {
-			if (post.discard[currentPlayer][i] == feast) {
+		for (x = 0; x < post.discardCount[currentPlayer]; x++) {
+			if (post.discard[currentPlayer][x] == feast) {
 				trashCheck = 0;
 				feastInDiscardNotTrashFailed++;
 				allCasesPassed = 0;
@@ -134,8 +134,8 @@ int main() {
 
 		//printf("6. Check if Feast was Moved to Deck: ");
 		// check deck for feast
-		for (i = 0; i < post.deckCount[currentPlayer]; i++) {
-			if (post.deck[currentPlayer][i] == feast) {
+		for (x = 0; x < post.deckCount[currentPlayer]; x++) {
+			if (post.deck[currentPlayer][x] == feast) {
 				trashCheck = 0;
 				feastInDeckNotTrashFailed++;
 				allCasesPassed = 0;
@@ -144,8 +144,8 @@ int main() {
 
 		//printf("7. check if feast was moved to played cards: ");
 		// check played cards for feast
-		for (i = 0; i < post.playedCardCount; i++) {
-			if (post.playedCards[i] == feast) {
+		for (x = 0; x < post.playedCardCount; x++) {
+			if (post.playedCards[x] == feast) {
 				trashCheck = 0;
 				feastInPlayedCardsNotTrashFailed++;
 				allCasesPassed = 0;
@@ -159,34 +159,6 @@ int main() {
 		if (allCasesPassed == 1) {
 			totalTestsPassed++;
 		}
-
-		//if (feastInSupplyNotTrashFailed != 0 ||
-		//	feastInHandNotTrashFailed != 0 ||
-		//	feastInDiscardNotTrashFailed != 0 ||
-		//	feastInDeckNotTrashFailed != 0 ||
-		//	feastInPlayedCardsNotTrashFailed != 0) {
-		//	feastTrashedFailed++;
-		//}
-
-		/*if (!assertTrue(feastTrashedFailed,))*/
-
-		
-		//int opCard = rand() % (3 + 1);
-		//switch (card) {
-		//case 1:
-		//	cardEffect(feast, province, 0, 0, &post, handPos, 0);
-		//	break;
-		//case 2:
-		//	cardEffect(feast, gold, 0, 0, &post, handPos, 0);
-		//	break;
-		//case 3:
-		//	cardEffect(feast, adventurer, 0, 0, &post, handPos, 0);
-		//	break;
-		//}
-
-
-
-		// adv, province, gold 
 	}
 
 	printf("\nFeast Summary\n");
