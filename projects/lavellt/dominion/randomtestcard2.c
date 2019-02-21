@@ -24,7 +24,6 @@ int main() {
 	int feastInDiscardNotTrashFailed = 0;
 	int feastInDeckNotTrashFailed = 0;
 	int feastInPlayedCardsNotTrashFailed = 0;
-	int feastTrashedFailed = 0;
 
 	int i;
 	for (i = 0; i < MAX_TESTS; i++) {
