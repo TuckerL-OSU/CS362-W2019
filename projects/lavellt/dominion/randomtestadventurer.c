@@ -111,8 +111,8 @@ int main() {
 		}
 
 		// coins is unused so I am going to use it here for testing
-		//pre.coins = countNumTreasureCards(currentPlayer, &pre);
-		pre.coins = countNumTreasureCards(pre.deck[currentPlayer][], pre.deckCount[currentPlayer]);
+		pre.coins = countNumTreasureCards(currentPlayer, &pre);
+		//pre.coins = countNumTreasureCards(pre.deck[currentPlayer], pre.deckCount[currentPlayer]);
 
 		// create the object to modify (copy of pre), saves pre for comparison later
 		struct gameState post;
@@ -121,7 +121,8 @@ int main() {
 		// call adventurer, using post
 		cardEffect(adventurer, 0, 0, 0, &post, handPos, 0);
 
-		post.coins = countNumTreasureCards(post.deck[currentPlayer][], post.deckCount[currentPlayer]);
+		post.coins = countNumTreasureCards(currentPlayer, &post);
+		//post.coins = countNumTreasureCards(post.deck[currentPlayer], post.deckCount[currentPlayer]);
 
 		// *** Test Cases *** 
 		int numPassed = 0;
@@ -158,16 +159,16 @@ int main() {
 		numPassed++;
 
 		printf("4. Check if Treasure(s) got Discarded: ");
-		//int x;
-		// calc number of treasures discarded just for debugging purposes
-		/*int numTreasureDiscarded = 0;*/
-		//for (x = 0; x < post.discardCount[currentPlayer]; x++) {
-		//	if (post.discard[currentPlayer][x] == copper ||
-		//		post.discard[currentPlayer][x] == silver ||
-		//		post.discard[currentPlayer][x] == gold) {
-		//		numTreasureDiscarded++;
-		//	}
-		//}
+		int x;
+		 //calc number of treasures discarded just for debugging purposes
+		int numTreasureDiscarded = 0;
+		for (x = 0; x < post.discardCount[currentPlayer]; x++) {
+			if (post.discard[currentPlayer][x] == copper ||
+				post.discard[currentPlayer][x] == silver ||
+				post.discard[currentPlayer][x] == gold) {
+				numTreasureDiscarded++;
+			}
+		}
 		if (!assertTrue(countNumTreasureCards(post.discard[currentPlayer], post.discardCount[currentPlayer]), 0)) {
 			discardTreasureTestsFailed++;
 			allTestsPassed = 0;
