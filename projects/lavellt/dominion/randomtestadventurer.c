@@ -5,6 +5,7 @@
 //#define MAX_TESTS 1000
 #define MAX_TESTS 1000000
 
+// todo: make this into generic treasure counter using pile (int*) instead of gamestate
 int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
 	int numTreasure = 0;
 
@@ -39,7 +40,7 @@ int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
 int main() {
 	srand(time(NULL));
 	struct gameState pre;
-	int seed = 1000;
+	int seed = 30;
 	int numPlayers = 2;
 	int currentPlayer = 0;
 	int k[10] = { adventurer, gardens, embargo, village, minion, mine, cutpurse,
