@@ -25,7 +25,7 @@ int main() {
 
 	// test vars
 	int totalTestsPassed = 0;
-	int numCases = 3;
+	//int numCases = 3;
 	int cardsInDeckFailed = 0;
 	int cardsInHandFailed = 0;
 	int discardSmithyFailed = 0;

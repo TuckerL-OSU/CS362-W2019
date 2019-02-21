@@ -67,7 +67,7 @@ int main() {
 
 	// test vars
 	int totalTestsPassed = 0;
-	int numCases = 4;
+	//int numCases = 4;
 	int drawTreasureTestsFailed = 0;
 	int discardTestsFailed = 0;
 	int deckTestsFailed = 0;
