@@ -186,10 +186,8 @@ int main() {
 
 		// TODO: 5. check discard for adventurer
 		
-		if (allCasesPassed != 0) {
-			if (assertTrue(allCasesPassed, 1)) {
-				totalTestsPassed++;
-			}
+		if (allCasesPassed == 1) {
+			totalTestsPassed++;
 		}
 	}
 

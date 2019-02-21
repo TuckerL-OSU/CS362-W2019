@@ -71,6 +71,7 @@ int main() {
 		printf("1. Check Number of Cards in Deck: ");
 		if (!assertTrue(post.deckCount[currentPlayer], pre->deckCount[currentPlayer] - 3)) {
 			cardsInDeckFailed++;
+			allCasesPassed = 0;
 		}
 		else {
 			casesPassed++;
@@ -79,6 +80,7 @@ int main() {
 		printf("2. Check Number of Cards in Hand: ");
 		if (!assertTrue(post.handCount[currentPlayer], pre->handCount[currentPlayer] + 2)) {
 			cardsInHandFailed++;
+			allCasesPassed = 0;
 		}
 		else {
 			casesPassed++;
@@ -87,15 +89,14 @@ int main() {
 		printf("3. Check Discard for Smithy: ");
 		if (!assertTrue(post.playedCards[0], smithy)) {
 			discardSmithyFailed++;
+			allCasesPassed = 0;
 		}
 		else {
 			casesPassed++;
 		}
 
-		if (allCasesPassed != 0) {
-			if (assertTrue(allCasesPassed, 1)) {
-				totalTestsPassed++;
-			}
+		if (allCasesPassed == 1) {		
+			totalTestsPassed++;
 		}
 	}
 
