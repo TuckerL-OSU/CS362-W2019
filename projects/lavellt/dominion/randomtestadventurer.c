@@ -56,7 +56,7 @@ int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
 int main() {
 	srand(time(NULL));
 	struct gameState pre;
-	int seed = 30;
+	int seed = 100000;
 	int numPlayers = 2;
 	int currentPlayer = 0;
 	int k[10] = { adventurer, gardens, embargo, village, minion, mine, cutpurse,
