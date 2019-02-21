@@ -38,7 +38,7 @@ int main() {
 		// number of cards left in deck is total - number in hand
 		pre->deckCount[0] = deckSize - handSize;
 		pre->handCount[0] = handSize;
-		pre->playedCardCount = 1;
+		pre->playedCardCount = 10;
 
 		// position of smithy
 		int handPos = 0;
