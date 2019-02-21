@@ -113,9 +113,12 @@ int main() {
 		// check supply piles for anything > 0, indicate feast/problem
 		for (x = 0; x < (treasure_map + 1); x++) {
 			if (post.supplyCount[x] != 0) {
+				// break out of loop on x to assert it's value, falling 
+				// through means none were found so x's value doesnt matter
 				break;
 			}
 		}
+		// catches for assert
 		if (x > -1) {
 			if (!assertTrue(post.supplyCount[x], 0)) {
 				feastInSupplyNotTrashFailed++;
@@ -134,11 +137,13 @@ int main() {
 		// check if there is a feast in the hand
 		for (x = 0; x < post.handCount[currentPlayer]; x++) {
 			if (post.hand[currentPlayer][x] == feast) {
-				if (!assertTrue(post.hand[currentPlayer][x], feast)) {
-					//trashCheck = 0;
-					feastInHandNotTrashFailed++;
-					allCasesPassed = 0;
-				}
+				break;
+			}
+		}
+		if (x > -1) {
+			if (!assertTrue(post.hand[currentPlayer][x], feast)) {
+				feastInHandNotTrashFailed++;
+				allCasesPassed = 0;
 			}
 		}
 
@@ -146,11 +151,13 @@ int main() {
 		// check discard for feast
 		for (x = 0; x < post.discardCount[currentPlayer]; x++) {
 			if (post.discard[currentPlayer][x] == feast) {
-				if (!assertTrue(post.discard[currentPlayer][x], feast)) {
-					//trashCheck = 0;
-					feastInDiscardNotTrashFailed++;
-					allCasesPassed = 0;
-				}
+				break;
+			}
+		}
+		if (x > -1) {
+			if (!assertTrue(post.discard[currentPlayer][x], feast)) {
+				feastInDiscardNotTrashFailed++;
+				allCasesPassed = 0;
 			}
 		}
 
@@ -158,11 +165,14 @@ int main() {
 		// check deck for feast
 		for (x = 0; x < post.deckCount[currentPlayer]; x++) {
 			if (post.deck[currentPlayer][x] == feast) {
-				if (!assertTrue(post.deck[currentPlayer][x], feast)) {
-					//trashCheck = 0;
-					feastInDeckNotTrashFailed++;
-					allCasesPassed = 0;
-				}
+				break;
+			}
+		}
+		if (x > -1) {
+			if (!assertTrue(post.deck[currentPlayer][x], feast)) {
+				//trashCheck = 0;
+				feastInDeckNotTrashFailed++;
+				allCasesPassed = 0;
 			}
 		}
 
@@ -170,11 +180,14 @@ int main() {
 		// check played cards for feast
 		for (x = 0; x < post.playedCardCount; x++) {
 			if (post.playedCards[x] == feast) {
-				if (!assertTrue(post.playedCards[x], feast)) {
-					//trashCheck = 0;
-					feastInPlayedCardsNotTrashFailed++;
-					allCasesPassed = 0;
-				}
+				break;
+			}
+		}
+		if (x > -1) {
+			if (!assertTrue(post.playedCards[x], feast)) {
+				//trashCheck = 0;
+				feastInPlayedCardsNotTrashFailed++;
+				allCasesPassed = 0;
 			}
 		}
 
