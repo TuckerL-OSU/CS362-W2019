@@ -87,12 +87,31 @@ int main() {
 		// only testing province 
 		printf("2. Try to Buy Overpriced Card: ");
 		// there are 3 cards in our set that are "overpriced" for feast
-		if (assertTrue(post.discard[currentPlayer][0], province) ||
-			assertTrue(post.discard[currentPlayer][0], gold) ||
-			assertTrue(post.discard[currentPlayer][0], adventurer)) {
+		switch (post.discard[currentPlayer][0]) {
+		case province:
+			assertTrue(post.discard[currentPlayer][0], province;
 			blockOverpricedCardFailed++;
 			allCasesPassed = 0;
+			break;
+		case gold:
+			assertTrue(post.discard[currentPlayer][0], gold);
+			blockOverpricedCardFailed++;
+			allCasesPassed = 0;
+			break;
+		case adventurer:
+			assertTrue(post.discard[currentPlayer][0], adventurer)
+			blockOverpricedCardFailed++;
+			allCasesPassed = 0;
+			break;
+		default:
+			break;
 		}
+		//if (assertTrue(post.discard[currentPlayer][0], province) ||
+		//	assertTrue(post.discard[currentPlayer][0], gold) ||
+		//	assertTrue(post.discard[currentPlayer][0], adventurer)) {
+		//	blockOverpricedCardFailed++;
+		//	allCasesPassed = 0;
+		//}
 
 		// flag to see if any of the trash tests fail
 		int trashCheck = 1;
