@@ -6,35 +6,35 @@
 //#define MAX_TESTS 1000000
 
 // todo: make this into generic treasure counter using pile (int*) instead of gamestate
-//int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
-//	int numTreasure = 0;
-//
-//	int i;
-//	for (i = 0; i < gS->handCount[currentPlayer]; i++) {
-//		if (gS->hand[currentPlayer][i] == copper ||
-//			gS->hand[currentPlayer][i] == silver ||
-//			gS->hand[currentPlayer][i] == gold) {
-//			numTreasure++;
-//		}
-//	}
-//
-//	return numTreasure;
-//}
-
-int countNumTreasureCards(int *pile, int size) {
+int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
 	int numTreasure = 0;
 
 	int i;
-	for (i = 0; i < size; i++) {
-		if (pile[i] == copper ||
-			pile[i] == silver ||
-			pile[i] == gold) {
+	for (i = 0; i < gS->handCount[currentPlayer]; i++) {
+		if (gS->hand[currentPlayer][i] == copper ||
+			gS->hand[currentPlayer][i] == silver ||
+			gS->hand[currentPlayer][i] == gold) {
 			numTreasure++;
 		}
 	}
 
 	return numTreasure;
 }
+
+//int countNumTreasureCards(int *pile, int size) {
+//	int numTreasure = 0;
+//
+//	int i;
+//	for (i = 0; i < size; i++) {
+//		if (pile[i] == copper ||
+//			pile[i] == silver ||
+//			pile[i] == gold) {
+//			numTreasure++;
+//		}
+//	}
+//
+//	return numTreasure;
+//}
 
 
 //int rand_adventurer_treasuresDrawn() {
