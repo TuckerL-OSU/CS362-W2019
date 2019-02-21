@@ -57,21 +57,21 @@ int main() {
 		for (j = 0; j < (treasure_map + 1); j++) {
 			// if it is the chosen card give it 1 for the sake of run
 			if (j == card) {
-				pre.supplyCount[j] = 1;
+				pre->supplyCount[j] = 1;
 			}
 			else {
-				pre.supplyCount[j] = 0;
+				pre->supplyCount[j] = 0;
 			}
 		}
 
-		cardEffect(feast, card, 0, 0, &post, 0);
+		cardEffect(feast, card, 0, 0, &post, handpos, 0);
 
 		// *** Test Cases *** 
 		// used for true/false flagging in if structure
 		int allCasesPassed = 1;
 
 		printf("1. Check that Chosen Card was Picked Up: ");
-		if (!assertTrue(post.discard[currentPlayer][0]), card) {
+		if (!assertTrue(post.discard[currentPlayer][0], card)) {
 			chosenCardPickUpFailed++;
 			allCasesPassed = 0;
 		}
@@ -95,7 +95,7 @@ int main() {
 		//	}
 		//}
 		for (i = 0; i < (treasure_map + 1); i++) {
-			if (!assertTrue(post.supplyCount[i], 0) {
+			if (!assertTrue(post.supplyCount[i], 0)) {
 				//assertTrue(post.supplyCount[i], feast);
 				feastInSupplyNotTrashFailed++;
 				allCasesPassed = 0;
@@ -135,7 +135,8 @@ int main() {
 		printf("7. Check if Feast was Moved to Played Cards: ");
 		// check played cards for feast
 		for (i = 0; i < post.playedCardCount; i++) {
-			if (post.playedCards[i] == feast) {
+			//if (post.playedCards[i] == feast) {
+			if (!assertTrue(post.playedCards[i], feast)) {
 				feastInPlayedCardsNotTrashFailed++;
 				allCasesPassed = 0;
 			}
