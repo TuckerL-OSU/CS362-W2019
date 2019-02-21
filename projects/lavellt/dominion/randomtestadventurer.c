@@ -129,11 +129,14 @@ int main() {
 		// *** Test Cases *** 
 		// setting this here because I want it to reset for each loop
 		int casesPassed = 0;
+		// used for true/false flagging in if structure
+		int allCasesPassed = 1;
 
 		// Adv should add 2 treasures to the hand
 		printf("1. Check Number of Treasures Drawn: ");
 		if (!assertTrue(post.coins, pre->coins + 2)) {		
 			drawTreasureTestsFailed++;
+			allCasesPassed = 0;
 		}
 		else {
 			casesPassed++;
@@ -144,6 +147,7 @@ int main() {
 		pre->discardCount[currentPlayer] = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
 		if (!assertTrue(post.discardCount[currentPlayer], pre->discardCount[currentPlayer])) {
 			discardTestsFailed++;
+			allCasesPassed = 0;
 		}
 		else {
 			casesPassed++;
@@ -154,6 +158,7 @@ int main() {
 		pre->deckCount[currentPlayer] = deckSize - post.handCount[currentPlayer] - post.discardCount[currentPlayer];
 		if (!assertTrue(post.deckCount[currentPlayer], pre->deckCount[currentPlayer])) {
 			deckTestsFailed++;
+			allCasesPassed = 0;
 		}
 		else {
 			casesPassed++;
@@ -173,6 +178,7 @@ int main() {
 		//if (!assertTrue(countNumTreasureCards(post.discard[currentPlayer], post.discardCount[currentPlayer]), 0)) {
 		if (!assertTrue(numTreasureDiscarded, 0)) {
 			discardTreasureTestsFailed++;
+			allCasesPassed = 0;
 		}
 		else {
 			casesPassed++;
@@ -180,12 +186,11 @@ int main() {
 
 		// TODO: 5. check discard for adventurer
 		
-		//if (allCasesPassed != 0) {
-		//	printf("%d/%d: ", casesPassed, numCases);
-		//	if (assertTrue(allCasesPassed, 1)) {
-		//		totalTestsPassed++;
-		//	}
-		//}
+		if (allCasesPassed != 0) {
+			if (assertTrue(allCasesPassed, 1)) {
+				totalTestsPassed++;
+			}
+		}
 	}
 
 	printf("\n\n");

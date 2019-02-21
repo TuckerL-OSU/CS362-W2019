@@ -66,7 +66,7 @@ int main() {
 		// setting these vars here because I want them to reset for each loop
 		int casesPassed = 0;
 		// used for true/false flagging in if structure
-		//int allCasesPassed = 1;
+		int allCasesPassed = 1;
 
 		printf("1. Check Number of Cards in Deck: ");
 		if (!assertTrue(post.deckCount[currentPlayer], pre->deckCount[currentPlayer] - 3)) {
@@ -90,6 +90,12 @@ int main() {
 		}
 		else {
 			casesPassed++;
+		}
+
+		if (allCasesPassed != 0) {
+			if (assertTrue(allCasesPassed, 1)) {
+				totalTestsPassed++;
+			}
 		}
 	}
 
