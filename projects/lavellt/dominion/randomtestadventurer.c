@@ -2,8 +2,8 @@
 // random test: Adventurer
 #include "unittests.h"
 
-#define MAX_TESTS 1000
-//#define MAX_TESTS 1000000
+//#define MAX_TESTS 1000
+#define MAX_TESTS 1000000
 
 // todo: make this into generic treasure counter using pile (int*) instead of gamestate
 //int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
