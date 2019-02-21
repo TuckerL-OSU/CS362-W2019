@@ -141,7 +141,7 @@ int main() {
 			}
 		}
 		if (x > -1) {
-			if (assertTrue(post.hand[currentPlayer][x], feast)) {
+			if (!assertTrue(post.hand[currentPlayer][x], !feast)) {
 				feastInHandNotTrashFailed++;
 				allCasesPassed = 0;
 			}
@@ -155,7 +155,7 @@ int main() {
 			}
 		}
 		if (x > -1) {
-			if (!assertTrue(post.discard[currentPlayer][x], feast)) {
+			if (!assertTrue(post.discard[currentPlayer][x], !feast)) {
 				feastInDiscardNotTrashFailed++;
 				allCasesPassed = 0;
 			}
@@ -169,7 +169,7 @@ int main() {
 			}
 		}
 		if (x > -1) {
-			if (!assertTrue(post.deck[currentPlayer][x], feast)) {
+			if (!assertTrue(post.deck[currentPlayer][x], !feast)) {
 				//trashCheck = 0;
 				feastInDeckNotTrashFailed++;
 				allCasesPassed = 0;
@@ -184,7 +184,7 @@ int main() {
 			}
 		}
 		if (x > -1) {
-			if (!assertTrue(post.playedCards[x], feast)) {
+			if (!assertTrue(post.playedCards[x], !feast)) {
 				//trashCheck = 0;
 				feastInPlayedCardsNotTrashFailed++;
 				allCasesPassed = 0;
