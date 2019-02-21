@@ -107,13 +107,13 @@ int main() {
 		}
 
 		// flag to see if any of the trash tests fail
-		int trashCheck = 1;
+		//int trashCheck = 1;
 		printf("3. Check if Feast was Moved to Supply Piles: ");
 		int x;
 		// check supply piles for anything > 0, indicate feast/problem
 		for (x = 0; x < (treasure_map + 1); x++) {
 			if (post.supplyCount[x] != 0) {
-				trashCheck = 0;
+				break;
 			}
 		}
 		if (x > -1) {
