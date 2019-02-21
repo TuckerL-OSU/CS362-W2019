@@ -127,16 +127,13 @@ int main() {
 		//post.coins = countNumTreasureCards(post.deck[currentPlayer], post.deckCount[currentPlayer]);
 
 		// *** Test Cases *** 
-		// setting these vars here because I want them to reset for each loop
+		// setting this here because I want it to reset for each loop
 		int casesPassed = 0;
-		// used for true/false flagging in if structure
-		int allCasesPassed = 1;
 
 		// Adv should add 2 treasures to the hand
 		printf("1. Check Number of Treasures Drawn: ");
 		if (!assertTrue(post.coins, pre->coins + 2)) {		
 			drawTreasureTestsFailed++;
-			allCasesPassed = 0;
 		}
 		else {
 			casesPassed++;
@@ -147,7 +144,6 @@ int main() {
 		pre->discardCount[currentPlayer] = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
 		if (!assertTrue(post.discardCount[currentPlayer], pre->discardCount[currentPlayer])) {
 			discardTestsFailed++;
-			allCasesPassed = 0;
 		}
 		else {
 			casesPassed++;
@@ -158,7 +154,6 @@ int main() {
 		pre->deckCount[currentPlayer] = deckSize - post.handCount[currentPlayer] - post.discardCount[currentPlayer];
 		if (!assertTrue(post.deckCount[currentPlayer], pre->deckCount[currentPlayer])) {
 			deckTestsFailed++;
-			allCasesPassed = 0;
 		}
 		else {
 			casesPassed++;
@@ -178,7 +173,6 @@ int main() {
 		//if (!assertTrue(countNumTreasureCards(post.discard[currentPlayer], post.discardCount[currentPlayer]), 0)) {
 		if (!assertTrue(numTreasureDiscarded, 0)) {
 			discardTreasureTestsFailed++;
-			allCasesPassed = 0;
 		}
 		else {
 			casesPassed++;
@@ -186,21 +180,20 @@ int main() {
 
 		// TODO: 5. check discard for adventurer
 		
-		if (allCasesPassed != 0) {
-			printf("%d/%d: ", casesPassed, numCases);
-			if (assertTrue(allCasesPassed, 1)) {
-				totalTestsPassed++;
-			}
-		}
+		//if (allCasesPassed != 0) {
+		//	printf("%d/%d: ", casesPassed, numCases);
+		//	if (assertTrue(allCasesPassed, 1)) {
+		//		totalTestsPassed++;
+		//	}
+		//}
 	}
 
 	printf("\n\n");
-	printf("1. Number of Treasures Drawn to Hand Failed: %d/%d\n", drawTreasureTestsFailed, i);
-	printf("2. Number of Cards Discarded Failed: %d/%d\n", discardTestsFailed, i);
-	printf("3. Number of Cards Left in Deck Failed: %d/%d\n", deckTestsFailed, i);
-	printf("4. Treasure(s) Discarded Tests Failed: %d/%d\n", discardTreasureTestsFailed, i);
+	printf("1. Number of Treasures Drawn to Hand Failed: %d\n", drawTreasureTestsFailed);
+	printf("2. Number of Cards Discarded Failed: %d\n", discardTestsFailed);
+	printf("3. Number of Cards Left in Deck Failed: %d\n", deckTestsFailed);
+	printf("4. Treasure(s) Discarded Tests Failed: %d\n", discardTreasureTestsFailed);
 	printf("Number of Tests Fully Passed: %d/%d\n", totalTestsPassed, i);
-
 
 	return 0;
 }

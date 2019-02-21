@@ -66,51 +66,38 @@ int main() {
 		// setting these vars here because I want them to reset for each loop
 		int casesPassed = 0;
 		// used for true/false flagging in if structure
-		int allCasesPassed = 1;
+		//int allCasesPassed = 1;
 
 		printf("1. Check Number of Cards in Deck: ");
 		if (!assertTrue(post.deckCount[currentPlayer], pre->deckCount[currentPlayer] - 3)) {
 			cardsInDeckFailed++;
-			allCasesPassed = 0;
 		}
 		else {
 			casesPassed++;
 		}
 
-		printf("2. Check Number of Cards in hand: ");
-
+		printf("2. Check Number of Cards in Hand: ");
+		if (!assertTrue(post.handCount[currentPlayer], pre->handCount[currentPlayer] + 2)) {
+			cardsInHandFailed++;
+		}
+		else {
+			casesPassed++;
+		}
 
 		printf("3. Check Discard for Smithy: ");
-
-		if (handAfter != (handBefore + 2)) {
-			printf("Incorrect amount of cards drawn: Test Failed\n\n");
-			handFailure++;
-			passed = 0;
+		if (!assertTrue(post.playedCards[0], smithy)) {
+			discardSmithyFailed++;
 		}
-
-		if (deckAfter != (deckBefore - 3)) {
-			printf("Incorrect number of cards removed from deck: Test Failed\n\n");
-			deckFailure++;
-			passed = 0;
+		else {
+			casesPassed++;
 		}
-
-		if (discardAfter != (discardBefore + 1)) {
-			printf("Smithy Not Discarded after use: Test Failed\n\n");
-			discardFailure++;
-			passed = 0;
-		}
-
-		if (passed == 1) {
-			printf("All Tests Passed!! Horray lucky us!\n\n");
-			testPassed++;
-		}
-
 	}
 
 	printf("\n\n");
-	printf("# of Tests Passed: %d\n", testPassed);
-	printf("# of Cards Drawn To Hand Failed: %d\n", handFailure);
-	printf("# of Smithy Discarded Fails: %d\n\n", discardFailure);
+	printf("1. Number of Cards in Deck Failed: %d\n", cardsInDeckFailed);
+	printf("2. Number of cards in Hand Failed: %d\n", cardsInHandFailed);
+	printf("3. Smithy Discarded Tests Failed: %d\n", discardSmithyFailed);
+	printf("Number of Tests Fully Passed: %d/%d\n", totalTestsPassed, i);
 
 	return 0;
 }
