@@ -2,8 +2,8 @@
 // random test: Smithy
 #include "unittests.h"
 
-//#define MAX_TESTS 1000
-#define MAX_TESTS 1000000
+#define MAX_TESTS 1000
+//#define MAX_TESTS 1000000
 
 int main() {
 
