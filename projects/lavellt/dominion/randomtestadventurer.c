@@ -144,8 +144,8 @@ int main() {
 
 		printf("2. Check Number of Cards Discarded: ");
 		// calc pre's potential discard size
-		pre->playedCardCount[currentPlayer] = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
-		if (!assertTrue(post.playedCardCount[currentPlayer], pre->playedCardCount[currentPlayer])) {
+		pre->playedCardCount = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
+		if (!assertTrue(post.playedCardCount, pre->playedCardCount)) {
 			discardTestsFailed++;
 			allCasesPassed = 0;
 		}
@@ -155,7 +155,7 @@ int main() {
 
 		printf("3. Check Number of Cards Left in Deck: ");
 		// calc pre's potential deck size
-		pre->deckCount[currentPlayer] = deckSize - post.handCount[currentPlayer] - post.playedCardCount[currentPlayer];
+		pre->deckCount[currentPlayer] = deckSize - post.handCount[currentPlayer] - post.playedCardCount;
 		if (!assertTrue(post.deckCount[currentPlayer], pre->deckCount[currentPlayer])) {
 			deckTestsFailed++;
 			allCasesPassed = 0;
