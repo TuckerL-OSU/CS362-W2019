@@ -2,7 +2,7 @@
 
 int assertTrue(int actual, int expected) {
 	if (actual == expected) {
-		printf("TEST SUCCESSFULLY COMPLETED\n");
+		printf("TEST SUCCESSFULLY COMPLETED- Actual: %d, Expected: %d\n", actual, expected);
 		return 1;
 	}
 	else {
