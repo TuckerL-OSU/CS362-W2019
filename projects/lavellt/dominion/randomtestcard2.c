@@ -42,9 +42,6 @@ int main() {
 		pre->handCount[currentPlayer] = handSize;
 		pre->discardCount[currentPlayer] = 0;
 
-		// position of feast
-		int handPos = 0;
-
 		struct gameState post;
 		memcpy(&post, pre, sizeof(struct gameState));
 
@@ -64,7 +61,10 @@ int main() {
 			}
 		}
 
-		cardEffect(feast, card, 0, 0, &post, handpos, 0);
+		// position of feast
+		int handPos = 0;
+
+		cardEffect(feast, card, 0, 0, &post, handPos, 0);
 
 		// *** Test Cases *** 
 		// used for true/false flagging in if structure
