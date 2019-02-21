@@ -167,7 +167,7 @@ int main() {
 		//		numTreasureDiscarded++;
 		//	}
 		//}
-		if (!assertTrue(countNumTreasureCards(post.discard[currentPlayer], 0)) {
+		if (!assertTrue(countNumTreasureCards(post.discard[currentPlayer]), 0)) {
 			discardTreasureTestsFailed++;
 			allTestsPassed = 0;
 		}
