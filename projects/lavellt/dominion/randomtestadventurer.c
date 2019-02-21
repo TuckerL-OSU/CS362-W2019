@@ -75,7 +75,7 @@ int main() {
 	for (i = 0; i < MAX_TESTS; i++) {
 		printf("Test #%d\n", i + 1);
 		// set up a game
-		initializeGame(numPlayers, k, seed, &pre);
+		initializeGame(numPlayers, k, seed, pre);
 		// set a players turn, which player doesn't matter
 		pre->whoseTurn = currentPlayer;
 		deckSize = rand() % (MAX_DECK + 1);
@@ -111,7 +111,7 @@ int main() {
 		}
 
 		// coins is unused so I am going to use it here for testing
-		pre->coins = countNumTreasureCards(currentPlayer, &pre);
+		pre->coins = countNumTreasureCards(currentPlayer, pre);
 		//pre->coins = countNumTreasureCards(pre->deck[currentPlayer], pre->deckCount[currentPlayer]);
 
 		// create the object to modify (copy of pre), saves pre for comparison later
