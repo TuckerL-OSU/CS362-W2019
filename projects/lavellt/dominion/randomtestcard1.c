@@ -51,7 +51,7 @@ int main() {
 		//printf("Discard before %d\n", discardBefore);
 
 
-		smithyEffect(handPos, curPlayer, &G);
+		effectSmithy(curPlayer, &G, handPos);
 
 		deckAfter = G.deckCount[0];
 		//printf("deck after %d\n", deckAfter);
