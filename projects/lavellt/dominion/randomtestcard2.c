@@ -40,14 +40,6 @@ int main() {
 		pre->deckCount[currentPlayer] = deckSize - handSize;
 		pre->handCount[currentPlayer] = handSize;
 		pre->discardCount[currentPlayer] = 0;
-
-		struct gameState post;
-		memcpy(&post, pre, sizeof(struct gameState));
-
-		// choose a card from 0-26 (matches enum)
-		//int chosenCard = rand() % (27 + 1) - 1;
-		int card = rand() % (27 + 1) - 1;
-
 		// set supply counts to 0 for testing later
 		int j;
 		for (j = 0; j < (treasure_map + 1); j++) {
@@ -59,6 +51,13 @@ int main() {
 				pre->supplyCount[j] = 0;
 			}
 		}
+
+		struct gameState post;
+		memcpy(&post, pre, sizeof(struct gameState));
+
+		// choose a card from 0-26 (matches enum)
+		//int chosenCard = rand() % (27 + 1) - 1;
+		int card = rand() % (27 + 1) - 1;
 
 		// position of feast
 		int handPos = 0;
