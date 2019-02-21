@@ -130,5 +130,9 @@ randtestadv: unittests.o dominion.o randomtestadventurer.c
 randtest1: unittests.o dominion.o randomtestcard1.c
 	gcc -o randtest1 randomtestcard1.c -g unittests.o dominion.o rngs.o $(CFLAGS)
 
+randtest2: unittests.o dominion.o randomtestcard2.c
+	gcc -o randtest2 randomtestcard2.c -g unittests.o dominion.o rngs.o $(CFLAGS)
+
+
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe ut1 ut2 ut3 ut4 ct1 ct2 ct3 ct4
