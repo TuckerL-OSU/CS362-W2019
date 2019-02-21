@@ -24,6 +24,7 @@ int main() {
 	int feastInDiscardNotTrashFailed = 0;
 	int feastInDeckNotTrashFailed = 0;
 	int feastInPlayedCardsNotTrashFailed = 0;
+	int trashFeastFailed = 0;
 
 	int i;
 	for (i = 0; i < MAX_TESTS; i++) {
@@ -92,61 +93,67 @@ int main() {
 			allCasesPassed = 0;
 		}
 
+		// flag to see if any of the trash tests fail
+		int trashCheck = 1;
 		printf("3. Check if Feast was Moved to Supply Piles: ");
 		// check supply piles for anything > 0, indicate feast/problem
-		//for (i = 0; i < (treasure_map + 1); i++) {
-		//	if (post.supplyCount[i] != 0) {
-		//		assertTrue(post.supplyCount[i], feast);
-		//		feastInSupplyNotTrashFailed++;
-		//		allCasesPassed = 0;
-		//	}
-		//}
 		for (i = 0; i < (treasure_map + 1); i++) {
-			if (!assertTrue(post.supplyCount[i], 0)) {
-				//assertTrue(post.supplyCount[i], feast);
+			if (post.supplyCount[i] != 0) {
+				trashCheck = 0;
 				feastInSupplyNotTrashFailed++;
 				allCasesPassed = 0;
 			}
 		}
+		//for (i = 0; i < (treasure_map + 1); i++) {
+		//	if (!assertTrue(post.supplyCount[i], 0)) {
+		//		//assertTrue(post.supplyCount[i], feast);
+		//		feastInSupplyNotTrashFailed++;
+		//		allCasesPassed = 0;
+		//	}
+		//}
 
-		printf("4. Check if Feast was Moved to Hand: ");
+		//printf("4. Check if Feast was Moved to Hand: ");
 		// check if there is a feast in the hand
 		for (i = 0; i < post.handCount[currentPlayer]; i++) {
-			if (!assertTrue(post.hand[currentPlayer][i], feast)) {
-				//assertTrue(post.hand[currentPlayer][i], feast);
+			if (post.hand[currentPlayer][i] == feast) {
+				trashCheck = 0;
 				feastInHandNotTrashFailed++;
 				allCasesPassed = 0;
 			}
 		}
 
-		printf("5. Check if Feast was Moved to Discard: ");
+		//printf("5. Check if Feast was Moved to Discard: ");
 		// check discard for feast
 		for (i = 0; i < post.discardCount[currentPlayer]; i++) {
-			//if (gS->discard[gS->whoseTurn][i] == feast) {
-			if (!assertTrue(post.discard[currentPlayer][i], feast)) {
+			if (post.discard[currentPlayer][i] == feast) {
+				trashCheck = 0;
 				feastInDiscardNotTrashFailed++;
 				allCasesPassed = 0;
 			}
 		}
 
-		printf("6. Check if Feast was Moved to Deck: ");
+		//printf("6. Check if Feast was Moved to Deck: ");
 		// check deck for feast
 		for (i = 0; i < post.deckCount[currentPlayer]; i++) {
-			//if (gS->deck[gS->whoseTurn][i] == feast) {
-			if (!assertTrue(post.deck[currentPlayer][i], feast)) {
+			if (post.deck[currentPlayer][i] == feast) {
+				trashCheck = 0;
 				feastInDeckNotTrashFailed++;
 				allCasesPassed = 0;
 			}
 		}
 
-		printf("7. Check if Feast was Moved to Played Cards: ");
+		//printf("7. check if feast was moved to played cards: ");
 		// check played cards for feast
 		for (i = 0; i < post.playedCardCount; i++) {
-			//if (post.playedCards[i] == feast) {
-			if (!assertTrue(post.playedCards[i], feast)) {
+			if (post.playedCards[i] == feast) {
+				trashCheck = 0;
 				feastInPlayedCardsNotTrashFailed++;
 				allCasesPassed = 0;
 			}
+		}
+
+		if (trashCheck == 0) {
+			trashFeastFailed++;
 		}
 		
 		if (allCasesPassed == 1) {
@@ -186,11 +193,12 @@ int main() {
 	printf("Number of Tests Fully Passed: %d/%d\n", totalTestsPassed, i);
 	printf("1. Chosen Card Picked Up Failed: %d\n", chosenCardPickUpFailed);
 	printf("2. Block Buying Overpriced Card Failed: %d\n", blockOverpricedCardFailed);
-	printf("3. Feast is in Supply Piles NOT Trash Failed: %d\n", feastInSupplyNotTrashFailed);
-	printf("4. Feast is in Hand NOT Trash Failed: %d\n", feastInHandNotTrashFailed);
-	printf("5. Feast is in Discard NOT Trash Failed: %d\n", feastInDiscardNotTrashFailed);
-	printf("6. Feast is in Deck NOT Trash Failed: %d\n", feastInDeckNotTrashFailed);
-	printf("7. Feast is in Played Cards NOT Trash Failed: %d\n", feastInPlayedCardsNotTrashFailed);
+	printf("3. Feast was Trashed Failed: %d\n", feastInSupplyNotTrashFailed);
+	//printf("3. Feast is in Supply Piles NOT Trash Failed: %d\n", feastInSupplyNotTrashFailed);
+	//printf("4. Feast is in Hand NOT Trash Failed: %d\n", feastInHandNotTrashFailed);
+	//printf("5. Feast is in Discard NOT Trash Failed: %d\n", feastInDiscardNotTrashFailed);
+	//printf("6. Feast is in Deck NOT Trash Failed: %d\n", feastInDeckNotTrashFailed);
+	//printf("7. Feast is in Played Cards NOT Trash Failed: %d\n", feastInPlayedCardsNotTrashFailed);
 
 	return 0;
 }
