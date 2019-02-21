@@ -24,7 +24,7 @@ int main() {
 	int feastInDiscardNotTrashFailed = 0;
 	int feastInDeckNotTrashFailed = 0;
 	int feastInPlayedCardsNotTrashFailed = 0;
-	int trashFeastFailed = 0;
+	//int trashFeastFailed = 0;
 
 	int i;
 	for (i = 0; i < MAX_TESTS; i++) {
@@ -94,15 +94,17 @@ int main() {
 		}
 
 		// flag to see if any of the trash tests fail
-		int trashCheck = 1;
+		//int trashCheck = 1;
 		printf("3. Check if Feast was Moved to Supply Piles: ");
 		int x;
 		// check supply piles for anything > 0, indicate feast/problem
 		for (x = 0; x < (treasure_map + 1); x++) {
 			if (post.supplyCount[x] != 0) {
-				trashCheck = 0;
-				feastInSupplyNotTrashFailed++;
-				allCasesPassed = 0;
+				if (!assertTrue(post.supplyCount[x], 0)) {
+					//trashCheck = 0;
+					feastInSupplyNotTrashFailed++;
+					allCasesPassed = 0;
+				}
 			}
 		}
 		//for (i = 0; i < (treasure_map + 1); i++) {
@@ -113,49 +115,57 @@ int main() {
 		//	}
 		//}
 
-		//printf("4. Check if Feast was Moved to Hand: ");
+		printf("4. Check if Feast was Moved to Hand: ");
 		// check if there is a feast in the hand
 		for (x = 0; x < post.handCount[currentPlayer]; x++) {
 			if (post.hand[currentPlayer][x] == feast) {
-				trashCheck = 0;
-				feastInHandNotTrashFailed++;
-				allCasesPassed = 0;
+				if (!assertTrue(post.hand[currentPlayer][x], feast)) {
+					//trashCheck = 0;
+					feastInHandNotTrashFailed++;
+					allCasesPassed = 0;
+				}
 			}
 		}
 
-		//printf("5. Check if Feast was Moved to Discard: ");
+		printf("5. Check if Feast was Moved to Discard: ");
 		// check discard for feast
 		for (x = 0; x < post.discardCount[currentPlayer]; x++) {
 			if (post.discard[currentPlayer][x] == feast) {
-				trashCheck = 0;
-				feastInDiscardNotTrashFailed++;
-				allCasesPassed = 0;
+				if (!assertTrue(post.discard[currentPlayer][x], feast)) {
+					//trashCheck = 0;
+					feastInDiscardNotTrashFailed++;
+					allCasesPassed = 0;
+				}
 			}
 		}
 
-		//printf("6. Check if Feast was Moved to Deck: ");
+		printf("6. Check if Feast was Moved to Deck: ");
 		// check deck for feast
 		for (x = 0; x < post.deckCount[currentPlayer]; x++) {
 			if (post.deck[currentPlayer][x] == feast) {
-				trashCheck = 0;
-				feastInDeckNotTrashFailed++;
-				allCasesPassed = 0;
+				if (!assertTrue(post.deck[currentPlayer][x], feast)) {
+					//trashCheck = 0;
+					feastInDeckNotTrashFailed++;
+					allCasesPassed = 0;
+				}
 			}
 		}
 
-		//printf("7. check if feast was moved to played cards: ");
+		printf("7. check if feast was moved to played cards: ");
 		// check played cards for feast
 		for (x = 0; x < post.playedCardCount; x++) {
 			if (post.playedCards[x] == feast) {
-				trashCheck = 0;
-				feastInPlayedCardsNotTrashFailed++;
-				allCasesPassed = 0;
+				if (!assertTrue(post.playedCards[x], feast)) {
+					//trashCheck = 0;
+					feastInPlayedCardsNotTrashFailed++;
+					allCasesPassed = 0;
+				}
 			}
 		}
 
-		if (!assertTrue(trashCheck, 0)) {
-			trashFeastFailed++;
-		}
+		//if (!assertTrue(trashCheck, 0)) {
+		//	trashFeastFailed++;
+		//}
 		
 		if (allCasesPassed == 1) {
 			totalTestsPassed++;
