@@ -89,7 +89,7 @@ int main() {
 		// there are 3 cards in our set that are "overpriced" for feast
 		switch (post.discard[currentPlayer][0]) {
 		case province:
-			assertTrue(post.discard[currentPlayer][0], province;
+			assertTrue(post.discard[currentPlayer][0], province);
 			blockOverpricedCardFailed++;
 			allCasesPassed = 0;
 			break;
