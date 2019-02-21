@@ -21,7 +21,7 @@
 //	return numTreasure;
 //}
 
-int countNumTreasureCards(int pile, int size) {
+int countNumTreasureCards(int *pile, int size) {
 	int numTreasure = 0;
 
 	int i;
