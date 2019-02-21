@@ -80,7 +80,7 @@ int main() {
 		//for (h = 0; h < post.playedCardCount; h++) {
 		//	printf("playedCards[%d]: %d\n", h, post.playedCards[h]);
 		//}
-		if (assertTrue(post.playedCards[0], smithy)) {
+		if (!assertTrue(post.playedCards[0], smithy)) {
 			discardSmithyFailed++;
 			allCasesPassed = 0;
 		}
