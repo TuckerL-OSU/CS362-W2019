@@ -176,12 +176,12 @@ int main() {
 	printf("Number of Tests Fully Passed: %d/%d\n", totalTestsPassed, i);
 	printf("1. Chosen Card Picked Up Failed: %d\n", chosenCardPickUpFailed);
 	printf("2. Block Buying Overpriced Card Failed: %d\n", blockOverpricedCardFailed);
-	printf("3. Feast was Trashed Failed: %d\n", trashFeastFailed);
-	//printf("3. Feast is in Supply Piles NOT Trash Failed: %d\n", feastInSupplyNotTrashFailed);
-	//printf("4. Feast is in Hand NOT Trash Failed: %d\n", feastInHandNotTrashFailed);
-	//printf("5. Feast is in Discard NOT Trash Failed: %d\n", feastInDiscardNotTrashFailed);
-	//printf("6. Feast is in Deck NOT Trash Failed: %d\n", feastInDeckNotTrashFailed);
-	//printf("7. Feast is in Played Cards NOT Trash Failed: %d\n", feastInPlayedCardsNotTrashFailed);
+	//printf("3. Feast was Trashed Failed: %d\n", trashFeastFailed);
+	printf("3. Feast is in Supply Piles NOT Trash Failed: %d\n", feastInSupplyNotTrashFailed);
+	printf("4. Feast is in Hand NOT Trash Failed: %d\n", feastInHandNotTrashFailed);
+	printf("5. Feast is in Discard NOT Trash Failed: %d\n", feastInDiscardNotTrashFailed);
+	printf("6. Feast is in Deck NOT Trash Failed: %d\n", feastInDeckNotTrashFailed);
+	printf("7. Feast is in Played Cards NOT Trash Failed: %d\n", feastInPlayedCardsNotTrashFailed);
 
 	return 0;
 }
