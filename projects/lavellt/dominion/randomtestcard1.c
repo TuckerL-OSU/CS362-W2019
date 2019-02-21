@@ -38,7 +38,7 @@ int main() {
 		// number of cards left in deck is total - number in hand
 		pre->deckCount[0] = deckSize - handSize;
 		pre->handCount[0] = handSize;
-		pre->playedCardCount = 10;
+		pre->playedCardCount = 0;
 
 		// position of smithy
 		int handPos = 0;
@@ -47,7 +47,7 @@ int main() {
 		struct gameState post;
 		memcpy(&post, pre, sizeof(struct gameState));
 
-		cardEffect(smithy, 0, 0, 0, pre, handPos, 0);
+		cardEffect(smithy, 0, 0, 0, &post, handPos, 0);
 
 		// *** Test Cases *** 
 		// setting these vars here because I want them to reset for each loop
@@ -75,11 +75,11 @@ int main() {
 
 		printf("3. Check if Smithy was Played: ");
 		//if (!assertTrue(post.discard[currentPlayer][0], smithy)) {
-		printf("playedCardCount: %d\n", post.playedCardCount);
-		int h;
-		for (h = 0; h < post.playedCardCount; h++) {
-			printf("playedCards[%d]: %d\n", h, post.playedCards[h]);
-		}
+		//printf("playedCardCount: %d\n", post.playedCardCount);
+		//int h;
+		//for (h = 0; h < post.playedCardCount; h++) {
+		//	printf("playedCards[%d]: %d\n", h, post.playedCards[h]);
+		//}
 		if (!assertTrue(post.playedCards[0], smithy)) {
 			discardSmithyFailed++;
 			allCasesPassed = 0;
