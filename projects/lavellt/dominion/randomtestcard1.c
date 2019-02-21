@@ -36,7 +36,7 @@ int main() {
 		deckSize = rand() % (MAX_DECK + 1);
 		//set handsize
 		handSize = rand() % (deckSize + 1);
-
+		G.whoseTurn = curPlayer;
 
 		G.deckCount[0] = deckSize - handSize;
 		G.handCount[0] = handSize;
@@ -51,7 +51,7 @@ int main() {
 		//printf("Discard before %d\n", discardBefore);
 
 
-		effectSmithy(curPlayer, &G, handPos);
+		cardEffect(smithy, 0, 0, 0, &G, handPos);
 
 		deckAfter = G.deckCount[0];
 		//printf("deck after %d\n", deckAfter);
