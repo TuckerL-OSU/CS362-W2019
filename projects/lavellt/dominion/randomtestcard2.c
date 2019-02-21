@@ -98,22 +98,22 @@ int main() {
 		printf("3. Check if Feast was Moved to Supply Piles: ");
 		int x;
 		// check supply piles for anything > 0, indicate feast/problem
-		for (x = 0; x < (treasure_map + 1); x++) {
-			if (post.supplyCount[x] != 0) {
-				if (!assertTrue(post.supplyCount[x], 0)) {
-					//trashCheck = 0;
-					feastInSupplyNotTrashFailed++;
-					allCasesPassed = 0;
-				}
-			}
-		}
-		//for (i = 0; i < (treasure_map + 1); i++) {
-		//	if (!assertTrue(post.supplyCount[i], 0)) {
-		//		//assertTrue(post.supplyCount[i], feast);
-		//		feastInSupplyNotTrashFailed++;
-		//		allCasesPassed = 0;
+		//for (x = 0; x < (treasure_map + 1); x++) {
+		//	if (post.supplyCount[x] != 0) {
+		//		if (!assertTrue(post.supplyCount[x], 0)) {
+		//			//trashCheck = 0;
+		//			feastInSupplyNotTrashFailed++;
+		//			allCasesPassed = 0;
+		//		}
 		//	}
 		//}
+		for (x = 0; x < (treasure_map + 1); x++) {
+			if (!assertTrue(post.supplyCount[x], 0)) {
+				//assertTrue(post.supplyCount[x], feast);
+				feastInSupplyNotTrashFailed++;
+				allCasesPassed = 0;
+			}
+		}
 
 		printf("4. Check if Feast was Moved to Hand: ");
 		// check if there is a feast in the hand
