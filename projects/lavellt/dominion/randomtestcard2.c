@@ -108,7 +108,7 @@ int main() {
 
 		// flag to see if any of the trash tests fail
 		//int trashCheck = 1;
-		printf("3. Check if Feast was Moved to Supply Piles: ");
+		printf("3. Check Feast was Not Moved to Supply Piles: ");
 		int x;
 		// check supply piles for anything > 0, indicate feast/problem
 		for (x = 0; x < (treasure_map + 1); x++) {
@@ -133,21 +133,19 @@ int main() {
 		//	}
 		//}
 
-		printf("4. Check if Feast was Moved to Hand: ");
+		printf("4. Check Feast was Removed from Hand: ");
 		// check if there is a feast in the hand
 		for (x = 0; x < post.handCount[currentPlayer]; x++) {
 			if (post.hand[currentPlayer][x] == feast) {
 				break;
 			}
 		}
-		if (x > -1) {
-			if (assertTrue(post.hand[currentPlayer][x], feast)) {
-				feastInHandNotTrashFailed++;
-				allCasesPassed = 0;
-			}
+		if (!assertTrue(post.hand[currentPlayer][x], feast)) {
+			feastInHandNotTrashFailed++;
+			allCasesPassed = 0;
 		}
 
-		printf("5. Check if Feast was Moved to Discard: ");
+		printf("5. Check Feast was Not Moved to Discard: ");
 		// check discard for feast
 		for (x = 0; x < post.discardCount[currentPlayer]; x++) {
 			if (post.discard[currentPlayer][x] == feast) {
@@ -161,7 +159,7 @@ int main() {
 			}
 		}
 
-		printf("6. Check if Feast was Moved to Deck: ");
+		printf("6. Check Feast was Not Moved to Deck: ");
 		// check deck for feast
 		for (x = 0; x < post.deckCount[currentPlayer]; x++) {
 			if (post.deck[currentPlayer][x] == feast) {
@@ -176,7 +174,7 @@ int main() {
 			}
 		}
 
-		printf("7. check if feast was moved to played cards: ");
+		printf("7. Check feast was Not Moved to played cards: ");
 		// check played cards for feast
 		for (x = 0; x < post.playedCardCount; x++) {
 			if (post.playedCards[x] == feast) {
