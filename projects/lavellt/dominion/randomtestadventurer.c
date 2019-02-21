@@ -21,7 +21,7 @@
 //	return numTreasure;
 //}
 
-int countNumTreasureCards(int **pile) {
+int countNumTreasureCards(int *pile) {
 	int numTreasure = 0;
 
 	int i;
@@ -112,7 +112,7 @@ int main() {
 
 		// coins is unused so I am going to use it here for testing
 		//pre.coins = countNumTreasureCards(currentPlayer, &pre);
-		pre.coins = countNumTreasureCards(currentPlayer, &pre.deck[currentPlayer]);
+		pre.coins = countNumTreasureCards(currentPlayer, pre.deck[currentPlayer]);
 
 		// create the object to modify (copy of pre), saves pre for comparison later
 		struct gameState post;
@@ -121,7 +121,7 @@ int main() {
 		// call adventurer, using post
 		cardEffect(adventurer, 0, 0, 0, &post, handPos, 0);
 
-		post.coins = countNumTreasureCards(post.whoseTurn, &post.deck[currentPlayer);
+		post.coins = countNumTreasureCards(post.whoseTurn, post.deck[currentPlayer);
 
 		int numPassed = 0;
 		// used for true/false flagging in if structure
