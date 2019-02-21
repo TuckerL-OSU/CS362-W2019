@@ -55,7 +55,7 @@ int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
 
 int main() {
 	srand(time(NULL));
-	struct gameState pre;
+	struct gameState* pre = newGame();;
 	int seed = 100000;
 	int numPlayers = 2;
 	int currentPlayer = 0;
@@ -77,46 +77,46 @@ int main() {
 		// set up a game
 		initializeGame(numPlayers, k, seed, &pre);
 		// set a players turn, which player doesn't matter
-		pre.whoseTurn = currentPlayer;
+		pre->whoseTurn = currentPlayer;
 		deckSize = rand() % (MAX_DECK + 1);
 		// just to prevent the hand from being bigger than the deck
 		handSize = rand() % (deckSize + 1);
 
 		// number of cards left in deck is total - number in hand
-		pre.deckCount[0] = deckSize - handSize;
-		pre.handCount[0] = handSize;
+		pre->deckCount[0] = deckSize - handSize;
+		pre->handCount[0] = handSize;
 
 		// position of adventurer
 		int handPos = 0;
 		
 		int j;
-		for (j = 0; j < pre.deckCount[currentPlayer]; j++) {
+		for (j = 0; j < pre->deckCount[currentPlayer]; j++) {
 			// choose a card from 0-26 (matches enum)
 			int randomCard = rand() % (27 + 1) - 1;
 			// attempt to "load" the deck with some treasures just to be safe
 			if (randomCard == copper) {
-				pre.deck[currentPlayer][j] = copper;
+				pre->deck[currentPlayer][j] = copper;
 			}
 			else if (randomCard == silver) {
-				pre.deck[currentPlayer][j] = silver;
+				pre->deck[currentPlayer][j] = silver;
 			}
 			else if (randomCard == gold) {
-				pre.deck[currentPlayer][j] = gold;
+				pre->deck[currentPlayer][j] = gold;
 			}
 			else {
 				// else fill deck with a random kingdom card
 				int randomK = rand() % (10 + 1) - 1;
-				pre.deck[currentPlayer][j] = k[randomK];
+				pre->deck[currentPlayer][j] = k[randomK];
 			}
 		}
 
 		// coins is unused so I am going to use it here for testing
-		pre.coins = countNumTreasureCards(currentPlayer, &pre);
-		//pre.coins = countNumTreasureCards(pre.deck[currentPlayer], pre.deckCount[currentPlayer]);
+		pre->coins = countNumTreasureCards(currentPlayer, &pre);
+		//pre->coins = countNumTreasureCards(pre->deck[currentPlayer], pre->deckCount[currentPlayer]);
 
 		// create the object to modify (copy of pre), saves pre for comparison later
 		struct gameState post;
-		memcpy(&post, &pre, sizeof(struct gameState));
+		memcpy(&post, pre, sizeof(struct gameState));
 		
 		// call adventurer, using post
 		cardEffect(adventurer, 0, 0, 0, &post, handPos, 0);
@@ -131,7 +131,7 @@ int main() {
 
 		// Adv should add 2 treasures to the hand
 		printf("1. Check Number of Treasures Drawn: ");
-		if (!assertTrue(post.coins, pre.coins + 2)) {		
+		if (!assertTrue(post.coins, pre->coins + 2)) {		
 			drawTreasureTestsFailed++;
 			allTestsPassed = 0;
 		}
@@ -140,8 +140,8 @@ int main() {
 
 		printf("2. Check Number of Cards Discarded: ");
 		// calc pre's potential discard size
-		pre.discardCount[currentPlayer] = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
-		if (!assertTrue(post.discardCount[currentPlayer], pre.discardCount[currentPlayer])) {
+		pre->discardCount[currentPlayer] = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
+		if (!assertTrue(post.discardCount[currentPlayer], pre->discardCount[currentPlayer])) {
 			discardTestsFailed++;
 			allTestsPassed = 0;
 		}
@@ -150,8 +150,8 @@ int main() {
 
 		printf("3. Check Number of Cards Left in Deck: ");
 		// calc pre's potential deck size
-		pre.deckCount[currentPlayer] = deckSize - post.handCount[currentPlayer] - post.discardCount[currentPlayer];
-		if (!assertTrue(post.deckCount[currentPlayer], pre.deckCount[currentPlayer])) {
+		pre->deckCount[currentPlayer] = deckSize - post.handCount[currentPlayer] - post.discardCount[currentPlayer];
+		if (!assertTrue(post.deckCount[currentPlayer], pre->deckCount[currentPlayer])) {
 			deckTestsFailed++;
 			allTestsPassed = 0;
 		}

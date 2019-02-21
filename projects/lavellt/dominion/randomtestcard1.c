@@ -6,9 +6,9 @@
 //#define MAX_TESTS 1000000
 
 int main() {
-
-	struct gameState G;
-	int seed = 1000;
+	srand(time(NULL));
+	struct gameState pre;
+	int seed = 100000;
 	int numPlayers = 2;
 	int curPlayer = 0;
 	int k[10] = { adventurer, gardens, embargo, village, minion, mine, cutpurse,
@@ -29,19 +29,25 @@ int main() {
 	int testPassed = 0;
 	int passed;
 
-	srand(time(NULL));
 	//randomize hand size
-	for (i = 0; i < 1000000; i++) {
-		initializeGame(numPlayers, k, seed, &G);
+	int i;
+	for (i = 0; i < MAX_TESTS; i++) {
+		printf("Test #%d\n", i + 1);
+		// set up a game
+		initializeGame(numPlayers, k, seed, &pre);
+		// set a players turn, which player doesn't matter
+		pre.whoseTurn = currentPlayer;
 		deckSize = rand() % (MAX_DECK + 1);
-		//set handsize
+		// just to prevent the hand from being bigger than the deck
 		handSize = rand() % (deckSize + 1);
-		G.whoseTurn = curPlayer;
 
-		G.deckCount[0] = deckSize - handSize;
-		G.handCount[0] = handSize;
+		// number of cards left in deck is total - number in hand
+		pre.deckCount[0] = deckSize - handSize;
+		pre.handCount[0] = handSize;
 
-		handPos = G.hand[curPlayer][G.handCount[curPlayer] - 1];
+		// position of smithy
+		int handPos = 0;
+
 		//personal checks
 		deckBefore = G.deckCount[0];
 		//printf("deck before %d\n", deckBefore);
