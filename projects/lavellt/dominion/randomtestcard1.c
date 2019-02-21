@@ -60,7 +60,7 @@ int main() {
 		struct gameState post;
 		memcpy(&post, pre, sizeof(struct gameState));
 
-		cardEffect(smithy, 0, 0, 0, &pre, handPos, 0);
+		cardEffect(smithy, 0, 0, 0, pre, handPos, 0);
 
 		// *** Test Cases *** 
 		// setting these vars here because I want them to reset for each loop
