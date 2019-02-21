@@ -73,8 +73,12 @@ int main() {
 			casesPassed++;
 		}
 
-		printf("3. Check Discard for Smithy: ");
+		printf("3. Check if Smithy was Played: ");
 		//if (!assertTrue(post.discard[currentPlayer][0], smithy)) {
+		int h;
+		for (h = 0; h < post.playedCardCount; h++) {
+			printf("playedCards[%d]: %d", h, post.playedCards[h]);
+		}
 		if (assertTrue(post.playedCards[0], smithy)) {
 			discardSmithyFailed++;
 			allCasesPassed = 0;
@@ -92,7 +96,7 @@ int main() {
 	printf("Number of Tests Fully Passed: %d/%d\n", totalTestsPassed, i);
 	printf("1. Number of Cards in Deck Failed: %d\n", cardsInDeckFailed);
 	printf("2. Number of cards in Hand Failed: %d\n", cardsInHandFailed);
-	printf("3. Smithy Discarded Tests Failed: %d\n", discardSmithyFailed);
+	printf("3. Smithy Played Tests Failed: %d\n", discardSmithyFailed);
 	
 	return 0;
 }
