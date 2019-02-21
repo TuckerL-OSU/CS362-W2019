@@ -51,7 +51,6 @@ int main() {
 				break;
 			}
 		}
-		//int card = gold;
 
 		// set supply counts to 0 for testing later
 		int j;
@@ -83,8 +82,7 @@ int main() {
 			chosenCardPickUpFailed++;
 			allCasesPassed = 0;
 		}
-
-		// only testing province 
+ 
 		printf("2. Try to Buy Overpriced Card: ");
 		// there are 3 cards in our set that are "overpriced" for feast
 		switch (post.discard[currentPlayer][0]) {
@@ -107,12 +105,6 @@ int main() {
 			assertTrue(post.discard[currentPlayer][0], card);
 			break;
 		}
-		//if (assertTrue(post.discard[currentPlayer][0], province) ||
-		//	assertTrue(post.discard[currentPlayer][0], gold) ||
-		//	assertTrue(post.discard[currentPlayer][0], adventurer)) {
-		//	blockOverpricedCardFailed++;
-		//	allCasesPassed = 0;
-		//}
 
 		// flag to see if any of the trash tests fail
 		int trashCheck = 1;
@@ -123,14 +115,12 @@ int main() {
 			if (post.supplyCount[x] != 0) {
 				trashCheck = 0;
 			}
-
-			if (trashCheck == 0) {
-				if (!assertTrue(post.supplyCount[x], 0)) {
-					feastInSupplyNotTrashFailed++;
-					allCasesPassed = 0;
-				}
+		}
+		if (x > -1) {
+			if (!assertTrue(post.supplyCount[x], 0)) {
+				feastInSupplyNotTrashFailed++;
+				allCasesPassed = 0;
 			}
-
 		}
 		//for (x = 0; x < (treasure_map + 1); x++) {
 		//	if (!assertTrue(post.supplyCount[x], 0)) {
