@@ -57,10 +57,10 @@ int main() {
 		for (j = 0; j < (treasure_map + 1); j++) {
 			// if it is the chosen card give it 1 for the sake of run
 			if (j == card) {
-				gS->supplyCount[j] = 1;
+				pre.supplyCount[j] = 1;
 			}
 			else {
-				gS->supplyCount[j] = 0;
+				pre.supplyCount[j] = 0;
 			}
 		}
 
@@ -78,9 +78,9 @@ int main() {
 
 		printf("2. Try to Buy Overpriced Card: ");
 		// there are 3 cards in our set that are "overpriced" for feast
-		if (!assertTrue(post.discard[currentPlayer][0]), province ||
-			!assertTrue(post.discard[currentPlayer][0]), gold ||
-			!assertTrue(post.discard[currentPlayer][0]), adventurer) {
+		if (!assertTrue(post.discard[currentPlayer][0], province) ||
+			!assertTrue(post.discard[currentPlayer][0], gold) ||
+			!assertTrue(post.discard[currentPlayer][0], adventurer)) {
 			blockOverpricedCardFailed++;
 			allCasesPassed = 0;
 		}
