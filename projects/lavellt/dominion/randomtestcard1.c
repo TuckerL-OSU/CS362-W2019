@@ -75,11 +75,11 @@ int main() {
 
 		printf("3. Check if Smithy was Played: ");
 		//if (!assertTrue(post.discard[currentPlayer][0], smithy)) {
-		//printf("playedCardCount: %d\n", post.playedCardCount);
-		//int h;
-		//for (h = 0; h < post.playedCardCount; h++) {
-		//	printf("playedCards[%d]: %d\n", h, post.playedCards[h]);
-		//}
+		printf("playedCardCount: %d\n", post.playedCardCount);
+		int h;
+		for (h = 0; h < post.playedCardCount; h++) {
+			printf("playedCards[%d]: %d\n", h, post.playedCards[h]);
+		}
 		if (!assertTrue(post.playedCards[0], smithy)) {
 			discardSmithyFailed++;
 			allCasesPassed = 0;
