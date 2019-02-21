@@ -168,10 +168,17 @@ int main() {
 		int x;
 		 //calc number of treasures discarded just for debugging purposes
 		int numTreasureDiscarded = 0;
-		for (x = 0; x < post.playedCardCount[currentPlayer]; x++) {
-			if (post.playedCardCount[currentPlayer][x] == copper ||
-				post.playedCardCount[currentPlayer][x] == silver ||
-				post.playedCardCount[currentPlayer][x] == gold) {
+		//for (x = 0; x < post.discardCount[currentPlayer]; x++) {
+		//	if (post.discard[currentPlayer][x] == copper ||
+		//		post.discard[currentPlayer][x] == silver ||
+		//		post.discard[currentPlayer][x] == gold) {
+		//		numTreasureDiscarded++;
+		//	}
+		//}
+		for (x = 0; x < post.playedCardCount; x++) {
+			if (post.playedCards[x] == copper ||
+				post.playedCards[x] == silver ||
+				post.playedCards[x] == gold) {
 				numTreasureDiscarded++;
 			}
 		}
