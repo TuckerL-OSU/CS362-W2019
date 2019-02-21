@@ -2,24 +2,40 @@
 // random test: Adventurer
 #include "unittests.h"
 
-//#define MAX_TESTS 1000
-#define MAX_TESTS 1000000
+#define MAX_TESTS 1000
+//#define MAX_TESTS 1000000
 
 // todo: make this into generic treasure counter using pile (int*) instead of gamestate
-int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
+//int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
+//	int numTreasure = 0;
+//
+//	int i;
+//	for (i = 0; i < gS->handCount[currentPlayer]; i++) {
+//		if (gS->hand[currentPlayer][i] == copper ||
+//			gS->hand[currentPlayer][i] == silver ||
+//			gS->hand[currentPlayer][i] == gold) {
+//			numTreasure++;
+//		}
+//	}
+//
+//	return numTreasure;
+//}
+
+int countNumTreasureCards(int *pile) {
 	int numTreasure = 0;
 
 	int i;
-	for (i = 0; i < gS->handCount[currentPlayer]; i++) {
-		if (gS->hand[currentPlayer][i] == copper ||
-			gS->hand[currentPlayer][i] == silver ||
-			gS->hand[currentPlayer][i] == gold) {
+	for (i = 0; i < pile.size(); i++) {
+		if (pile[i] == copper ||
+			pile[i] == silver ||
+			pile[i] == gold) {
 			numTreasure++;
 		}
 	}
 
 	return numTreasure;
 }
+
 
 //int rand_adventurer_treasuresDrawn() {
 //
@@ -95,7 +111,8 @@ int main() {
 		}
 
 		// coins is unused so I am going to use it here for testing
-		pre.coins = countNumTreasureCards(currentPlayer, &pre);
+		//pre.coins = countNumTreasureCards(currentPlayer, &pre);
+		pre.coins = countNumTreasureCards(currentPlayer, &pre.deck[currentPlayer]);
 
 		// create the object to modify (copy of pre), saves pre for comparison later
 		struct gameState post;
@@ -104,7 +121,7 @@ int main() {
 		// call adventurer, using post
 		cardEffect(adventurer, 0, 0, 0, &post, handPos, 0);
 
-		post.coins = countNumTreasureCards(post.whoseTurn, &post);
+		post.coins = countNumTreasureCards(post.whoseTurn, &post.deck[currentPlayer);
 
 		int numPassed = 0;
 		// used for true/false flagging in if structure
@@ -140,24 +157,24 @@ int main() {
 		numPassed++;
 
 		printf("4. Check if Treasure(s) got Discarded: ");
-		int x;
+		//int x;
 		// calc number of treasures discarded just for debugging purposes
-		int numTreasureDiscarded = 0;
-		for (x = 0; x < post.discardCount[currentPlayer]; x++) {
-			if (post.discard[currentPlayer][x] == copper ||
-				post.discard[currentPlayer][x] == silver ||
-				post.discard[currentPlayer][x] == gold) {
-				numTreasureDiscarded++;
-			}
-		}
-		if (!assertTrue(numTreasureDiscarded, 0)) {
+		/*int numTreasureDiscarded = 0;*/
+		//for (x = 0; x < post.discardCount[currentPlayer]; x++) {
+		//	if (post.discard[currentPlayer][x] == copper ||
+		//		post.discard[currentPlayer][x] == silver ||
+		//		post.discard[currentPlayer][x] == gold) {
+		//		numTreasureDiscarded++;
+		//	}
+		//}
+		if (!assertTrue(countNumTreasureCards(post.discard[currentPlayer], 0)) {
 			discardTreasureTestsFailed++;
 			allTestsPassed = 0;
 		}
 
 		numPassed++;
 
-		// 5. check discard for adventurer
+		// TODO: 5. check discard for adventurer
 		
 		if (allTestsPassed != 0) {
 			printf("%d/%d: ", numPassed, numTests);
