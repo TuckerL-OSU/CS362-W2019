@@ -88,10 +88,10 @@ int main() {
 	}
 
 	printf("\n\n");
+	printf("Number of Tests Fully Passed: %d/%d\n", totalTestsPassed, i);
 	printf("1. Number of Cards in Deck Failed: %d\n", cardsInDeckFailed);
 	printf("2. Number of cards in Hand Failed: %d\n", cardsInHandFailed);
 	printf("3. Smithy Discarded Tests Failed: %d\n", discardSmithyFailed);
-	printf("Number of Tests Fully Passed: %d/%d\n", totalTestsPassed, i);
-
+	
 	return 0;
 }

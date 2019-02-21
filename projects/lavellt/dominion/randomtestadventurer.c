@@ -144,14 +144,23 @@ int main() {
 
 		printf("2. Check Number of Cards Discarded: ");
 		// calc pre's potential discard size
-		pre->playedCardCount = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
-		if (!assertTrue(post.playedCardCount, pre->playedCardCount)) {
+		//pre->playedCardCount = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
+		//if (!assertTrue(post.playedCardCount, pre->playedCardCount)) {
+		//	discardTestsFailed++;
+		//	allCasesPassed = 0;
+		//}
+		//else {
+		//	casesPassed++;
+		//}
+		pre->discardCount[currentPlayer] = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
+		if (!assertTrue(post.discardCount[currentPlayer], pre->discardCount[currentPlayer])) {
 			discardTestsFailed++;
 			allCasesPassed = 0;
 		}
 		else {
 			casesPassed++;
 		}
+
 
 		printf("3. Check Number of Cards Left in Deck: ");
 		// calc pre's potential deck size
@@ -199,11 +208,11 @@ int main() {
 	}
 
 	printf("\n\n");
+	printf("Number of Tests Fully Passed: %d/%d\n", totalTestsPassed, i);
 	printf("1. Number of Treasures Drawn to Hand Failed: %d\n", drawTreasureTestsFailed);
 	printf("2. Number of Cards Discarded Failed: %d\n", discardTestsFailed);
 	printf("3. Number of Cards Left in Deck Failed: %d\n", deckTestsFailed);
 	printf("4. Treasure(s) Discarded Tests Failed: %d\n", discardTreasureTestsFailed);
-	printf("Number of Tests Fully Passed: %d/%d\n", totalTestsPassed, i);
 
 	return 0;
 }
