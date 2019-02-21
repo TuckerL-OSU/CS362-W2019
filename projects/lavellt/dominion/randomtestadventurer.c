@@ -2,10 +2,7 @@
 // random test: Adventurer
 #include "unittests.h"
 
-//#define MAX_TESTS 1000
-//#define MAX_TESTS 1000000
-
-// todo: make this into generic treasure counter using pile (int*) instead of gamestate
+// TODO: make this into generic treasure counter using pile (int*) instead of gamestate
 int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
 	int numTreasure = 0;
 
@@ -85,8 +82,8 @@ int main() {
 		handSize = rand() % (deckSize + 1);
 
 		// number of cards left in deck is total - number in hand
-		pre->deckCount[0] = deckSize - handSize;
-		pre->handCount[0] = handSize;
+		pre->deckCount[currentPlayer] = deckSize - handSize;
+		pre->handCount[currentPlayer] = handSize;
 
 		// position of adventurer
 		int handPos = 0;
@@ -127,8 +124,6 @@ int main() {
 		//post.coins = countNumTreasureCards(post.deck[currentPlayer], post.deckCount[currentPlayer]);
 
 		// *** Test Cases *** 
-		// setting this here because I want it to reset for each loop
-		int casesPassed = 0;
 		// used for true/false flagging in if structure
 		int allCasesPassed = 1;
 
@@ -137,9 +132,6 @@ int main() {
 		if (!assertTrue(post.coins, pre->coins + 2)) {		
 			drawTreasureTestsFailed++;
 			allCasesPassed = 0;
-		}
-		else {
-			casesPassed++;
 		}
 
 		printf("2. Check Number of Cards Discarded: ");
@@ -151,10 +143,6 @@ int main() {
 			discardTestsFailed++;
 			allCasesPassed = 0;
 		}
-		else {
-			casesPassed++;
-		}
-
 
 		printf("3. Check Number of Cards Left in Deck: ");
 		// calc pre's potential deck size
@@ -163,10 +151,7 @@ int main() {
 			deckTestsFailed++;
 			allCasesPassed = 0;
 		}
-		else {
-			casesPassed++;
-		}
-
+		
 		printf("4. Check if Treasure(s) got Discarded: ");
 		int x;
 		 //calc number of treasures discarded just for debugging purposes
@@ -183,9 +168,6 @@ int main() {
 		if (!assertTrue(numTreasureDiscarded, 0)) {
 			discardTreasureTestsFailed++;
 			allCasesPassed = 0;
-		}
-		else {
-			casesPassed++;
 		}
 
 		// TODO: 5. check discard for adventurer

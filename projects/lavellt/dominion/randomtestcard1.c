@@ -2,9 +2,6 @@
 // random test: Smithy
 #include "unittests.h"
 
-//#define MAX_TESTS 1000
-//#define MAX_TESTS 1000000
-
 int main() {
 	srand(time(NULL));
 	// game vars
@@ -36,8 +33,8 @@ int main() {
 		handSize = rand() % (deckSize + 1);
 
 		// number of cards left in deck is total - number in hand
-		pre->deckCount[0] = deckSize - handSize;
-		pre->handCount[0] = handSize;
+		pre->deckCount[currentPlayer] = deckSize - handSize;
+		pre->handCount[currentPlayer] = handSize;
 		pre->playedCardCount = 0;
 
 		// position of smithy
@@ -50,8 +47,6 @@ int main() {
 		cardEffect(smithy, 0, 0, 0, &post, handPos, 0);
 
 		// *** Test Cases *** 
-		// setting these vars here because I want them to reset for each loop
-		int casesPassed = 0;
 		// used for true/false flagging in if structure
 		int allCasesPassed = 1;
 
@@ -60,17 +55,11 @@ int main() {
 			cardsInDeckFailed++;
 			allCasesPassed = 0;
 		}
-		else {
-			casesPassed++;
-		}
 
 		printf("2. Check Number of Cards in Hand: ");
 		if (!assertTrue(post.handCount[currentPlayer], pre->handCount[currentPlayer] + 2)) {
 			cardsInHandFailed++;
 			allCasesPassed = 0;
-		}
-		else {
-			casesPassed++;
 		}
 
 		// ?????????????????????????????????????????????????????????????????????
@@ -80,15 +69,12 @@ int main() {
 			discardSmithyFailed++;
 			allCasesPassed = 0;
 		}
-		else {
-			casesPassed++;
-		}
+
+		// TODO: 4. Check if Smithy was removed from Hand
 
 		if (allCasesPassed == 1) {		
 			totalTestsPassed++;
 		}
-		
-		// TODO: 4. Check if Smithy was removed from Hand
 	}
 
 	printf("\nSmithy Summary\n");
