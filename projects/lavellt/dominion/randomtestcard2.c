@@ -99,7 +99,7 @@ int main() {
 			allCasesPassed = 0;
 			break;
 		case adventurer:
-			assertTrue(post.discard[currentPlayer][0], adventurer)
+			assertTrue(post.discard[currentPlayer][0], adventurer);
 			blockOverpricedCardFailed++;
 			allCasesPassed = 0;
 			break;
