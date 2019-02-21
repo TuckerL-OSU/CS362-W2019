@@ -106,9 +106,21 @@ int main() {
 			break;
 		}
 
+		printf("3. Check Feast was Removed from Hand: ");
+		// check if there is a feast in the hand
+		for (x = 0; x < post.handCount[currentPlayer]; x++) {
+			if (post.hand[currentPlayer][x] == feast) {
+				break;
+			}
+		}
+		if (assertTrue(post.hand[currentPlayer][x], !feast)) {
+			feastInHandNotTrashFailed++;
+			allCasesPassed = 0;
+		}
+
 		// flag to see if any of the trash tests fail
 		//int trashCheck = 1;
-		printf("3. Check Feast was Not Moved to Supply Piles: ");
+		printf("4. Check Feast was Not Moved to Supply Piles: ");
 		int x;
 		// check supply piles for anything > 0, indicate feast/problem
 		for (x = 0; x < (treasure_map + 1); x++) {
@@ -132,18 +144,6 @@ int main() {
 		//		allCasesPassed = 0;
 		//	}
 		//}
-
-		printf("4. Check Feast was Removed from Hand: ");
-		// check if there is a feast in the hand
-		for (x = 0; x < post.handCount[currentPlayer]; x++) {
-			if (post.hand[currentPlayer][x] == feast) {
-				break;
-			}
-		}
-		if (!assertTrue(post.hand[currentPlayer][x], feast)) {
-			feastInHandNotTrashFailed++;
-			allCasesPassed = 0;
-		}
 
 		printf("5. Check Feast was Not Moved to Discard: ");
 		// check discard for feast
@@ -203,8 +203,8 @@ int main() {
 	printf("1. Chosen Card Picked Up Failed: %d\n", chosenCardPickUpFailed);
 	printf("2. Block Buying Overpriced Card Failed: %d\n", blockOverpricedCardFailed);
 	//printf("3. Feast was Trashed Failed: %d\n", trashFeastFailed);
-	printf("3. Feast is in Supply Piles NOT Trash Failed: %d\n", feastInSupplyNotTrashFailed);
-	printf("4. Feast is in Hand NOT Trash Failed: %d\n", feastInHandNotTrashFailed);
+	printf("3. Feast Removed from Hand Failed: %d\n", feastInHandNotTrashFailed);
+	printf("4. Feast is in Supply Piles NOT Trash Failed: %d\n", feastInSupplyNotTrashFailed);
 	printf("5. Feast is in Discard NOT Trash Failed: %d\n", feastInDiscardNotTrashFailed);
 	printf("6. Feast is in Deck NOT Trash Failed: %d\n", feastInDeckNotTrashFailed);
 	printf("7. Feast is in Played Cards NOT Trash Failed: %d\n", feastInPlayedCardsNotTrashFailed);
