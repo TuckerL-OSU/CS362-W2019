@@ -186,7 +186,7 @@ int main() {
 
 		// TODO: 5. check discard for adventurer
 		
-		if (allTestsPassed != 0) {
+		if (allCasesPassed != 0) {
 			printf("%d/%d: ", casesPassed, numCases);
 			if (assertTrue(allCasesPassed, 1)) {
 				totalTestsPassed++;
