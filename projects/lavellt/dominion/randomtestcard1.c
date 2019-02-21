@@ -74,7 +74,7 @@ int main() {
 		}
 
 		printf("3. Check Discard for Smithy: ");
-		if (!assertTrue(post.playedCards[0], smithy)) {
+		if (!assertTrue(post.discard[0], smithy)) {
 			discardSmithyFailed++;
 			allCasesPassed = 0;
 		}

@@ -144,14 +144,6 @@ int main() {
 
 		printf("2. Check Number of Cards Discarded: ");
 		// calc pre's potential discard size
-		//pre->playedCardCount = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
-		//if (!assertTrue(post.playedCardCount, pre->playedCardCount)) {
-		//	discardTestsFailed++;
-		//	allCasesPassed = 0;
-		//}
-		//else {
-		//	casesPassed++;
-		//}
 		pre->discardCount[currentPlayer] = deckSize - post.deckCount[currentPlayer] - post.handCount[currentPlayer];
 		if (!assertTrue(post.discardCount[currentPlayer], pre->discardCount[currentPlayer])) {
 			discardTestsFailed++;
@@ -164,7 +156,7 @@ int main() {
 
 		printf("3. Check Number of Cards Left in Deck: ");
 		// calc pre's potential deck size
-		pre->deckCount[currentPlayer] = deckSize - post.handCount[currentPlayer] - post.playedCardCount;
+		pre->deckCount[currentPlayer] = deckSize - post.handCount[currentPlayer] - post.discardCount[currentPlayer];
 		if (!assertTrue(post.deckCount[currentPlayer], pre->deckCount[currentPlayer])) {
 			deckTestsFailed++;
 			allCasesPassed = 0;
@@ -177,20 +169,14 @@ int main() {
 		int x;
 		 //calc number of treasures discarded just for debugging purposes
 		int numTreasureDiscarded = 0;
-		//for (x = 0; x < post.discardCount[currentPlayer]; x++) {
-		//	if (post.discard[currentPlayer][x] == copper ||
-		//		post.discard[currentPlayer][x] == silver ||
-		//		post.discard[currentPlayer][x] == gold) {
-		//		numTreasureDiscarded++;
-		//	}
-		//}
-		for (x = 0; x < post.playedCardCount; x++) {
-			if (post.playedCards[x] == copper ||
-				post.playedCards[x] == silver ||
-				post.playedCards[x] == gold) {
+		for (x = 0; x < post.discardCount[currentPlayer]; x++) {
+			if (post.discard[currentPlayer][x] == copper ||
+				post.discard[currentPlayer][x] == silver ||
+				post.discard[currentPlayer][x] == gold) {
 				numTreasureDiscarded++;
 			}
 		}
+
 		//if (!assertTrue(countNumTreasureCards(post.discard[currentPlayer], post.discardCount[currentPlayer]), 0)) {
 		if (!assertTrue(numTreasureDiscarded, 0)) {
 			discardTreasureTestsFailed++;
