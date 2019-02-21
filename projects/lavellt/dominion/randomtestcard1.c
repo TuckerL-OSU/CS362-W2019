@@ -16,12 +16,6 @@ int main() {
 		sea_hag, tribute, smithy };
 	int deckSize = 0;
 	int handSize = 0;
-	//int deckBefore;
-	//int deckAfter;
-	//int handBefore;
-	//int handAfter;
-	//int discardBefore;
-	//int discardAfter;
 
 	// test vars
 	int totalTestsPassed = 0;
@@ -44,17 +38,10 @@ int main() {
 		// number of cards left in deck is total - number in hand
 		pre->deckCount[0] = deckSize - handSize;
 		pre->handCount[0] = handSize;
+		pre->playedCardCount = 0;
 
 		// position of smithy
 		int handPos = 0;
-
-		////personal checks
-		//deckBefore = G.deckCount[0];
-		////printf("deck before %d\n", deckBefore);
-		//handBefore = G.handCount[0];
-		////printf("Hand before %d\n",handBefore);
-		//discardBefore = G.playedCardCount;
-		////printf("Discard before %d\n", discardBefore);
 
 		// create the object to modify (copy of pre), saves pre for comparison later
 		struct gameState post;
