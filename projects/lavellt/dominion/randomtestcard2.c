@@ -50,7 +50,7 @@ int main() {
 				break;
 			}
 		}*/
-		int card = province;
+		int card = duchy;
 
 		// set supply counts to 0 for testing later
 		int j;
