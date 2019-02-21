@@ -121,7 +121,7 @@ int main() {
 		// call adventurer, using post
 		cardEffect(adventurer, 0, 0, 0, &post, handPos, 0);
 
-		post.coins = countNumTreasureCards(post.deck[currentPlayer);
+		post.coins = countNumTreasureCards(post.deck[currentPlayer]);
 
 		int numPassed = 0;
 		// used for true/false flagging in if structure
