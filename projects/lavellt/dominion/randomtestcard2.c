@@ -51,7 +51,7 @@ int main() {
 		//		break;
 		//	}
 		//}
-		int card = gold;
+		int card = province;
 
 		// set supply counts to 0 for testing later
 		int j;
