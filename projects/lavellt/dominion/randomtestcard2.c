@@ -118,10 +118,6 @@ int main() {
 				break;
 			}
 		}
-		// if x = handcount
-		//	assert
-		// else
-		//	other assert
 		if (feastFound == 1) {
 			if (!assertTrue(post.hand[currentPlayer][x], feast)) {
 				feastInHandNotTrashFailed++;
@@ -131,8 +127,6 @@ int main() {
 		else {
 			assertTrue(feastFound, 0);
 		}
-		
-
 
 		printf("4. Check Feast was Not Moved to Supply Piles: ");
 		// check supply piles for anything > 0, indicate feast/problem
@@ -144,12 +138,12 @@ int main() {
 			}
 		}
 		// catches for assert
-		if (x > -1) {
+		//if (x > -1) {
 			if (!assertTrue(post.supplyCount[x], 0)) {
 				feastInSupplyNotTrashFailed++;
 				allCasesPassed = 0;
 			}
-		}
+		//}
 		//for (x = 0; x < (treasure_map + 1); x++) {
 		//	if (!assertTrue(post.supplyCount[x], 0)) {
 		//		//assertTrue(post.supplyCount[x], feast);
