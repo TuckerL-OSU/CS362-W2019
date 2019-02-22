@@ -122,11 +122,14 @@ int main() {
 			if (!assertTrue(post.hand[currentPlayer][x], feast)) {
 				feastInHandNotTrashFailed++;
 				allCasesPassed = 0;
+				// reset flag
+				feastFound = 0;
 			}
 		}
 		else {
 			assertTrue(feastFound, 0);
 		}
+		
 
 		printf("4. Check Feast was Not Moved to Supply Piles: ");
 		// check supply piles for anything > 0, indicate feast/problem
@@ -137,48 +140,47 @@ int main() {
 				break;
 			}
 		}
-		// catches for assert
-		//if (x > -1) {
-			if (!assertTrue(post.supplyCount[x], 0)) {
-				feastInSupplyNotTrashFailed++;
-				allCasesPassed = 0;
-			}
-		//}
-		//for (x = 0; x < (treasure_map + 1); x++) {
-		//	if (!assertTrue(post.supplyCount[x], 0)) {
-		//		//assertTrue(post.supplyCount[x], feast);
-		//		feastInSupplyNotTrashFailed++;
-		//		allCasesPassed = 0;
-		//	}
-		//}
+		if (!assertTrue(post.supplyCount[x], 0)) {
+			feastInSupplyNotTrashFailed++;
+			allCasesPassed = 0;
+		}
 
 		printf("5. Check Feast was Not Moved to Discard: ");
 		// check discard for feast
 		for (x = 0; x < post.discardCount[currentPlayer]; x++) {
 			if (post.discard[currentPlayer][x] == feast) {
+				feastFound = 1;
 				break;
 			}
 		}
-		if (x > -1) {
-			if (!assertTrue(post.discard[currentPlayer][x], !feast)) {
+		if (feastFound == 1) {
+			if (!assertTrue(post.discard[currentPlayer][x], feast)) {
 				feastInDiscardNotTrashFailed++;
 				allCasesPassed = 0;
+				feastFound = 0;
 			}
 		}
-
+		else {
+			assertTrue(feastFound, 0);
+		}
+		
 		printf("6. Check Feast was Not Moved to Deck: ");
 		// check deck for feast
 		for (x = 0; x < post.deckCount[currentPlayer]; x++) {
 			if (post.deck[currentPlayer][x] == feast) {
+				feastFound = 1;
 				break;
 			}
 		}
-		if (x > -1) {
+		if (feastFound == 1) {
 			if (!assertTrue(post.deck[currentPlayer][x], !feast)) {
-				//trashCheck = 0;
 				feastInDeckNotTrashFailed++;
 				allCasesPassed = 0;
+				feastFound = 0;
 			}
+		}
+		else {
+			assertTrue(feastFound, 0);
 		}
 
 		printf("7. Check feast was Not Moved to played cards: ");
@@ -188,12 +190,16 @@ int main() {
 				break;
 			}
 		}
-		if (x > -1) {
+		if (feastFound == 1) {
 			if (!assertTrue(post.playedCards[x], !feast)) {
 				//trashCheck = 0;
 				feastInPlayedCardsNotTrashFailed++;
 				allCasesPassed = 0;
+				feastFound = 0;
 			}
+		}
+		else {
+			assertTrue(feastFound, 0);
 		}
 
 		//if (!assertTrue(trashCheck, 0)) {
