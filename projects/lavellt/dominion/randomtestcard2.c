@@ -83,7 +83,7 @@ int main() {
 			allCasesPassed = 0;
 		}
  
-		printf("2. Try to Buy Overpriced Card: ");
+		printf("2. Check if Card was Overpriced: ");
 		// there are 3 cards in our set that are "overpriced" for feast
 		switch (post.discard[currentPlayer][0]) {
 		case province:
@@ -107,10 +107,14 @@ int main() {
 		}
 
 		int x;
+		// flag to see if any of the trash tests fail, 0 pass, 1 fail
+		int feastFound = 0;
 		printf("3. Check Feast was Removed from Hand: ");
 		// check if there is a feast in the hand
 		for (x = 0; x < post.handCount[currentPlayer]; x++) {
 			if (post.hand[currentPlayer][x] == feast) {
+				// found a feast
+				feastFound = 1;
 				break;
 			}
 		}
@@ -118,13 +122,18 @@ int main() {
 		//	assert
 		// else
 		//	other assert
-		if (!assertTrue(post.hand[currentPlayer][x], feast)) {
-			feastInHandNotTrashFailed++;
-			allCasesPassed = 0;
+		if (feastFound == 1) {
+			if (!assertTrue(post.hand[currentPlayer][x], feast)) {
+				feastInHandNotTrashFailed++;
+				allCasesPassed = 0;
+			}
 		}
+		else {
+			assertTrue(feastFound, 0);
+		}
+		
 
-		// flag to see if any of the trash tests fail
-		//int trashCheck = 1;
+
 		printf("4. Check Feast was Not Moved to Supply Piles: ");
 		// check supply piles for anything > 0, indicate feast/problem
 		for (x = 0; x < (treasure_map + 1); x++) {
