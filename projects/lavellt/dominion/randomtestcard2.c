@@ -114,7 +114,11 @@ int main() {
 				break;
 			}
 		}
-		if (assertTrue(post.hand[currentPlayer][x], !feast)) {
+		// if x = handcount
+		//	assert
+		// else
+		//	other assert
+		if (!assertTrue(post.hand[currentPlayer][x], feast)) {
 			feastInHandNotTrashFailed++;
 			allCasesPassed = 0;
 		}
