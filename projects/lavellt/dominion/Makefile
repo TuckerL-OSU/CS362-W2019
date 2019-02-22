@@ -144,21 +144,21 @@ randomtestresults:
 	echo "===========" >> randomtestcard1.out
 	make randtest1
 	./randtest1 >> randomtestcard1.out
-	gcov -abcr dominion.c >> randomtestcard1.out
+	gcov -b -f dominion.c >> randomtestcard1.out
 	
 	echo "===========" >> randomtestcard2.out
 	echo "randomtestcard2.c: Feast" >> randomtestcard2.out
 	echo "===========" >> randomtestcard2.out
 	make randtest2
 	./randtest2 >> randomtestcard2.out
-	gcov -abcr dominion.c >> randomtestcard2.out
+	gcov -b -f dominion.c >> randomtestcard2.out
 	
 	echo "===========" >> randomtestadventurer.out	
 	echo "randomtestadventurer.c: Adventurer" >> randomtestadventurer.out
 	echo "===========" >> randomtestadventurer.out
 	make randtestadv
 	./randtestadv >> randomtestadventurer.out
-	gcov -abcr dominion.c >> randomtestadventurer.out
+	gcov -b -f dominion.c >> randomtestadventurer.out
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe ut1 ut2 ut3 ut4 ct1 ct2 ct3 ct4
