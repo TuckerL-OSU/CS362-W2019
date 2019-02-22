@@ -154,7 +154,6 @@ randomtestresults:
 	make randtest2
 	./randtest2
 	gcov -b -f dominion.c >> randomtestcard2.out
-	rm -f *.gcov *.gcda *.gcno
 	
 	echo "===========" &> randomtestadventurer.out	
 	echo "randomtestadventurer.c: Adventurer" >> randomtestadventurer.out
