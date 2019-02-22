@@ -139,21 +139,21 @@ randomtestresults:
 	make dominion.o
 	make unittests.o
 
-	echo "===========" >> randomtestcard1.out
+	echo "===========" > randomtestcard1.out
 	echo "randomtestcard1.c: Smithy" >> randomtestcard1.out
 	echo "===========" >> randomtestcard1.out
 	make randtest1
 	./randtest1 >> randomtestcard1.out
 	gcov -b -f dominion.c >> randomtestcard1.out
 	
-	echo "===========" >> randomtestcard2.out
+	echo "===========" > randomtestcard2.out
 	echo "randomtestcard2.c: Feast" >> randomtestcard2.out
 	echo "===========" >> randomtestcard2.out
 	make randtest2
 	./randtest2 >> randomtestcard2.out
 	gcov -b -f dominion.c >> randomtestcard2.out
 	
-	echo "===========" >> randomtestadventurer.out	
+	echo "===========" > randomtestadventurer.out	
 	echo "randomtestadventurer.c: Adventurer" >> randomtestadventurer.out
 	echo "===========" >> randomtestadventurer.out
 	make randtestadv

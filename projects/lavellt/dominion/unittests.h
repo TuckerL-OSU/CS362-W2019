@@ -1,7 +1,7 @@
 #ifndef _UNITTESTS_H
 #define _UNITTESTS_H
 
-#define MAX_TESTS 1000000
+#define MAX_TESTS 10000
 
 #include "dominion.h"
 #include "dominion_helpers.h"
