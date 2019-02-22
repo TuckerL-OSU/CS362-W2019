@@ -47,7 +47,6 @@ int main() {
 
 	// test vars
 	int totalTestsPassed = 0;
-	//int numCases = 4;
 	int drawTreasureTestsFailed = 0;
 	int discardTestsFailed = 0;
 	int deckTestsFailed = 0;
@@ -152,8 +151,6 @@ int main() {
 			discardTreasureTestsFailed++;
 			allCasesPassed = 0;
 		}
-
-		// TODO: 5. check discard for adventurer
 		
 		if (allCasesPassed == 1) {
 			totalTestsPassed++;

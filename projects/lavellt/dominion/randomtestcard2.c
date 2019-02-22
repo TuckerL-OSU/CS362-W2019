@@ -16,7 +16,6 @@ int main() {
 
 	// test vars
 	int totalTestsPassed = 0;
-	//int numCases = 3;
 	int chosenCardPickUpFailed = 0;
 	int blockOverpricedCardFailed = 0;
 	int feastInSupplyNotTrashFailed = 0;
@@ -24,7 +23,6 @@ int main() {
 	int feastInDiscardNotTrashFailed = 0;
 	int feastInDeckNotTrashFailed = 0;
 	int feastInPlayedCardsNotTrashFailed = 0;
-	//int trashFeastFailed = 0;
 
 	int i;
 	for (i = 0; i < MAX_TESTS; i++) {
