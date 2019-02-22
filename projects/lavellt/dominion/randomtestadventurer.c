@@ -33,23 +33,6 @@ int countNumTreasureCards(int currentPlayer, struct gameState *gS) {
 //	return numTreasure;
 //}
 
-
-//int rand_adventurer_treasuresDrawn() {
-//
-//}
-//
-//int rand_adventurer_discardCards() {
-//
-//}
-//
-//int rand_adventurer_cardsLeftInDeck() {
-//
-//}
-//
-//int rand_adventurer_treasuresDiscarded() {
-//
-//}
-
 int main() {
 	srand(time(NULL));
 	// game vars
@@ -91,7 +74,7 @@ int main() {
 		int j;
 		for (j = 0; j < pre->deckCount[currentPlayer]; j++) {
 			// choose a card from 0-26 (matches enum)
-			int randomCard = rand() % (27 + 1) - 1;
+			int randomCard = rand() % 27;
 			// attempt to "load" the deck with some treasures just to be safe
 			if (randomCard == copper) {
 				pre->deck[currentPlayer][j] = copper;
@@ -104,7 +87,7 @@ int main() {
 			}
 			else {
 				// else fill deck with a random kingdom card
-				int randomK = rand() % (10 + 1) - 1;
+				int randomK = rand() % 10;
 				pre->deck[currentPlayer][j] = k[randomK];
 			}
 		}
@@ -113,7 +96,7 @@ int main() {
 		pre->coins = countNumTreasureCards(currentPlayer, pre);
 		//pre->coins = countNumTreasureCards(pre->deck[currentPlayer], pre->deckCount[currentPlayer]);
 
-		// create the object to modify (copy of pre), saves pre for comparison later
+		
 		struct gameState post;
 		memcpy(&post, pre, sizeof(struct gameState));
 		

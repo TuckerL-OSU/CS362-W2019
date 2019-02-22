@@ -133,6 +133,68 @@ randtest1: unittests.o dominion.o randomtestcard1.c
 randtest2: unittests.o dominion.o randomtestcard2.c
 	gcc -o randtest2 randomtestcard2.c -g unittests.o dominion.o rngs.o $(CFLAGS)
 
+randomtestresults: 
+
+	make rngs.o
+	make dominion.o
+	make unittests.o
+
+	echo "===========" >> randomtestcard1.out
+	echo "randomtestcard1.c: Smithy" >> randomtestcard1.out
+	echo "===========" >> randomtestcard1.out
+	make ut1
+	./ut1 >> randomtestcard1.out
+	gcov -abcr dominion.c >> randomtestcard1.out
+	
+	echo "===========" >> randomtestcard2.out
+	echo "randomtestcard2.c: Feast" >> randomtestcard2.out
+	echo "===========" >> randomtestcard2.out
+	make randtest2
+	./ut2 >> randomtestcard2.out
+	gcov -abcr dominion.c >> randomtestcard2.out
+	
+	echo "===========" >> r.out	
+	echo "unittest3.c: updateCoins()" >> unittestresults.out
+	echo "===========" >> unittestresults.out
+	make ut3
+	./ut3 >> unittestresults.out
+	gcov -abcr dominion.c >> unittestresults.out
+	
+	echo "===========" >> unittestresults.out	
+	echo "unittest4.c: whoseTurn()" >> unittestresults.out
+	echo "===========" >> unittestresults.out
+	make ut4
+	./ut4 >> unittestresults.out
+	gcov -abcr dominion.c >> unittestresults.out
+
+	echo "===========" >> unittestresults.out	
+	echo "cardtest1.c: Adventurer" >> unittestresults.out
+	echo "===========" >> unittestresults.out
+	make ct1
+	./ct1 >> unittestresults.out
+	gcov -abcr dominion.c >> unittestresults.out
+	
+	echo "===========" >> unittestresults.out	
+	echo "cardtest2.c: Smithy" >> unittestresults.out
+	echo "===========" >> unittestresults.out
+	make ct2
+	./ct2 >> unittestresults.out
+	gcov -abcr dominion.c >> unittestresults.out
+	
+	echo "===========" >> unittestresults.out
+	echo "cardtest3.c: Feast" >> unittestresults.out
+	echo "===========" >> unittestresults.out
+	make ct3
+	./ct3 >> unittestresults.out
+	gcov -abcr dominion.c >> unittestresults.out
+	
+	echo "===========" >> unittestresults.out
+	echo "cardtest4.c: Treasure Map" >> unittestresults.out
+	echo "===========" >> unittestresults.out
+	make ct4
+	./ct4 >> unittestresults.out
+	gcov -abcr dominion.c >> unittestresults.out
+
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe ut1 ut2 ut3 ut4 ct1 ct2 ct3 ct4

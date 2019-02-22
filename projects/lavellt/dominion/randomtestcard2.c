@@ -46,7 +46,7 @@ int main() {
 		//int chosenCard = rand() % (27 + 1) - 1;
 		int card = -1;
 		while (1) {
-			card = rand() % (27 + 1) - 1;
+			card = rand() % 27;
 			if (card != province) {
 				break;
 			}
