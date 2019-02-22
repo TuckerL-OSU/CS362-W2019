@@ -141,28 +141,38 @@ randomtestresults:
 
 	echo "===========" &> randomtestcard1.out
 	echo "randomtestcard1.c: Smithy" >> randomtestcard1.out
+	echo "Testing effectSmithy()" >> randomtestcard1.out
 	echo "===========" >> randomtestcard1.out
 	make randtest1
 	./randtest1
 	gcov -b -f dominion.c >> randomtestcard1.out
-	rm -f dominion.c.gcov dominion.gcda dominion.gcno
+	rm -f *.gcov *.gcda *.gcno
 	
+	make rngs.o
+	make dominion.o
+	make unittests.o
+
 	echo "===========" &> randomtestcard2.out
 	echo "randomtestcard2.c: Feast" >> randomtestcard2.out
+	echo "Testing effectFeast()" >> randomtestcard2.out
 	echo "===========" >> randomtestcard2.out
 	make randtest2
 	./randtest2
 	gcov -b -f dominion.c >> randomtestcard2.out
-	rm -f dominion.c.gcov dominion.gcda dominion.gcno
-
+	rm -f *.gcov *.gcda *.gcno
 	
+	make rngs.o
+	make dominion.o
+	make unittests.o
+
 	echo "===========" &> randomtestadventurer.out	
 	echo "randomtestadventurer.c: Adventurer" >> randomtestadventurer.out
+	echo "Testing effectAdventurer()" >> randomtestadventurer.out
 	echo "===========" >> randomtestadventurer.out
 	make randtestadv
 	./randtestadv
 	gcov -b -f dominion.c >> randomtestadventurer.out
-	rm -f dominion.c.gcov dominion.gcda dominion.gcno
+	rm -f *.gcov *.gcda *.gcno
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe ut1 ut2 ut3 ut4 ct1 ct2 ct3 ct4
