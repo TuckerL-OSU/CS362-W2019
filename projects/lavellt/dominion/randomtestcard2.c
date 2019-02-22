@@ -1,5 +1,5 @@
 // Tucker Lavell
-// random test: Smithy
+// random test: Feast
 #include "unittests.h"
 
 int main() {
