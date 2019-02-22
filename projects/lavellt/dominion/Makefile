@@ -145,6 +145,7 @@ randomtestresults:
 	make randtest1
 	./randtest1
 	gcov -b -f dominion.c >> randomtestcard1.out
+	rm -f dominion.c.gcov dominion.gcda dominion.gcno
 	
 	echo "===========" &> randomtestcard2.out
 	echo "randomtestcard2.c: Feast" >> randomtestcard2.out
@@ -152,6 +153,8 @@ randomtestresults:
 	make randtest2
 	./randtest2
 	gcov -b -f dominion.c >> randomtestcard2.out
+	rm -f dominion.c.gcov dominion.gcda dominion.gcno
+
 	
 	echo "===========" &> randomtestadventurer.out	
 	echo "randomtestadventurer.c: Adventurer" >> randomtestadventurer.out
@@ -159,6 +162,7 @@ randomtestresults:
 	make randtestadv
 	./randtestadv
 	gcov -b -f dominion.c >> randomtestadventurer.out
+	rm -f dominion.c.gcov dominion.gcda dominion.gcno
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe ut1 ut2 ut3 ut4 ct1 ct2 ct3 ct4
