@@ -658,9 +658,9 @@ void adventurerCardEffect(int currentPlayer, int drawntreasure, int cardDrawn, i
 		cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer] - 1];//top card of hand is most recently drawn card.
 
 		// bug created by team mate
-		if (cardDrawn == copper && cardDrawn == silver && cardDrawn == gold)
+		//if (cardDrawn == copper && cardDrawn == silver && cardDrawn == gold)
 		// my fix
-		//if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+		if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
 			drawntreasure++;
 		else {
 			temphand[z] = cardDrawn;
