@@ -83,7 +83,7 @@ int feast_tryOverCostCard() {
 	struct gameState* gS = newGame();
 	time_t start = time(NULL);
 	time_t end = 0;
-	time_t waitTime = 5; // wait 5 seconds
+	time_t waitTime = 2; // wait 2 seconds
 
 	end = start + waitTime;
 
