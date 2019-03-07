@@ -658,9 +658,9 @@ void adventurerCardEffect(int currentPlayer, int drawntreasure, int cardDrawn, i
 		cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer] - 1];//top card of hand is most recently drawn card.
 
 		// bug created by team mate
-		if (cardDrawn == copper && cardDrawn == silver && cardDrawn == gold)
+		//if (cardDrawn == copper && cardDrawn == silver && cardDrawn == gold)
 		// my fix
-		//if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+		if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
 			drawntreasure++;
 		else {
 			temphand[z] = cardDrawn;
@@ -679,9 +679,9 @@ void smithyCardEffect(int currentPlayer, int handPos, struct gameState *state)
 	int i;
 	//+3 Cards
 	// bug created by team mate
-	for (i = 0; i > 3; i++)
+	//for (i = 0; i > 3; i++)
 	// my fix
-	//for (i = 0; i < 3; i++)
+	for (i = 0; i < 3; i++)
 	{
 		drawCard(currentPlayer, state);
 	}
