@@ -73,7 +73,7 @@ int smithy_numCardsInHand() {
 		actual = gS->handCount[gS->whoseTurn];
 	}
 
-	printf("2. Check Number of Cards in hand: ");
+	printf("2. Check Number of Cards in Hand: ");
 	return assertTrue(actual, expected);
 }
 

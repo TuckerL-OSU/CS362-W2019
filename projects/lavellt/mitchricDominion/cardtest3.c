@@ -50,8 +50,42 @@ int feast_gainCard() {
 // check the cost of a gained card. Since duchy was bought successfully in
 // the last test, I am going to test a higher priced card, because I know
 // it will trigger my bug. This will pass, but it should fail
+//int feast_tryOverCostCard() {
+//	struct gameState* gS = newGame();
+//
+//	// gold cost is 6 which is higher than should be for feast
+//	int expected = gold;
+//	int actual = -1;
+//
+//	gS->whoseTurn = 0;
+//	gS->handCount[gS->whoseTurn] = 2;
+//	gS->hand[gS->whoseTurn][0] = feast;
+//	gS->hand[gS->whoseTurn][1] = silver;
+//
+//	gS->deckCount[gS->whoseTurn] = 0;
+//	gS->discardCount[gS->whoseTurn] = 0;
+//
+//	// just to make sure nothing is contaminated by passing expected
+//	int card = gold;
+//	gS->supplyCount[card] = 1;
+//	cardEffect(feast, card, 0, 0, gS, 0, 0);
+//
+//	// since discard was originally none, we know the first card
+//	// in the discard pile will be the chosen card.
+//	if (gS->whoseTurn == 0) {
+//		actual = gS->discard[gS->whoseTurn][0];
+//	}
+//
+//	printf("2. Try to Buy Overpriced Card: ");
+//	return assertTrue(actual, expected);
+//}
 int feast_tryOverCostCard() {
 	struct gameState* gS = newGame();
+	time_t start = time(NULL);
+	time_t end = 0;
+	time_t waitTime = 5; // wait 5 seconds
+
+	end = start + waitTime;
 
 	// gold cost is 6 which is higher than should be for feast
 	int expected = gold;
@@ -68,11 +102,19 @@ int feast_tryOverCostCard() {
 	// just to make sure nothing is contaminated by passing expected
 	int card = gold;
 	gS->supplyCount[card] = 1;
-	cardEffect(feast, card, 0, 0, gS, 0, 0);
+
+	while (start < end) {
+		cardEffect(feast, card, 0, 0, gS, 0, 0);
+	}
+
+	if (strcmp(stdout, "That card is too expensive!\n") == 0) {
+		actual = 0;
+	}
 
 	// since discard was originally none, we know the first card
 	// in the discard pile will be the chosen card.
-	if (gS->whoseTurn == 0) {
+	//if (gS->whoseTurn == 0) {
+	else {
 		actual = gS->discard[gS->whoseTurn][0];
 	}
 
