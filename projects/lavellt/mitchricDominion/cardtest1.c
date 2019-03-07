@@ -35,9 +35,9 @@ int adventurer_treasuresDrawn() {
 	gS->deck[gS->whoseTurn][3] = baron;
 	gS->deck[gS->whoseTurn][4] = gold;
 
-	printf("Test 1\n");
+	//printf("Test 1\n");
 	cardEffect(adventurer, 0, 0, 0, gS, 0, 0);
-	printf("leave cardeffect 1\n");
+	//printf("leave cardeffect 1\n");
 
 	int i;
 	for (i = 0; i < gS->handCount[gS->whoseTurn]; i++) {
@@ -70,9 +70,9 @@ int adventurer_discardCards() {
 	gS->deck[gS->whoseTurn][3] = baron;
 	gS->deck[gS->whoseTurn][4] = gold;
 
-	printf("Test 2\n");
+	//printf("Test 2\n");
 	cardEffect(adventurer, 0, 0, 0, gS, 0, 0);
-	printf("leave cardeffect 2\n");
+	//printf("leave cardeffect 2\n");
 
 
 	if (gS->whoseTurn == 0) {
@@ -101,9 +101,9 @@ int adventurer_cardsLeftInDeck() {
 	gS->deck[gS->whoseTurn][3] = baron;
 	gS->deck[gS->whoseTurn][4] = gold;
 
-	printf("Test 3\n");
+	//printf("Test 3\n");
 	cardEffect(adventurer, 0, 0, 0, gS, 0, 0);
-	printf("leave cardeffect 3\n");
+	//printf("leave cardeffect 3\n");
 
 	if (gS->whoseTurn == 0) {
 		actual = gS->deckCount[gS->whoseTurn];
