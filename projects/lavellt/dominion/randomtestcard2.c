@@ -69,7 +69,7 @@ int main() {
 		struct gameState post;
 		memcpy(&post, pre, sizeof(struct gameState));
 
-		cardEffect(feast, card, 0, 0, &post, handPos, 0);
+		int error = cardEffect(feast, card, 0, 0, &post, handPos, 0);
 
 		// *** Test Cases *** 
 		// used for true/false flagging in if structure
@@ -82,27 +82,31 @@ int main() {
 		}
  
 		printf("2. Check if Card was Overpriced: ");
-		// there are 3 cards in our set that are "overpriced" for feast
-		switch (post.discard[currentPlayer][0]) {
-		case province:
-			assertTrue(post.discard[currentPlayer][0], province);
+		if (!assertTrue(error, 3)) {
 			blockOverpricedCardFailed++;
 			allCasesPassed = 0;
-			break;
-		case gold:
-			assertTrue(post.discard[currentPlayer][0], gold);
-			blockOverpricedCardFailed++;
-			allCasesPassed = 0;
-			break;
-		case adventurer:
-			assertTrue(post.discard[currentPlayer][0], adventurer);
-			blockOverpricedCardFailed++;
-			allCasesPassed = 0;
-			break;
-		default:
-			assertTrue(post.discard[currentPlayer][0], card);
-			break;
 		}
+		// there are 3 cards in our set that are "overpriced" for feast
+		//switch (post.discard[currentPlayer][0]) {
+		//case province:
+		//	assertTrue(post.discard[currentPlayer][0], province);
+		//	blockOverpricedCardFailed++;
+		//	allCasesPassed = 0;
+		//	break;
+		//case gold:
+		//	assertTrue(post.discard[currentPlayer][0], gold);
+		//	blockOverpricedCardFailed++;
+		//	allCasesPassed = 0;
+		//	break;
+		//case adventurer:
+		//	assertTrue(post.discard[currentPlayer][0], adventurer);
+		//	blockOverpricedCardFailed++;
+		//	allCasesPassed = 0;
+		//	break;
+		//default:
+		//	assertTrue(post.discard[currentPlayer][0], card);
+		//	break;
+		//}
 
 		int x;
 		// flag to see if any of the trash tests fail, 0 pass, 1 fail

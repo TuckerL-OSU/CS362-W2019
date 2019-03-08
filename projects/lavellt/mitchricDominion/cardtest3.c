@@ -88,7 +88,7 @@ int feast_tryOverCostCard() {
 	end = start + waitTime;
 
 	// gold cost is 6 which is higher than should be for feast
-	int expected = gold;
+	int expected = 3;
 	int actual = -1;
 
 	gS->whoseTurn = 0;
@@ -103,20 +103,18 @@ int feast_tryOverCostCard() {
 	int card = gold;
 	gS->supplyCount[card] = 1;
 
-	while (start < end) {
-		cardEffect(feast, card, 0, 0, gS, 0, 0);
-	}
-
-	if (strcmp(stdout, "That card is too expensive!\n") == 0) {
-		actual = 0;
-	}
+	// added this to account for infinite loop
+	actual = cardEffect(feast, card, 0, 0, gS, 0, 0);
+	
+	//if (strcmp(stdout, "That card is too expensive!\n") == 0) {
+	//	actual = 0;
+	//}
 
 	// since discard was originally none, we know the first card
 	// in the discard pile will be the chosen card.
 	//if (gS->whoseTurn == 0) {
-	else {
-		actual = gS->discard[gS->whoseTurn][0];
-	}
+	//	actual = gS->discard[gS->whoseTurn][0];
+	//}
 
 	printf("2. Try to Buy Overpriced Card: ");
 	return assertTrue(actual, expected);
