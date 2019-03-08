@@ -81,11 +81,11 @@ int feast_gainCard() {
 //}
 int feast_tryOverCostCard() {
 	struct gameState* gS = newGame();
-	time_t start = time(NULL);
-	time_t end = 0;
-	time_t waitTime = 2; // wait 2 seconds
+	//time_t start = time(NULL);
+	//time_t end = 0;
+	//time_t waitTime = 2; // wait 2 seconds
 
-	end = start + waitTime;
+	//end = start + waitTime;
 
 	// gold cost is 6 which is higher than should be for feast
 	int expected = 3;
