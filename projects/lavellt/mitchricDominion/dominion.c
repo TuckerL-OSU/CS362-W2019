@@ -793,7 +793,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 					printf("Cards Left: %d\n", supplyCount(choice1, state));
 				}
 
-				return 2;
+				x = 2;
 			}
 			else if (state->coins < getCost(choice1)) {
 				//printf("That card is too expensive!\n");
@@ -802,7 +802,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 					printf("Coins: %d < %d\n", state->coins, getCost(choice1));
 				}
 
-				return 3;
+				x = 3;
 			}
 			else {
 
@@ -827,7 +827,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 		}
 		//Reset Hand
 
-		return 0;
+		return x;
 
 	case gardens:
 		return -1;
