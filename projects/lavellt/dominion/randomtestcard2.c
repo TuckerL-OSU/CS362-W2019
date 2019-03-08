@@ -81,8 +81,8 @@ int main() {
 			allCasesPassed = 0;
 		}
  
-		printf("2. Check if Card was Overpriced: ");
-		if (assertTrue(error, 3)) {
+		printf("2. Block Buying Overpriced Card: ");
+		if (!assertTrue(error, 3)) {
 			blockOverpricedCardFailed++;
 			allCasesPassed = 0;
 		}
