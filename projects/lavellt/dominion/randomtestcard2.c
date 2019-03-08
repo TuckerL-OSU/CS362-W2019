@@ -82,9 +82,11 @@ int main() {
 		}
  
 		printf("2. Block Buying Overpriced Card: ");
-		if (!assertTrue(error, 3)) {
-			blockOverpricedCardFailed++;
-			allCasesPassed = 0;
+		if (card == gold || card == adventurer || card == province) {
+			assertTrue(error, 3);
+		}
+		else {
+			assertTrue(error, 0);
 		}
 		// there are 3 cards in our set that are "overpriced" for feast
 		//switch (post.discard[currentPlayer][0]) {
