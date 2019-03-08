@@ -116,7 +116,7 @@ int feast_tryOverCostCard() {
 	//	actual = gS->discard[gS->whoseTurn][0];
 	//}
 
-	printf("2. Try to Buy Overpriced Card: ");
+	printf("2. Block Buying Overpriced Card: ");
 	return assertTrue(actual, expected);
 }
 
